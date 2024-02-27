@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "123000223722",
+    "project_id": "mafia-30dfa",
+    "storage_bucket": "mafia-30dfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123000223722:android:f74b068e4c087c1a57a493",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrIvWupx7oAvLKuXlDj9k_4hqHWX7zIZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
