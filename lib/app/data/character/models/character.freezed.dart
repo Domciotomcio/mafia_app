@@ -29,7 +29,8 @@ mixin _$Character {
   Map<String, bool> get additionalInfo => throw _privateConstructorUsedError;
   List<String> get howToPlay => throw _privateConstructorUsedError;
   List<String> get otherNames => throw _privateConstructorUsedError;
-  Map<String, int> get rate => throw _privateConstructorUsedError;
+  Map<String, int> get rate =>
+      throw _privateConstructorUsedError; // from 1 to 5
   String get imagePath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -292,6 +293,7 @@ class _$CharacterImpl implements _Character {
     return EqualUnmodifiableMapView(_rate);
   }
 
+// from 1 to 5
   @override
   final String imagePath;
 
@@ -391,7 +393,7 @@ abstract class _Character implements Character {
   List<String> get otherNames;
   @override
   Map<String, int> get rate;
-  @override
+  @override // from 1 to 5
   String get imagePath;
   @override
   @JsonKey(ignore: true)

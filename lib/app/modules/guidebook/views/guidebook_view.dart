@@ -27,7 +27,7 @@ class GuidebookView extends GetView<GuidebookController> {
           const Divider(),
           ListTile(
             title: const Text('Frakcje'),
-            onTap: () => Get.toNamed('/houses'),
+            onTap: () => Get.toNamed('/fractions'),
           ),
           const Divider(),
           FilledButton(

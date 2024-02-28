@@ -33,5 +33,7 @@ flutter:
   assets: 
     - assets/images/
     - assets/images/characters/
+    - assets/images/fractions/
+    - assets/images/howToPlay/
     - assets/icons/
 

@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/data/character/providers/firebase_character_provider.dart';
 import 'package:project/app/data/character/providers/mock_character_provider.dart';
 import 'package:project/app/data/character/repositories/character_repository.dart';
@@ -21,7 +22,21 @@ Future<void> main() async {
       getPages: AppPages.routes,
       themeMode: ThemeMode.dark,
       theme: ThemeData(useMaterial3: true),
-      darkTheme: ThemeData.dark(useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
+          appBarTheme: AppBarTheme().copyWith(
+            backgroundColor: Colors.black,
+            titleTextStyle: GoogleFonts.dancingScript(
+              fontSize: 30,
+              color: Colors.white,
+            ),
+            shadowColor: Colors.white,
+          ),
+          colorScheme: ColorScheme.highContrastDark(
+            primary: Color.fromARGB(255, 255, 255, 255),
+            secondary: Colors.green,
+            surface: Colors.black,
+            inverseSurface: Colors.white,
+          )),
     ),
   );
 }

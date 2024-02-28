@@ -49,13 +49,10 @@ class CharacterView extends GetView<CharacterController> {
                   Stack(
                     alignment: Alignment.center,
                     children: [
-                      Hero(
-                        tag: character.id,
-                        child: Image.asset(
-                          character.imagePath ?? 'assets/images/townsfolk.jpg',
-                          //color: Colors.black.withOpacity(0.6),
-                          colorBlendMode: BlendMode.darken,
-                        ),
+                      Image.asset(
+                        character.imagePath ?? 'assets/images/townsfolk.jpg',
+                        //color: Colors.black.withOpacity(0.6),
+                        colorBlendMode: BlendMode.darken,
                       ),
                       Positioned(
                         bottom: 0.0,
@@ -109,7 +106,7 @@ class CharacterView extends GetView<CharacterController> {
                       FilledButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.black.withOpacity(0.3),
+                          backgroundColor: Colors.black.withOpacity(0.5),
                         ),
                         child: Row(
                           children: [
@@ -212,10 +209,22 @@ class CharacterView extends GetView<CharacterController> {
               const Divider(),
               descWithLabel("Historia", character.story, context),
               const Divider(),
-              howToPlayInfo(character.howToPlay, context),
-              const Divider(),
-              additionalInfo(character.additionalInfo, context),
-              const Divider(),
+              if (character.howToPlay.isNotEmpty)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    howToPlayInfo(character.howToPlay, context),
+                    const Divider(),
+                  ],
+                ),
+              if (character.additionalInfo.isNotEmpty)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    additionalInfo(character.additionalInfo, context),
+                    const Divider(),
+                  ],
+                ),
               characterRate(character.rate, context),
               const Divider(),
               const SizedBox(height: 10),
@@ -285,7 +294,7 @@ Widget characterRate(Map<String, int> rates, BuildContext context) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Poziom użyteczności",
+          "Ocena",
           // style: Theme.of(context).textTheme.labelLarge,
           style: GoogleFonts.dancingScript(
             fontSize: 20,

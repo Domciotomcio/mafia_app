@@ -20,9 +20,9 @@ class CharactersView extends GetView<CharactersController> {
         actions: [
           IconButton(
             onPressed: () => Get.toNamed('/add-character'),
-            icon: Icon(Icons.add),
+            icon: Icon(Icons.sort_outlined),
           ),
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
+          IconButton(icon: Icon(Icons.info_outline), onPressed: () {}),
         ],
         backgroundColor: Colors.black,
         shadowColor: Colors.white,

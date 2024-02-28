@@ -8,6 +8,8 @@ abstract class Routes {
   static const GUIDEBOOK = _Paths.GUIDEBOOK;
   static const CHARACTERS = _Paths.CHARACTERS;
   static const CREATE_CHARACTER = _Paths.CREATE_CHARACTER;
+  static const FRACTIONS = _Paths.FRACTIONS;
+  static const FRACTION = _Paths.FRACTION;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const GUIDEBOOK = '/guidebook';
   static const CHARACTERS = '/characters';
   static const CREATE_CHARACTER = '/create-character';
+  static const FRACTIONS = '/fractions';
+  static const FRACTION = '/fraction';
 }
