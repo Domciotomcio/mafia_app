@@ -20,7 +20,7 @@ _$CharacterImpl _$$CharacterImplFromJson(Map<String, dynamic> json) =>
       otherNames: (json['otherNames'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      suitabilityLevel: json['suitabilityLevel'] as int,
+      rate: Map<String, int>.from(json['rate'] as Map),
       imagePath: json['imagePath'] as String,
     );
 
@@ -35,7 +35,7 @@ Map<String, dynamic> _$$CharacterImplToJson(_$CharacterImpl instance) =>
       'additionalInfo': instance.additionalInfo,
       'howToPlay': instance.howToPlay,
       'otherNames': instance.otherNames,
-      'suitabilityLevel': instance.suitabilityLevel,
+      'rate': instance.rate,
       'imagePath': instance.imagePath,
     };
 

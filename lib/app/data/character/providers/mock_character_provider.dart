@@ -28,8 +28,8 @@ class MockCharacterProvider implements CharacterProvider {
         'Mafiozo',
         'Mafijny boss',
       ],
-      suitabilityLevel: 3,
       imagePath: 'assets/images/characters/mafiaCharacter.jpg',
+      rate: {},
     );
   }
 
@@ -38,29 +38,28 @@ class MockCharacterProvider implements CharacterProvider {
     return List<Character>.generate(
       10,
       (index) => Character(
-        id: 'vla',
-        name: 'Mock Character $index',
-        description: 'This is mock character $index',
-        story: 'This character has a mock story',
-        quote: 'This character has a mock quote',
-        fraction: index % 2 == 0 ? Fraction.mafia : Fraction.townsfolk,
-        additionalInfo: {
-          'Mock info': true,
-          'Mock info 2': false,
-        },
-        howToPlay: [
-          'Mock how to play 1',
-          'Mock how to play 2',
-          'Mock how to play 3',
-        ],
-        otherNames: [
-          'Mock name 1',
-          'Mock name 2',
-          'Mock name 3',
-        ],
-        suitabilityLevel: index % 3,
-        imagePath: 'assets/images/characters/mafiaCharacter.jpg',
-      ),
+          id: 'vla',
+          name: 'Mock Character $index',
+          description: 'This is mock character $index',
+          story: 'This character has a mock story',
+          quote: 'This character has a mock quote',
+          fraction: index % 2 == 0 ? Fraction.mafia : Fraction.townsfolk,
+          additionalInfo: {
+            'Mock info': true,
+            'Mock info 2': false,
+          },
+          howToPlay: [
+            'Mock how to play 1',
+            'Mock how to play 2',
+            'Mock how to play 3',
+          ],
+          otherNames: [
+            'Mock name 1',
+            'Mock name 2',
+            'Mock name 3',
+          ],
+          imagePath: 'assets/images/characters/mafiaCharacter.jpg',
+          rate: {}),
     );
   }
 

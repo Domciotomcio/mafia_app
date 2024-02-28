@@ -1,23 +1,22 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../constants/enums/fraction.dart';
+import '../../../data/character/models/character.dart';
+
 class CreateCharacterController extends GetxController {
-  //TODO: Implement CreateCharacterController
+  String name = '';
+  String fraction = '';
+  String quote = '';
+  String description = '';
+  String story = '';
+  int suitabilityLevel = 0;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void createCharacter() {
+    print('name: $name');
+    print('fraction: $fraction');
+    print('quote: $quote');
+    print('description: $description');
+    print('suitabilityLevel: $suitabilityLevel');
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

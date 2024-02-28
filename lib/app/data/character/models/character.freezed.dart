@@ -29,8 +29,7 @@ mixin _$Character {
   Map<String, bool> get additionalInfo => throw _privateConstructorUsedError;
   List<String> get howToPlay => throw _privateConstructorUsedError;
   List<String> get otherNames => throw _privateConstructorUsedError;
-  int get suitabilityLevel =>
-      throw _privateConstructorUsedError; // how useful is the character to the faction, -3 to 3
+  Map<String, int> get rate => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -54,7 +53,7 @@ abstract class $CharacterCopyWith<$Res> {
       Map<String, bool> additionalInfo,
       List<String> howToPlay,
       List<String> otherNames,
-      int suitabilityLevel,
+      Map<String, int> rate,
       String imagePath});
 }
 
@@ -80,7 +79,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
     Object? additionalInfo = null,
     Object? howToPlay = null,
     Object? otherNames = null,
-    Object? suitabilityLevel = null,
+    Object? rate = null,
     Object? imagePath = null,
   }) {
     return _then(_value.copyWith(
@@ -120,10 +119,10 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
           ? _value.otherNames
           : otherNames // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      suitabilityLevel: null == suitabilityLevel
-          ? _value.suitabilityLevel
-          : suitabilityLevel // ignore: cast_nullable_to_non_nullable
-              as int,
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as Map<String, int>,
       imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
@@ -150,7 +149,7 @@ abstract class _$$CharacterImplCopyWith<$Res>
       Map<String, bool> additionalInfo,
       List<String> howToPlay,
       List<String> otherNames,
-      int suitabilityLevel,
+      Map<String, int> rate,
       String imagePath});
 }
 
@@ -174,7 +173,7 @@ class __$$CharacterImplCopyWithImpl<$Res>
     Object? additionalInfo = null,
     Object? howToPlay = null,
     Object? otherNames = null,
-    Object? suitabilityLevel = null,
+    Object? rate = null,
     Object? imagePath = null,
   }) {
     return _then(_$CharacterImpl(
@@ -214,10 +213,10 @@ class __$$CharacterImplCopyWithImpl<$Res>
           ? _value._otherNames
           : otherNames // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      suitabilityLevel: null == suitabilityLevel
-          ? _value.suitabilityLevel
-          : suitabilityLevel // ignore: cast_nullable_to_non_nullable
-              as int,
+      rate: null == rate
+          ? _value._rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as Map<String, int>,
       imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
@@ -239,11 +238,12 @@ class _$CharacterImpl implements _Character {
       required final Map<String, bool> additionalInfo,
       required final List<String> howToPlay,
       required final List<String> otherNames,
-      required this.suitabilityLevel,
+      required final Map<String, int> rate,
       required this.imagePath})
       : _additionalInfo = additionalInfo,
         _howToPlay = howToPlay,
-        _otherNames = otherNames;
+        _otherNames = otherNames,
+        _rate = rate;
 
   factory _$CharacterImpl.fromJson(Map<String, dynamic> json) =>
       _$$CharacterImplFromJson(json);
@@ -284,15 +284,20 @@ class _$CharacterImpl implements _Character {
     return EqualUnmodifiableListView(_otherNames);
   }
 
+  final Map<String, int> _rate;
   @override
-  final int suitabilityLevel;
-// how useful is the character to the faction, -3 to 3
+  Map<String, int> get rate {
+    if (_rate is EqualUnmodifiableMapView) return _rate;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_rate);
+  }
+
   @override
   final String imagePath;
 
   @override
   String toString() {
-    return 'Character(id: $id, name: $name, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, suitabilityLevel: $suitabilityLevel, imagePath: $imagePath)';
+    return 'Character(id: $id, name: $name, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, rate: $rate, imagePath: $imagePath)';
   }
 
   @override
@@ -314,8 +319,7 @@ class _$CharacterImpl implements _Character {
                 .equals(other._howToPlay, _howToPlay) &&
             const DeepCollectionEquality()
                 .equals(other._otherNames, _otherNames) &&
-            (identical(other.suitabilityLevel, suitabilityLevel) ||
-                other.suitabilityLevel == suitabilityLevel) &&
+            const DeepCollectionEquality().equals(other._rate, _rate) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath));
   }
@@ -333,7 +337,7 @@ class _$CharacterImpl implements _Character {
       const DeepCollectionEquality().hash(_additionalInfo),
       const DeepCollectionEquality().hash(_howToPlay),
       const DeepCollectionEquality().hash(_otherNames),
-      suitabilityLevel,
+      const DeepCollectionEquality().hash(_rate),
       imagePath);
 
   @JsonKey(ignore: true)
@@ -361,7 +365,7 @@ abstract class _Character implements Character {
       required final Map<String, bool> additionalInfo,
       required final List<String> howToPlay,
       required final List<String> otherNames,
-      required final int suitabilityLevel,
+      required final Map<String, int> rate,
       required final String imagePath}) = _$CharacterImpl;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
@@ -386,8 +390,8 @@ abstract class _Character implements Character {
   @override
   List<String> get otherNames;
   @override
-  int get suitabilityLevel;
-  @override // how useful is the character to the faction, -3 to 3
+  Map<String, int> get rate;
+  @override
   String get imagePath;
   @override
   @JsonKey(ignore: true)

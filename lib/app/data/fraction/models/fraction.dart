@@ -9,6 +9,6 @@ abstract class Fraction with _$Fraction {
     required String name,
     required Color color,
     required String description,
-    required Image image,
+    required Widget image,
   }) = _Fraction;
 }

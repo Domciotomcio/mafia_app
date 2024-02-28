@@ -33,6 +33,7 @@ class GuidebookView extends GetView<GuidebookController> {
           FilledButton(
               onPressed: () => Get.toNamed('/create-character'),
               child: Text("Dodaj postać")),
+          ElevatedButton(onPressed: () {}, child: Text("Dodaj frakcję")),
         ],
       ),
     );

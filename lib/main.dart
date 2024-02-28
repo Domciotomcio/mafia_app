@@ -20,10 +20,8 @@ Future<void> main() async {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       themeMode: ThemeMode.dark,
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData(useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true),
     ),
   );
 }

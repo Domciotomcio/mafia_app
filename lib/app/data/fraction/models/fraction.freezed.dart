@@ -19,7 +19,7 @@ mixin _$Fraction {
   String get name => throw _privateConstructorUsedError;
   Color get color => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  Image get image => throw _privateConstructorUsedError;
+  Widget get image => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FractionCopyWith<Fraction> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $FractionCopyWith<$Res> {
   factory $FractionCopyWith(Fraction value, $Res Function(Fraction) then) =
       _$FractionCopyWithImpl<$Res, Fraction>;
   @useResult
-  $Res call({String name, Color color, String description, Image image});
+  $Res call({String name, Color color, String description, Widget image});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Image,
+              as Widget,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$FractionImplCopyWith<$Res>
       __$$FractionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, Color color, String description, Image image});
+  $Res call({String name, Color color, String description, Widget image});
 }
 
 /// @nodoc
@@ -116,7 +116,7 @@ class __$$FractionImplCopyWithImpl<$Res>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Image,
+              as Widget,
     ));
   }
 }
@@ -137,7 +137,7 @@ class _$FractionImpl implements _Fraction {
   @override
   final String description;
   @override
-  final Image image;
+  final Widget image;
 
   @override
   String toString() {
@@ -171,7 +171,7 @@ abstract class _Fraction implements Fraction {
       {required final String name,
       required final Color color,
       required final String description,
-      required final Image image}) = _$FractionImpl;
+      required final Widget image}) = _$FractionImpl;
 
   @override
   String get name;
@@ -180,7 +180,7 @@ abstract class _Fraction implements Fraction {
   @override
   String get description;
   @override
-  Image get image;
+  Widget get image;
   @override
   @JsonKey(ignore: true)
   _$$FractionImplCopyWith<_$FractionImpl> get copyWith =>

@@ -17,8 +17,7 @@ class Character with _$Character {
     required Map<String, bool> additionalInfo,
     required List<String> howToPlay,
     required List<String> otherNames,
-    required int
-        suitabilityLevel, // how useful is the character to the faction, -3 to 3
+    required Map<String, int> rate, // from 1 to 5
     required String imagePath,
   }) = _Character;
 
