@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import '../modules/character/bindings/character_binding.dart';
@@ -14,6 +16,8 @@ import '../modules/guidebook/bindings/guidebook_binding.dart';
 import '../modules/guidebook/views/guidebook_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/how_to_play/bindings/how_to_play_binding.dart';
+import '../modules/how_to_play/views/how_to_play_view.dart';
 
 part 'app_routes.dart';
 
@@ -34,6 +38,9 @@ class AppPages {
       name: _Paths.CHARACTER,
       page: () => CharacterView(),
       binding: CharacterBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.GUIDEBOOK,
@@ -44,6 +51,7 @@ class AppPages {
       name: _Paths.CHARACTERS,
       page: () => CharactersView(),
       binding: CharactersBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.CREATE_CHARACTER,
@@ -54,11 +62,20 @@ class AppPages {
       name: _Paths.FRACTIONS,
       page: () => const FractionsView(),
       binding: FractionsBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.FRACTION,
       page: () => const FractionView(),
       binding: FractionBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 500),
+      curve: Curves.easeIn,
+    ),
+    GetPage(
+      name: _Paths.HOW_TO_PLAY,
+      page: () => const HowToPlayView(),
+      binding: HowToPlayBinding(),
     ),
   ];
 }

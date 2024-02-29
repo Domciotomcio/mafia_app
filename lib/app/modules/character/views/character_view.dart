@@ -20,7 +20,13 @@ class CharacterView extends GetView<CharacterController> {
     var character = Get.arguments['id'] as Character;
     return Scaffold(
       body: characterLoaded(character, context),
-      backgroundColor: Color.fromARGB(172, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(172, 0, 0, 0),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          //
+        },
+        child: const Icon(Icons.play_arrow_outlined),
+      ),
     );
     // body: controller.obx(
     //   (character) => characterLoaded(character, context),
@@ -40,200 +46,172 @@ class CharacterView extends GetView<CharacterController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Image.asset(
-                        character.imagePath ?? 'assets/images/townsfolk.jpg',
-                        //color: Colors.black.withOpacity(0.6),
-                        colorBlendMode: BlendMode.darken,
-                      ),
-                      Positioned(
-                        bottom: 0.0,
-                        left: 0.0,
-                        right: 0.0,
-                        child: Container(
-                          height: 150.0, // Height of the gradient
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                              colors: [
-                                Color.fromARGB(255, 0, 0, 0),
-                                Colors.transparent
-                              ],
-                            ),
-                          ),
-                        ).animate().fadeIn(
-                            delay: Duration(seconds: 0),
-                            duration: Duration(seconds: 1)),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      character.name,
-                      style: GoogleFonts.dancingScript(
-                        fontSize: 60,
-                      ),
-                      textAlign: TextAlign.center,
-                    ).animate().fadeIn(
-                        delay: Duration(milliseconds: 1500),
-                        duration: Duration(seconds: 1)),
-                  ),
-                ],
+          CharacterImageSection(character: character),
+          const SizedBox(height: 5),
+          CharacterInfoSection(character: character).animate().fadeIn(
+              delay: const Duration(milliseconds: 1000),
+              duration: const Duration(seconds: 1)),
+          const SizedBox(height: 40),
+        ],
+      ),
+    );
+  }
+}
+
+class CharacterImageSection extends StatelessWidget {
+  final Character character;
+
+  const CharacterImageSection({super.key, required this.character});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.topCenter,
+      children: [
+        Image.asset(character.imagePath),
+        Positioned(
+          bottom: 0.0,
+          left: 0.0,
+          right: 0.0,
+          child: Container(
+            height: 300.0, // Height of the gradient
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                colors: [Color.fromARGB(255, 0, 0, 0), Colors.transparent],
               ),
-              Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: const Icon(Icons.arrow_back),
-                        iconSize: 30,
-                        color: Colors.white,
-                      ),
-                      FilledButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.black.withOpacity(0.5),
-                        ),
-                        child: Row(
-                          children: [
-                            Text(fraction.name,
-                                    style: GoogleFonts.dancingScript(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ))
-                                .animate()
-                                .fadeIn(
-                                    delay: Duration(seconds: 3),
-                                    duration: Duration(seconds: 1)),
-                            const SizedBox(width: 10),
-                            fraction.image.animate().fadeIn(
-                                delay: Duration(seconds: 3),
-                                duration: Duration(seconds: 1)),
-                          ],
-                        ),
-                      ).animate().fadeIn(
-                          delay: Duration(seconds: 3),
-                          duration: Duration(seconds: 1)),
-                    ],
-                  )),
-            ],
+            ),
+          ).animate().fadeIn(
+              curve: Curves.ease,
+              //delay: const Duration(milliseconds: 100),
+              duration: const Duration(seconds: 1)),
+        ),
+        Positioned(
+          bottom: 0,
+          child: Text(character.name,
+              style: GoogleFonts.dancingScript(fontSize: 60),
+              textAlign: TextAlign.center),
+        ).animate().fadeIn(
+            curve: Curves.ease,
+            delay: const Duration(milliseconds: 300),
+            duration: const Duration(seconds: 1)),
+        NavigationAndFractionSection(character: character).animate().fadeIn(
+            delay: const Duration(milliseconds: 1000),
+            duration: const Duration(seconds: 1)),
+      ],
+    );
+  }
+}
+
+class NavigationAndFractionSection extends StatelessWidget {
+  final Character character;
+
+  const NavigationAndFractionSection({super.key, required this.character});
+
+  @override
+  Widget build(BuildContext context) {
+    var fraction = fractionMap[character.fraction]!;
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  spreadRadius: 0.1,
+                  blurRadius: 10,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back),
+              iconSize: 30,
+              color: Colors.white,
+            ),
           ),
-          // const SizedBox(height: 20),
-          // Text(character.name, style: Theme.of(context).textTheme.displaySmall),
-          // // style: GoogleFonts.dancingScript(
-          // //   fontSize: 60,
-          // // )),
-          // if (character.otherNames.isNotEmpty)
-          //   Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       Text("znany też jako: ",
-          //           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-          //                 fontStyle: FontStyle.italic,
-          //               )),
-          //       for (var alias in character.otherNames)
-          //         Row(
-          //           children: [
-          //             Text(alias,
-          //                 style:
-          //                     Theme.of(context).textTheme.bodySmall?.copyWith(
-          //                           fontStyle: FontStyle.italic,
-          //                           fontWeight: FontWeight.bold,
-          //                         )),
-          //             if (alias != character.otherNames.last)
-          //               Text(", ",
-          //                   style:
-          //                       Theme.of(context).textTheme.bodySmall?.copyWith(
-          //                             fontStyle: FontStyle.italic,
-          //                           )),
-          //           ],
-          //         ),
-          //       // if
-          //     ],
-          //   ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: fraction.image,
-          //     ),
-          //     Text(
-          //       fractionMap[character.fraction]!.name,
-          //       style: Theme.of(context).textTheme.labelLarge,
-          //       // style: GoogleFonts.dancingScript(
-          //       //   fontSize: 18,
-          //       // ),
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: fraction.image,
-          //     ),
-          //   ],
-          // ),
-          const SizedBox(height: 5),
-          // Hero(
-          //   tag: character.id,
-          //   child: Image.asset(
-          //     character.imagePath ??
-          //         'assets/images/townsfolk.jpg', // LATER TO CHANGE
-          //   ),
-          // ),
-          const SizedBox(height: 5),
-          // Text(character.quote,
-          //     style: const TextStyle(
-          //       fontStyle: FontStyle.italic,
-          //     ),
-          //     // style: GoogleFonts.dancingScript(
-          //     //   fontSize: 20,
-          //     // ),
-          //     textAlign: TextAlign.center),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              descWithLabel("Opis", character.description, context),
-              const Divider(),
-              descWithLabel("Historia", character.story, context),
-              const Divider(),
-              if (character.howToPlay.isNotEmpty)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    howToPlayInfo(character.howToPlay, context),
-                    const Divider(),
-                  ],
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              boxShadow: [
+                BoxShadow(
+                  color: fraction.color.withOpacity(0.3),
+                  spreadRadius: 1,
+                  blurRadius: 30,
+                  offset: const Offset(0, 3),
                 ),
-              if (character.additionalInfo.isNotEmpty)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    additionalInfo(character.additionalInfo, context),
-                    const Divider(),
-                  ],
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.7),
+                  spreadRadius: 10,
+                  blurRadius: 30,
+                  offset: const Offset(0, 3),
                 ),
-              characterRate(character.rate, context),
-              const Divider(),
-              const SizedBox(height: 10),
-              Center(child: characterQuote(character.quote, context)),
-              const SizedBox(height: 10),
-            ],
+              ],
+            ),
+            child: Row(
+              children: [
+                Text(
+                  fraction.name,
+                  style: GoogleFonts.dancingScript(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                fraction.image,
+              ],
+            ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class CharacterInfoSection extends StatelessWidget {
+  final Character character;
+
+  const CharacterInfoSection({super.key, required this.character});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        descWithLabel("Opis", character.description, context),
+        const Divider(),
+        descWithLabel("Historia", character.story, context),
+        const Divider(),
+        if (character.howToPlay.isNotEmpty)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              howToPlayInfo(character.howToPlay, context),
+              const Divider(),
+            ],
+          ),
+        if (character.additionalInfo.isNotEmpty)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              additionalInfo(character.additionalInfo, context),
+              const Divider(),
+            ],
+          ),
+        characterRate(character.rate, context),
+        const Divider(),
+        const SizedBox(height: 10),
+        Center(child: characterQuote(character.quote, context)),
+        const SizedBox(height: 10),
+      ],
     );
   }
 }
@@ -252,18 +230,11 @@ Widget descWithLabel(String label, String text, BuildContext context) {
             ),
           ),
           const SizedBox(height: 8),
-          AnimatedTextKit(
-            animatedTexts: [
-              TyperAnimatedText(
-                text,
-                textStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontStyle: FontStyle.italic,
-                    ),
-                speed: const Duration(milliseconds: 30),
-              ),
-            ],
-            isRepeatingAnimation: false,
-            displayFullTextOnTap: true,
+          Text(
+            text,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  fontStyle: FontStyle.italic,
+                ),
           ),
         ],
       ));
@@ -403,7 +374,7 @@ Widget howToPlayInfo(List<String> howToPlay, BuildContext context) {
                 speed: const Duration(milliseconds: 30),
               ),
           ],
-          pause: Duration(seconds: 4),
+          pause: const Duration(seconds: 4),
         ),
         // const SizedBox(height: 8),
         // Column(
@@ -430,18 +401,19 @@ Widget characterQuote(String quote, BuildContext context) {
   return Container(
     child: Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
+      child: AnimatedTextKit(
+        animatedTexts: [
+          TyperAnimatedText(
             '"' + quote + '"',
-            style: GoogleFonts.dancingScript(
+            textStyle: GoogleFonts.dancingScript(
               fontSize: 25,
               fontStyle: FontStyle.italic,
             ),
             textAlign: TextAlign.center,
+            speed: const Duration(milliseconds: 100),
           ),
         ],
+        totalRepeatCount: 1,
       ),
     ),
   );

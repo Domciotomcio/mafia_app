@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
@@ -20,14 +21,12 @@ class CharactersView extends GetView<CharactersController> {
         actions: [
           IconButton(
             onPressed: () => Get.toNamed('/add-character'),
-            icon: Icon(Icons.sort_outlined),
+            icon: const Icon(Icons.sort_outlined),
           ),
-          IconButton(icon: Icon(Icons.info_outline), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.info_outline), onPressed: () {}),
         ],
-        backgroundColor: Colors.black,
-        shadowColor: Colors.white,
       ),
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: controller.obx(
         (state) => ListView.separated(
           itemCount: state!.length,
@@ -46,31 +45,39 @@ class CharactersView extends GetView<CharactersController> {
                   colorBlendMode: BlendMode.darken,
                   color: Colors.black.withOpacity(0.3),
                 ),
-                Container(
-                  //color: fraction.color.withOpacity(0.1),
-                  //color: Colors.black.withOpacity(0.3),
-                  child: ListTile(
-                    title: Text(character.name,
-                        style: GoogleFonts.dancingScript(fontSize: 24)),
-                    subtitle: Text(character.otherNames.join(', '),
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              fontStyle: FontStyle.italic,
-                            )),
-                    trailing: fraction.image,
-                    onTap: () => Get.to(CharacterView(),
-                        binding: CharacterBinding(),
-                        arguments: {'bla': "JEJ", 'id': character}),
-                  ),
+                ListTile(
+                  title: Text(character.name,
+                      style: GoogleFonts.dancingScript(fontSize: 24)),
+                  subtitle: Text(character.otherNames.join(', '),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            fontStyle: FontStyle.italic,
+                          )),
+                  trailing: fraction.image,
+                  // onTap: () => Get.to(const CharacterView(),
+                  //     binding: CharacterBinding(),
+                  //     arguments: {'bla': "JEJ", 'id': character}),
+                  onTap: () {
+                    print(character);
+                    Get.toNamed("/character/${character.id}", arguments: {
+                      'bla': "JEJ",
+                      'id': character,
+                    });
+                  },
                 ),
               ],
-            );
+            )
+                .animate()
+                .slideX(delay: Duration(milliseconds: index * 100))
+                .fadeIn(duration: const Duration(milliseconds: 800));
           },
-          separatorBuilder: (context, index) => SizedBox(height: 3),
+          separatorBuilder: (context, index) => const SizedBox(height: 3),
         ),
-        onLoading: const Center(
-            child: CircularProgressIndicator(
+        onLoading: Center(
+            child: const CircularProgressIndicator(
           color: Colors.white,
-        )),
+        ).animate().fadeIn(
+                  duration: const Duration(milliseconds: 1200),
+                )),
         onError: (error) => Center(child: Text('Error: $error')),
         onEmpty: const Center(child: Text('No data')),
       ),

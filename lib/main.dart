@@ -23,6 +23,7 @@ Future<void> main() async {
       themeMode: ThemeMode.dark,
       theme: ThemeData(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
+          scaffoldBackgroundColor: Colors.black,
           appBarTheme: AppBarTheme().copyWith(
             backgroundColor: Colors.black,
             titleTextStyle: GoogleFonts.dancingScript(
@@ -30,6 +31,8 @@ Future<void> main() async {
               color: Colors.white,
             ),
             shadowColor: Colors.white,
+            surfaceTintColor: Colors.black,
+            elevation: 4,
           ),
           colorScheme: ColorScheme.highContrastDark(
             primary: Color.fromARGB(255, 255, 255, 255),
