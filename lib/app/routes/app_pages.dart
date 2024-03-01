@@ -18,6 +18,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/how_to_play/bindings/how_to_play_binding.dart';
 import '../modules/how_to_play/views/how_to_play_view.dart';
+import '../modules/test/bindings/test_binding.dart';
+import '../modules/test/views/test_view.dart';
 
 part 'app_routes.dart';
 
@@ -76,6 +78,11 @@ class AppPages {
       name: _Paths.HOW_TO_PLAY,
       page: () => const HowToPlayView(),
       binding: HowToPlayBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEST,
+      page: () => const TestView(),
+      binding: TestBinding(),
     ),
   ];
 }

@@ -11,6 +11,7 @@ abstract class Routes {
   static const FRACTIONS = _Paths.FRACTIONS;
   static const FRACTION = _Paths.FRACTION;
   static const HOW_TO_PLAY = _Paths.HOW_TO_PLAY;
+  static const TEST = _Paths.TEST;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const FRACTIONS = '/fractions';
   static const FRACTION = '/fraction/:id';
   static const HOW_TO_PLAY = '/how-to-play';
+  static const TEST = '/test';
 }
