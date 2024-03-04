@@ -12,6 +12,11 @@ abstract class Routes {
   static const FRACTION = _Paths.FRACTION;
   static const HOW_TO_PLAY = _Paths.HOW_TO_PLAY;
   static const TEST = _Paths.TEST;
+  static const GAME_PREPARING = _Paths.GAME_PREPARING;
+  static const GAME_SETUP = _Paths.GAME_SETUP;
+  static const LOCATIONS = _Paths.LOCATIONS;
+  static const SETTINGS = _Paths.SETTINGS;
+  static const ADDITIONAL_INFO = _Paths.ADDITIONAL_INFO;
 }
 
 abstract class _Paths {
@@ -25,4 +30,9 @@ abstract class _Paths {
   static const FRACTION = '/fraction/:id';
   static const HOW_TO_PLAY = '/how-to-play';
   static const TEST = '/test';
+  static const GAME_PREPARING = '/game-preparing';
+  static const GAME_SETUP = '/game-setup';
+  static const LOCATIONS = '/locations';
+  static const SETTINGS = '/settings';
+  static const ADDITIONAL_INFO = '/additional-info';
 }

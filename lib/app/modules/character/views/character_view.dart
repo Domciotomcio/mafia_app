@@ -53,6 +53,8 @@ class CharacterView extends GetView<CharacterController> {
           image: AssetImage(character.imagePath),
           fit: BoxFit.fitWidth,
           alignment: Alignment.topCenter,
+          colorFilter:
+              ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.darken),
         ),
       ),
       child: Stack(

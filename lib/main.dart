@@ -7,6 +7,7 @@ import 'package:project/app/data/character/providers/firebase_character_provider
 import 'package:project/app/data/character/providers/mock_character_provider.dart';
 import 'package:project/app/data/character/repositories/character_repository.dart';
 import 'package:project/app/data/character/services/character_service.dart';
+import 'package:project/app/translations/translations.dart';
 
 import 'app/routes/app_pages.dart';
 import 'firebase_options.dart';
@@ -40,6 +41,10 @@ Future<void> main() async {
             surface: Colors.black,
             inverseSurface: Colors.white,
           )),
+      translations: Messages(),
+      //locale: Locale('pl', 'PL'),
+      locale: Locale('pl', 'PL'),
+      //fallbackLocale: Locale('en', 'US'),
     ),
   );
 }
