@@ -11,6 +11,9 @@ import '../controllers/game_setup_controller.dart';
 class GameSetupView extends GetView<GameSetupController> {
   GameSetupView({Key? key}) : super(key: key);
 
+  final TextEditingController nameController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final playersMap = {
@@ -61,7 +64,7 @@ class GameSetupView extends GetView<GameSetupController> {
                   ?.copyWith(letterSpacing: 5),
             ),
             Text("Kod gry", textAlign: TextAlign.center),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -121,7 +124,56 @@ class GameSetupView extends GetView<GameSetupController> {
                   Text("Gracze",
                       style: GoogleFonts.dancingScript(fontSize: 25)),
                   OutlinedButton.icon(
-                      onPressed: () {},
+                      onPressed: () => Get.defaultDialog(
+                            title: 'Dodaj gracza',
+                            content: Form(
+                              key: _formKey,
+                              child: Column(
+                                children: [
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: 'Imię',
+                                      border: OutlineInputBorder(),
+                                    ),
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Wprowadź imię';
+                                      }
+                                      return null;
+                                    },
+                                    controller: nameController,
+                                  ),
+                                  SizedBox(height: 20),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      ElevatedButton.icon(
+                                        onPressed: () {
+                                          if (!_formKey.currentState!
+                                              .validate()) {
+                                            return;
+                                          } else {
+                                            controller.addPlayerWithName(
+                                                nameController.text);
+                                            nameController.clear();
+                                            Get.back();
+                                          }
+                                        },
+                                        icon: Icon(Icons.check),
+                                        label: Text('Dodaj'),
+                                      ),
+                                      ElevatedButton.icon(
+                                        onPressed: () => Get.back(),
+                                        icon: Icon(Icons.cancel_outlined),
+                                        label: Text('Anuluj'),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                       icon: Icon(Icons.add),
                       label: Text('Dodaj gracza')),
                 ],
@@ -135,10 +187,10 @@ class GameSetupView extends GetView<GameSetupController> {
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
-            Container(
-              height: controller.players.length * 60.0,
-              child: Obx(
-                () => ReorderableListView(
+            Obx(
+              () => Container(
+                height: controller.players.length * 60.0,
+                child: ReorderableListView(
                   physics: const NeverScrollableScrollPhysics(),
                   children: controller.players
                       .map((item) => ListTile(

@@ -14,6 +14,8 @@ import '../modules/fraction/bindings/fraction_binding.dart';
 import '../modules/fraction/views/fraction_view.dart';
 import '../modules/fractions/bindings/fractions_binding.dart';
 import '../modules/fractions/views/fractions_view.dart';
+import '../modules/game_card/bindings/game_card_binding.dart';
+import '../modules/game_card/views/game_card_view.dart';
 import '../modules/game_preparing/bindings/game_preparing_binding.dart';
 import '../modules/game_preparing/views/game_preparing_view.dart';
 import '../modules/game_setup/bindings/game_setup_binding.dart';
@@ -38,7 +40,8 @@ class AppPages {
 
   // static const INITIAL = Routes.HOME;
   // static const INITIAL = Routes.CHARACTER;
-  static const INITIAL = Routes.GUIDEBOOK;
+  // static const INITIAL = Routes.GUIDEBOOK;
+  static const INITIAL = Routes.GAME_CARD;
 
   static final routes = [
     GetPage(
@@ -121,6 +124,11 @@ class AppPages {
       name: _Paths.ADDITIONAL_INFO,
       page: () => const AdditionalInfoView(),
       binding: AdditionalInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.GAME_CARD,
+      page: () => GameCardView(),
+      binding: GameCardBinding(),
     ),
   ];
 }

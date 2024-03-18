@@ -17,6 +17,7 @@ abstract class Routes {
   static const LOCATIONS = _Paths.LOCATIONS;
   static const SETTINGS = _Paths.SETTINGS;
   static const ADDITIONAL_INFO = _Paths.ADDITIONAL_INFO;
+  static const GAME_CARD = _Paths.GAME_CARD;
 }
 
 abstract class _Paths {
@@ -35,4 +36,5 @@ abstract class _Paths {
   static const LOCATIONS = '/locations';
   static const SETTINGS = '/settings';
   static const ADDITIONAL_INFO = '/additional-info';
+  static const GAME_CARD = '/game-card';
 }

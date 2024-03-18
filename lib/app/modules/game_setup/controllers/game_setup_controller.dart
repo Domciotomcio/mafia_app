@@ -150,6 +150,13 @@ class GameSetupController extends GetxController {
     }
     numberOfPlayers['total'] = calcTotalPlayers();
   }
+
+  void addPlayerWithName(String playerName) {
+    // get next free id from players
+    final id = (int.parse(players.last.id) + 1).toString();
+
+    players.add(Player(id: id, name: playerName, device: Device.main));
+  }
 }
 
 class Player {
