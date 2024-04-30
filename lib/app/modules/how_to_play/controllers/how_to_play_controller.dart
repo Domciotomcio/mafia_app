@@ -1,16 +1,21 @@
 import 'package:get/get.dart';
+import 'package:project/app/data/tutorial/models/tutorial.dart';
+import 'package:project/app/data/tutorial/services/tutorial_service.dart';
 
 class HowToPlayController extends GetxController {
-  //TODO: Implement HowToPlayController
+  var tutorialService = Get.find<TutorialService>();
+  Tutorial? tutorial;
 
-  final count = 0.obs;
   @override
-  void onInit() {
+  Future<void> onInit() async {
+    print(tutorialService.getTutorial('id'));
+    tutorial = await tutorialService.getTutorial('id');
     super.onInit();
   }
 
   @override
   void onReady() {
+    print(tutorial!.id);
     super.onReady();
   }
 
@@ -18,6 +23,4 @@ class HowToPlayController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

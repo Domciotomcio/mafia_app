@@ -8,15 +8,22 @@ class AdditionalInfoView extends GetView<AdditionalInfoController> {
   const AdditionalInfoView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    var author = 'Dominik Tomaszewski';
+    var copyRight = 'Copyright 2024';
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dodatkowe Informacje'),
+        title: Text('AdditionalInfoView'.tr),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'AdditionalInfoView is working',
-          style: TextStyle(fontSize: 20),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Author: $author'.tr),
+            Text('CopyRight: $copyRight'.tr),
+          ],
         ),
       ),
     );

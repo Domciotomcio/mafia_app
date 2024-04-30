@@ -43,7 +43,7 @@ class HowToPlayView extends GetView<HowToPlayController> {
               ),
               Center(
                 child: Text(
-                  'Page 1',
+                  'Page 1, ${controller.tutorial?.id}',
                   style: TextStyle(fontSize: 32),
                 ),
               ),

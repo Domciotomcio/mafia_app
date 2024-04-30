@@ -1,0 +1,18 @@
+    {
+        "id": "1",
+        "language": "pl_PL",
+        "chapters": [
+            {
+                "label": "Rozdział 1",
+                "text": "Witaj świecie! 1"
+            },
+            {
+                "label": "Rozdział 2",
+                "text": "Witaj świecie! 2"
+            },
+            {
+                "label": "Rozdział 3",
+                "text": "Witaj świecie! 3"
+            }
+        ]
+    }

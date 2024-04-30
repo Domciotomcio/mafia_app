@@ -23,6 +23,13 @@ class Messages extends Translations {
           'other': 'Other',
           'settingsTitle': 'Settings',
           'settingsSubtitle': 'Adjust game settings',
+
+          //settings
+          'SettingsView': 'Settings',
+
+          //additional info
+          'AdditionalInfoView': 'Additional information',
+          'Author': 'Author',
         },
         'pl_PL': {
           //main menu
@@ -44,6 +51,13 @@ class Messages extends Translations {
           'other': 'Inne',
           'settingsTitle': 'Ustawienia',
           'settingsSubtitle': 'Dostosuj ustawienia gry',
+
+          //settings
+          'SettingsView': 'Ustawienia',
+
+          //additional info
+          'AdditionalInfoView': 'Dodatkowe informacje',
+          'Author': 'Autor',
         },
         'de_DE': {
           'game': 'Spiel',
