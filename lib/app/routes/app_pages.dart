@@ -40,8 +40,8 @@ class AppPages {
 
   // static const INITIAL = Routes.HOME;
   // static const INITIAL = Routes.CHARACTER;
-  // static const INITIAL = Routes.GUIDEBOOK;
-  static const INITIAL = Routes.GAME_CARD;
+  static const INITIAL = Routes.GUIDEBOOK;
+  // static const INITIAL = Routes.GAME_CARD;
 
   static final routes = [
     GetPage(
