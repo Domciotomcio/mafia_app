@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'package:get/get.dart';
 import 'package:project/app/shared/widgets/loading_indicator_widget.dart';
@@ -73,20 +74,23 @@ class chapterWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                chapter.label,
-                style: TextStyle(fontSize: 32),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                chapter.text,
-                textAlign: TextAlign.justify,
-              )
-            ],
+          // child: Column(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   children: [
+          //     Text(
+          //       chapter.label,
+          //       style: TextStyle(fontSize: 32),
+          //       textAlign: TextAlign.left,
+          //     ),
+          //     Text(
+          //       chapter.text,
+          //       textAlign: TextAlign.justify,
+          //     )
+          //   ],
+          // ),
+          child: Markdown(
+            data: 'Insert emoji here😀 ',
           ),
         ),
       ],
