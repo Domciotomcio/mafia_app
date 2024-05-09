@@ -5,6 +5,7 @@ class Messages extends Translations {
   Map<String, Map<String, String>> get keys => {
         'en_US': {
           //main menu
+          'mainTitle': 'Mafia -The Party Game',
           'game': 'Game',
           'playTitle': 'Play',
           'playSubtitle': 'Start a game of Mafia',
@@ -18,6 +19,8 @@ class Messages extends Translations {
           'charactersSubtitle': 'Learn about characters from Mafia',
           'fractionsTitle': 'Fractions',
           'fractionsSubtitle': 'Learn about fractions from Mafia',
+          'scenariosTitle': 'Scenarios',
+          'scenariosSubtitle': 'Scenarios for playing the game',
           'locationsTitle': 'Locations',
           'locationsSubtitle': 'Learn about locations from Mafia',
           'other': 'Other',
@@ -33,6 +36,7 @@ class Messages extends Translations {
         },
         'pl_PL': {
           //main menu
+          'mainTitle': 'Mafia - Gra Towarzyska',
           'game': 'Gra',
           'playTitle': 'Graj',
           'playSubtitle': 'Rozpocznij grę w Mafię',
@@ -46,6 +50,8 @@ class Messages extends Translations {
           'charactersSubtitle': 'Dowiedz się o postaciach z Mafii',
           'fractionsTitle': 'Frakcje',
           'fractionsSubtitle': 'Dowiedz się o frakcjach z Mafii',
+          'scenariosTitle': 'Scenariusze',
+          'scenariosSubtitle': 'Scenariusze do gry',
           'locationsTitle': 'Lokacje',
           'locationsSubtitle': 'Dowiedz się o lokacjach z Mafii',
           'other': 'Inne',

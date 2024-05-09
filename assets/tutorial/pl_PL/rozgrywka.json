@@ -1,0 +1,15 @@
+{
+    "id": "rozgrywka",
+    "language": "pl_PL",
+    "title": "Rozgrywka",
+    "chapters": [
+        {
+            "label": "Faza nocy",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Lacus laoreet non curabitur gravida. At urna condimentum mattis pellentesque id nibh tortor id. Volutpat ac tincidunt vitae semper quis. Amet nisl purus in mollis nunc sed id. Arcu non sodales neque sodales ut etiam. Ut lectus arcu bibendum at varius vel pharetra vel. Viverra vitae congue eu consequat ac felis. Nibh sed pulvinar proin gravida hendrerit lectus. Bibendum at varius vel pharetra vel turpis nunc. Potenti nullam ac tortor vitae purus faucibus. Quam nulla porttitor massa id neque aliquam vestibulum morbi."
+        },
+        {
+            "label": "Faza dnia",
+            "text": "Diam in arcu cursus euismod quis viverra nibh. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Auctor augue mauris augue neque. Ut sem nulla pharetra diam sit amet nisl. Et ultrices neque ornare aenean euismod elementum. Congue eu consequat ac felis donec et odio. Eu feugiat pretium nibh ipsum consequat nisl. Odio ut sem nulla pharetra diam sit amet nisl suscipit. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Elementum nisi quis eleifend quam adipiscing vitae. Nulla facilisi cras fermentum odio. Elit sed vulputate mi sit amet. Eu ultrices vitae auctor eu augue ut. Orci eu lobortis elementum nibh tellus molestie nunc non."
+        }
+    ]
+}

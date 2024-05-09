@@ -24,7 +24,7 @@ class GuidebookView extends GetView<GuidebookController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mafia - Gra Towarzyska'),
+        title: Text('mainTitle'.tr),
         centerTitle: true,
         actions: [
           // IconButton(

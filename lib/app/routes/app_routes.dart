@@ -18,6 +18,7 @@ abstract class Routes {
   static const SETTINGS = _Paths.SETTINGS;
   static const ADDITIONAL_INFO = _Paths.ADDITIONAL_INFO;
   static const GAME_CARD = _Paths.GAME_CARD;
+  static const HOW_TO_PLAY_MENU = _Paths.HOW_TO_PLAY_MENU;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const ADDITIONAL_INFO = '/additional-info';
   static const GAME_CARD = '/game-card';
+  static const HOW_TO_PLAY_MENU = '/how-to-play-menu';
 }

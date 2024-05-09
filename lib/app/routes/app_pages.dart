@@ -26,6 +26,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/how_to_play/bindings/how_to_play_binding.dart';
 import '../modules/how_to_play/views/how_to_play_view.dart';
+import '../modules/how_to_play_menu/bindings/how_to_play_menu_binding.dart';
+import '../modules/how_to_play_menu/views/how_to_play_menu_view.dart';
 import '../modules/locations/bindings/locations_binding.dart';
 import '../modules/locations/views/locations_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
@@ -129,6 +131,11 @@ class AppPages {
       name: _Paths.GAME_CARD,
       page: () => GameCardView(),
       binding: GameCardBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOW_TO_PLAY_MENU,
+      page: () => const HowToPlayMenuView(),
+      binding: HowToPlayMenuBinding(),
     ),
   ];
 }

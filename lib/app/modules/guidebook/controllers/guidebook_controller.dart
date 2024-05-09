@@ -63,6 +63,13 @@ class GuidebookController extends GetxController {
           imagePath: 'assets/images/fractions/townsfolk.jpg',
           route: '/locations',
         ),
+        SubSection(
+          title: 'scenariosTitle',
+          subtitle: 'scenariosSubtitle',
+          icon: const Icon(Icons.map_outlined),
+          imagePath: 'assets/images/fractions/townsfolk.jpg',
+          route: '/locations',
+        ),
       ],
     ),
     Section(

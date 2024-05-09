@@ -7,6 +7,7 @@ import 'package:project/app/data/character/models/character.dart';
 import 'package:project/app/modules/character/bindings/character_binding.dart';
 import 'package:project/app/modules/character/views/character_view.dart';
 import 'package:project/app/shared/widgets/background_widget.dart';
+import 'package:project/app/shared/widgets/loading_indicator_widget.dart';
 
 import '../controllers/characters_controller.dart';
 
@@ -73,12 +74,7 @@ class CharactersView extends GetView<CharactersController> {
           },
           separatorBuilder: (context, index) => const SizedBox(height: 3),
         ),
-        onLoading: Center(
-            child: const CircularProgressIndicator(
-          color: Colors.white,
-        ).animate().fadeIn(
-                  duration: const Duration(milliseconds: 1200),
-                )),
+        onLoading: LoadingIndicatorWidget(),
         onError: (error) => Center(child: Text('Error: $error')),
         onEmpty: const Center(child: Text('No data')),
       ),
