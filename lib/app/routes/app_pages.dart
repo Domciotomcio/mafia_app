@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../modules/Master/bindings/master_binding.dart';
+import '../modules/Master/views/master_view.dart';
+import '../modules/Master_night_zero/bindings/master_night_zero_binding.dart';
+import '../modules/Master_night_zero/views/master_night_zero_view.dart';
 import '../modules/additional_info/bindings/additional_info_binding.dart';
 import '../modules/additional_info/views/additional_info_view.dart';
 import '../modules/character/bindings/character_binding.dart';
@@ -42,8 +46,9 @@ class AppPages {
 
   // static const INITIAL = Routes.HOME;
   // static const INITIAL = Routes.CHARACTER;
-  static const INITIAL = Routes.GUIDEBOOK;
+  // static const INITIAL = Routes.GUIDEBOOK;
   // static const INITIAL = Routes.GAME_CARD;
+  static const INITIAL = Routes.GAME_SETUP;
 
   static final routes = [
     GetPage(
@@ -136,6 +141,16 @@ class AppPages {
       name: _Paths.HOW_TO_PLAY_MENU,
       page: () => const HowToPlayMenuView(),
       binding: HowToPlayMenuBinding(),
+    ),
+    GetPage(
+      name: _Paths.MASTER,
+      page: () => MasterView(),
+      binding: MasterBinding(),
+    ),
+    GetPage(
+      name: _Paths.MASTER_NIGHT_ZERO,
+      page: () => MasterNightZeroView(),
+      binding: MasterNightZeroBinding(),
     ),
   ];
 }

@@ -18,27 +18,27 @@ class GameSetupController extends GetxController {
   var players = <Player>[
     Player(
       id: '1',
-      name: 'Gracz 1',
+      name: 'Ala',
       device: Device.main,
     ),
     Player(
       id: '2',
-      name: 'Gracz 2',
+      name: 'Adam',
       device: Device.main,
     ),
     Player(
       id: '3',
-      name: 'Gracz 3',
+      name: 'Grzegorz',
       device: Device.mobile,
     ),
     Player(
       id: '4',
-      name: 'Gracz 4',
+      name: 'Tomek',
       device: Device.mobile,
     ),
     Player(
       id: '5',
-      name: 'Gracz 5',
+      name: 'Tola',
       device: Device.tablet,
     ),
   ].obs;
@@ -46,7 +46,7 @@ class GameSetupController extends GetxController {
   var characters = <Character>[
     Character(
       id: '1',
-      name: 'Członek mafii',
+      name: 'Szef mafii',
       description: 'Zabij innego gracza',
       story: '',
       quote: '',
@@ -56,11 +56,38 @@ class GameSetupController extends GetxController {
       rate: {},
       otherNames: [],
       imagePath: '',
+      nameId: 'mafiaLeader',
     ),
     Character(
-      id: '2',
-      name: 'Członek miasta',
-      description: 'Zabij innego gracza',
+        id: '2',
+        name: 'Członek miasta',
+        description: '',
+        story: '',
+        quote: '',
+        fraction: Fraction.townsfolk,
+        additionalInfo: {},
+        howToPlay: [],
+        rate: {},
+        otherNames: [],
+        imagePath: '',
+        nameId: 'citizen'),
+    Character(
+        id: '3',
+        name: 'Szef syndykatu',
+        description: 'Zabij innego gracza',
+        story: '',
+        quote: '',
+        fraction: Fraction.sindicate,
+        additionalInfo: {},
+        howToPlay: [],
+        rate: {},
+        otherNames: [],
+        imagePath: '',
+        nameId: 'syndicateLeader'),
+    Character(
+      id: '4',
+      name: 'Katani',
+      description: '',
       story: '',
       quote: '',
       fraction: Fraction.townsfolk,
@@ -69,19 +96,21 @@ class GameSetupController extends GetxController {
       rate: {},
       otherNames: [],
       imagePath: '',
+      nameId: 'cattani',
     ),
     Character(
-      id: '2',
-      name: 'Członek syndykatu',
-      description: 'Zabij innego gracza',
+      id: '5',
+      name: 'Lekarz',
+      description: '',
       story: '',
       quote: '',
-      fraction: Fraction.sindicate,
+      fraction: Fraction.townsfolk,
       additionalInfo: {},
       howToPlay: [],
       rate: {},
       otherNames: [],
       imagePath: '',
+      nameId: 'doctor',
     ),
   ].obs;
 
@@ -156,6 +185,40 @@ class GameSetupController extends GetxController {
     final id = (int.parse(players.last.id) + 1).toString();
 
     players.add(Player(id: id, name: playerName, device: Device.main));
+  }
+
+  bool setupGame() {
+    print("numberOfPlayers['total'] == ${numberOfPlayers['total']}");
+    print("players.length == ${players.length}");
+    print("characters.length == ${characters.length}");
+
+    var isOk = (numberOfPlayers['total'] == players.length);
+
+    isOk = isOk && (players.length == characters.length);
+
+    if (isOk) {
+      mergePlayersWithCharacters();
+
+      Get.snackbar(
+        'Sukces',
+        'Gra została poprawnie skonfigurowana',
+      );
+      Get.toNamed('master');
+
+      return true;
+    }
+    Get.snackbar(
+      'Błąd',
+      'Liczba graczy nie zgadza się z ilością wybranych postaci',
+    );
+    return false;
+  }
+
+  void mergePlayersWithCharacters() {
+    characters.shuffle();
+    for (var i = 0; i < players.length; i++) {
+      players[i].character = characters[i];
+    }
   }
 }
 

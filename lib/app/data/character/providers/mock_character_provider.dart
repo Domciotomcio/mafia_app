@@ -9,6 +9,7 @@ class MockCharacterProvider implements CharacterProvider {
     return Character(
       id: 'bla',
       name: 'Członek Mafii',
+      nameId: 'mafiaMember',
       description:
           'Zadaniem członka mafii jest wyeliminowanie wszystkich członków miasteczka.',
       story: 'Skyty w cieniu, członek mafii czeka na swoją ofiarę.',
@@ -40,6 +41,7 @@ class MockCharacterProvider implements CharacterProvider {
       (index) => Character(
           id: 'vla',
           name: 'Mock Character $index',
+          nameId: 'mockCharacter$index',
           description: 'This is mock character $index',
           story: 'This character has a mock story',
           quote: 'This character has a mock quote',

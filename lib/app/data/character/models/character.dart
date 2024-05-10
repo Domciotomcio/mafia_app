@@ -10,6 +10,7 @@ class Character with _$Character {
   const factory Character({
     required String id,
     required String name,
+    required String nameId,
     required String description,
     required String story,
     required String quote,

@@ -22,6 +22,7 @@ Character _$CharacterFromJson(Map<String, dynamic> json) {
 mixin _$Character {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get nameId => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get story => throw _privateConstructorUsedError;
   String get quote => throw _privateConstructorUsedError;
@@ -47,6 +48,7 @@ abstract class $CharacterCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
+      String nameId,
       String description,
       String story,
       String quote,
@@ -73,6 +75,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? nameId = null,
     Object? description = null,
     Object? story = null,
     Object? quote = null,
@@ -91,6 +94,10 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameId: null == nameId
+          ? _value.nameId
+          : nameId // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -143,6 +150,7 @@ abstract class _$$CharacterImplCopyWith<$Res>
   $Res call(
       {String id,
       String name,
+      String nameId,
       String description,
       String story,
       String quote,
@@ -167,6 +175,7 @@ class __$$CharacterImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? nameId = null,
     Object? description = null,
     Object? story = null,
     Object? quote = null,
@@ -185,6 +194,10 @@ class __$$CharacterImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameId: null == nameId
+          ? _value.nameId
+          : nameId // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -232,6 +245,7 @@ class _$CharacterImpl implements _Character {
   const _$CharacterImpl(
       {required this.id,
       required this.name,
+      required this.nameId,
       required this.description,
       required this.story,
       required this.quote,
@@ -253,6 +267,8 @@ class _$CharacterImpl implements _Character {
   final String id;
   @override
   final String name;
+  @override
+  final String nameId;
   @override
   final String description;
   @override
@@ -299,7 +315,7 @@ class _$CharacterImpl implements _Character {
 
   @override
   String toString() {
-    return 'Character(id: $id, name: $name, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, rate: $rate, imagePath: $imagePath)';
+    return 'Character(id: $id, name: $name, nameId: $nameId, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, rate: $rate, imagePath: $imagePath)';
   }
 
   @override
@@ -309,6 +325,7 @@ class _$CharacterImpl implements _Character {
             other is _$CharacterImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.nameId, nameId) || other.nameId == nameId) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.story, story) || other.story == story) &&
@@ -332,6 +349,7 @@ class _$CharacterImpl implements _Character {
       runtimeType,
       id,
       name,
+      nameId,
       description,
       story,
       quote,
@@ -360,6 +378,7 @@ abstract class _Character implements Character {
   const factory _Character(
       {required final String id,
       required final String name,
+      required final String nameId,
       required final String description,
       required final String story,
       required final String quote,
@@ -377,6 +396,8 @@ abstract class _Character implements Character {
   String get id;
   @override
   String get name;
+  @override
+  String get nameId;
   @override
   String get description;
   @override

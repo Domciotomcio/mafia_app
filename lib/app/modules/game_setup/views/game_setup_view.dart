@@ -248,8 +248,9 @@ class GameSetupView extends GetView<GameSetupController> {
             Divider(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child:
-                  FilledButton(onPressed: () {}, child: Text('Rozpocznij grę')),
+              child: FilledButton(
+                  onPressed: () => controller.setupGame(),
+                  child: Text('Rozpocznij grę')),
             ),
             SizedBox(height: 20),
           ],
