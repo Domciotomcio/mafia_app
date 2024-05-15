@@ -2,8 +2,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 import 'package:project/app/data/character/services/character_service.dart';
 
-import '../../../data/character/models/character.dart';
-import '../../../shared/controllers/audio_controller.dart';
+import '../../../../data/character/models/character.dart';
+import '../../../../shared/controllers/audio_controller.dart';
 
 class CharacterController extends GetxController with StateMixin<Character> {
   final CharacterService characterService = Get.find();

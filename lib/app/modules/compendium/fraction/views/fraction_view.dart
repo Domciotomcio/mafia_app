@@ -4,13 +4,13 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
-import 'package:project/app/modules/character/views/character_view.dart';
+import 'package:project/app/modules/compendium/character/views/character_view.dart';
 import 'package:project/app/shared/widgets/desc_with_label.dart';
 
-import '../../../constants/enums/fraction.dart' as fraction_enum;
-import '../../../data/fraction/models/fraction.dart' as fraction_model;
+import '../../../../constants/enums/fraction.dart' as fraction_enum;
+import '../../../../data/fraction/models/fraction.dart' as fraction_model;
 
-import '../../../shared/widgets/main_image_widget.dart';
+import '../../../../shared/widgets/main_image_widget.dart';
 import '../controllers/fraction_controller.dart';
 
 class FractionView extends GetView<FractionController> {

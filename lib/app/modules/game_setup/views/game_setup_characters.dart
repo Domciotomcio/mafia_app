@@ -4,7 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
-import 'package:project/app/modules/characters/controllers/characters_controller.dart';
+import 'package:project/app/modules/compendium/characters/controllers/characters_controller.dart';
 
 import '../../../constants/enums/device.dart';
 import '../../../constants/enums/fraction.dart';

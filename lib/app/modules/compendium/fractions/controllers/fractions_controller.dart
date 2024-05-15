@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../../constants/enums/fraction.dart';
-import '../../../constants/maps/fraction.dart';
+import '../../../../constants/enums/fraction.dart';
+import '../../../../constants/maps/fraction.dart';
 
 class FractionsController extends GetxController {
   var fractions = [

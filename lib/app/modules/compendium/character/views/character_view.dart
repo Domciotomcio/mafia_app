@@ -10,8 +10,8 @@ import 'package:project/app/constants/maps/additional_info.dart';
 import 'package:project/app/constants/maps/fraction.dart';
 import 'package:project/app/shared/widgets/main_image_widget.dart';
 
-import '../../../constants/maps/character_rate.dart';
-import '../../../shared/widgets/desc_with_label.dart';
+import '../../../../constants/maps/character_rate.dart';
+import '../../../../shared/widgets/desc_with_label.dart';
 import '../controllers/character_controller.dart';
 import 'package:project/app/data/character/models/character.dart';
 
