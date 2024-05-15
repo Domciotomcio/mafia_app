@@ -23,6 +23,7 @@ _$CharacterImpl _$$CharacterImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       rate: Map<String, int>.from(json['rate'] as Map),
       imagePath: json['imagePath'] as String,
+      audioPath: json['audioPath'] as String?,
     );
 
 Map<String, dynamic> _$$CharacterImplToJson(_$CharacterImpl instance) =>
@@ -39,6 +40,7 @@ Map<String, dynamic> _$$CharacterImplToJson(_$CharacterImpl instance) =>
       'otherNames': instance.otherNames,
       'rate': instance.rate,
       'imagePath': instance.imagePath,
+      'audioPath': instance.audioPath,
     };
 
 const _$FractionEnumMap = {

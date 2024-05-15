@@ -33,6 +33,7 @@ mixin _$Character {
   Map<String, int> get rate =>
       throw _privateConstructorUsedError; // from 1 to 5
   String get imagePath => throw _privateConstructorUsedError;
+  String? get audioPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,7 +58,8 @@ abstract class $CharacterCopyWith<$Res> {
       List<String> howToPlay,
       List<String> otherNames,
       Map<String, int> rate,
-      String imagePath});
+      String imagePath,
+      String? audioPath});
 }
 
 /// @nodoc
@@ -85,6 +87,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
     Object? otherNames = null,
     Object? rate = null,
     Object? imagePath = null,
+    Object? audioPath = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -135,6 +138,10 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      audioPath: freezed == audioPath
+          ? _value.audioPath
+          : audioPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -159,7 +166,8 @@ abstract class _$$CharacterImplCopyWith<$Res>
       List<String> howToPlay,
       List<String> otherNames,
       Map<String, int> rate,
-      String imagePath});
+      String imagePath,
+      String? audioPath});
 }
 
 /// @nodoc
@@ -185,6 +193,7 @@ class __$$CharacterImplCopyWithImpl<$Res>
     Object? otherNames = null,
     Object? rate = null,
     Object? imagePath = null,
+    Object? audioPath = freezed,
   }) {
     return _then(_$CharacterImpl(
       id: null == id
@@ -235,6 +244,10 @@ class __$$CharacterImplCopyWithImpl<$Res>
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      audioPath: freezed == audioPath
+          ? _value.audioPath
+          : audioPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -254,7 +267,8 @@ class _$CharacterImpl implements _Character {
       required final List<String> howToPlay,
       required final List<String> otherNames,
       required final Map<String, int> rate,
-      required this.imagePath})
+      required this.imagePath,
+      this.audioPath})
       : _additionalInfo = additionalInfo,
         _howToPlay = howToPlay,
         _otherNames = otherNames,
@@ -312,10 +326,12 @@ class _$CharacterImpl implements _Character {
 // from 1 to 5
   @override
   final String imagePath;
+  @override
+  final String? audioPath;
 
   @override
   String toString() {
-    return 'Character(id: $id, name: $name, nameId: $nameId, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, rate: $rate, imagePath: $imagePath)';
+    return 'Character(id: $id, name: $name, nameId: $nameId, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, rate: $rate, imagePath: $imagePath, audioPath: $audioPath)';
   }
 
   @override
@@ -340,7 +356,9 @@ class _$CharacterImpl implements _Character {
                 .equals(other._otherNames, _otherNames) &&
             const DeepCollectionEquality().equals(other._rate, _rate) &&
             (identical(other.imagePath, imagePath) ||
-                other.imagePath == imagePath));
+                other.imagePath == imagePath) &&
+            (identical(other.audioPath, audioPath) ||
+                other.audioPath == audioPath));
   }
 
   @JsonKey(ignore: true)
@@ -358,7 +376,8 @@ class _$CharacterImpl implements _Character {
       const DeepCollectionEquality().hash(_howToPlay),
       const DeepCollectionEquality().hash(_otherNames),
       const DeepCollectionEquality().hash(_rate),
-      imagePath);
+      imagePath,
+      audioPath);
 
   @JsonKey(ignore: true)
   @override
@@ -387,7 +406,8 @@ abstract class _Character implements Character {
       required final List<String> howToPlay,
       required final List<String> otherNames,
       required final Map<String, int> rate,
-      required final String imagePath}) = _$CharacterImpl;
+      required final String imagePath,
+      final String? audioPath}) = _$CharacterImpl;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
       _$CharacterImpl.fromJson;
@@ -416,6 +436,8 @@ abstract class _Character implements Character {
   Map<String, int> get rate;
   @override // from 1 to 5
   String get imagePath;
+  @override
+  String? get audioPath;
   @override
   @JsonKey(ignore: true)
   _$$CharacterImplCopyWith<_$CharacterImpl> get copyWith =>

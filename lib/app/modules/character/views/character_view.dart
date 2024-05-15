@@ -29,9 +29,11 @@ class CharacterView extends GetView<CharacterController> {
       backgroundColor: const Color.fromARGB(172, 0, 0, 0),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //
+          controller.toggleAudio();
         },
-        child: const Icon(Icons.play_arrow_outlined),
+        child: Obx(() => Icon(controller.audioController.isPlaying.value
+            ? Icons.pause_outlined
+            : Icons.play_arrow_outlined)),
       ),
     );
   }

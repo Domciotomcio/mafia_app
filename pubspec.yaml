@@ -24,6 +24,7 @@ dependencies:
   flutter_signature_pad: ^3.0.1
   flip_card: ^0.7.0
   flutter_markdown: ^0.6.20
+  audioplayers: ^6.0.0
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -43,4 +44,5 @@ flutter:
     - assets/icons/
     - assets/tutorial/
     - assets/tutorial/pl_PL/
+    - assets/audio/
 
