@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../modules/Master/bindings/master_binding.dart';
+import '../modules/Master/views/master_first_view.dart';
 import '../modules/Master/views/master_view.dart';
 import '../modules/Master_night_zero/bindings/master_night_zero_binding.dart';
 import '../modules/Master_night_zero/views/master_night_zero_view.dart';
@@ -46,9 +47,9 @@ class AppPages {
 
   // static const INITIAL = Routes.HOME;
   // static const INITIAL = Routes.CHARACTER;
-  // static const INITIAL = Routes.GUIDEBOOK;
+  static const INITIAL = Routes.GUIDEBOOK;
   // static const INITIAL = Routes.GAME_CARD;
-  static const INITIAL = Routes.GAME_SETUP;
+  // static const INITIAL = Routes.GAME_SETUP;
 
   static final routes = [
     GetPage(
@@ -88,7 +89,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FRACTION,
-      page: () => const FractionView(),
+      page: () => FractionView(),
       binding: FractionBinding(),
       transition: Transition.fadeIn,
       transitionDuration: Duration(milliseconds: 500),
@@ -144,7 +145,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.MASTER,
-      page: () => MasterView(),
+      page: () => MasterFirstView(),
       binding: MasterBinding(),
     ),
     GetPage(

@@ -1,17 +1,20 @@
 import 'package:get/get.dart';
 import 'package:project/app/constants/enums/fraction.dart';
 import 'package:project/app/data/character/models/character.dart';
+import 'package:project/app/shared/sorting/sort.dart';
 
 import '../../../constants/enums/device.dart';
 
 class GameSetupController extends GetxController {
   var numberOfPlayers = {
-    'total': 5,
-    'mafia': 1,
-    'townsfolk': 3,
-    'sindicate': 1,
+    'total': 6,
+    'mafia': 2,
+    'townsfolk': 4,
+    'sindicate': 0,
     'redMafia': 0,
   }.obs;
+
+  var isOfflineMode = false.obs;
 
   var selectedSegment = 1.obs;
 
@@ -29,17 +32,22 @@ class GameSetupController extends GetxController {
     Player(
       id: '3',
       name: 'Grzegorz',
-      device: Device.mobile,
+      device: Device.main,
     ),
     Player(
       id: '4',
       name: 'Tomek',
-      device: Device.mobile,
+      device: Device.main,
     ),
     Player(
       id: '5',
       name: 'Tola',
-      device: Device.tablet,
+      device: Device.main,
+    ),
+    Player(
+      id: '6',
+      name: 'Andrzej',
+      device: Device.main,
     ),
   ].obs;
 
@@ -73,17 +81,17 @@ class GameSetupController extends GetxController {
         nameId: 'citizen'),
     Character(
         id: '3',
-        name: 'Szef syndykatu',
+        name: 'Członek miasta',
         description: 'Zabij innego gracza',
         story: '',
         quote: '',
-        fraction: Fraction.sindicate,
+        fraction: Fraction.townsfolk,
         additionalInfo: {},
         howToPlay: [],
         rate: {},
         otherNames: [],
         imagePath: '',
-        nameId: 'syndicateLeader'),
+        nameId: 'citizen'),
     Character(
       id: '4',
       name: 'Katani',
@@ -111,6 +119,20 @@ class GameSetupController extends GetxController {
       otherNames: [],
       imagePath: '',
       nameId: 'doctor',
+    ),
+    Character(
+      id: '6',
+      name: 'Członek mafii',
+      description: 'Zabij innego gracza',
+      story: '',
+      quote: '',
+      fraction: Fraction.mafia,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'mafiaMember',
     ),
   ].obs;
 
@@ -219,6 +241,15 @@ class GameSetupController extends GetxController {
     for (var i = 0; i < players.length; i++) {
       players[i].character = characters[i];
     }
+  }
+
+  void addCharacter(Character player) {
+    characters.add(player);
+    sortByName(characters);
+  }
+
+  void removeCharacter(Character player) {
+    characters.remove(player);
   }
 }
 

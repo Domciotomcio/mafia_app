@@ -51,57 +51,11 @@ class FractionListItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         print(fraction);
-        Get.toNamed('/fraction/${fraction.name}', arguments: {'id': fraction});
+        Get.toNamed('/fraction/${fraction.id}', arguments: {'id': fraction});
       },
       child: Stack(
         alignment: Alignment.topRight,
         children: [
-          // Stack(
-          //     clipBehavior: Clip.antiAlias,
-          //     alignment: Alignment.bottomCenter,
-          //     children: [
-          //       Stack(
-          //         children: [
-          //           Image.asset(
-          //             fraction.imagePath,
-          //             width: double.infinity,
-          //             height: 220,
-          //             fit: BoxFit.cover,
-          //             colorBlendMode: BlendMode.darken,
-          //             color: fraction.color.withOpacity(0.3),
-          //           ),
-          //           Positioned(
-          //             bottom: 0.0,
-          //             left: 0.0,
-          //             right: 0.0,
-          //             child: Container(
-          //               height: 150.0, // Height of the gradient
-          //               decoration: BoxDecoration(
-          //                 gradient: LinearGradient(
-          //                   begin: Alignment.bottomCenter,
-          //                   end: Alignment.topCenter,
-          //                   colors: [
-          //                     Colors.black.withOpacity(0.7),
-          //                     Colors.transparent
-          //                   ],
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //       Text(
-          //         fraction.name,
-          //         style: GoogleFonts.dancingScript(
-          //           fontSize: 50,
-          //           color: Colors.white,
-          //         ),
-          //       ),
-          //     ]),
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: fraction.image,
-          // ),
           FractionImage(fraction: fraction),
           FractionName(fraction: fraction),
           FractionIcon(fraction: fraction),
@@ -128,7 +82,7 @@ class FractionImage extends StatelessWidget {
           height: 220,
           fit: BoxFit.cover,
           colorBlendMode: BlendMode.darken,
-          color: fraction.color.withOpacity(0.3),
+          color: fraction.color.withOpacity(0.2),
         ),
         Positioned(
           bottom: 0.0,

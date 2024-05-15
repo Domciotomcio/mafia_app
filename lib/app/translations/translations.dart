@@ -64,6 +64,10 @@ class Messages extends Translations {
           //additional info
           'AdditionalInfoView': 'Dodatkowe informacje',
           'Author': 'Autor',
+
+          //master
+          'MasterFirstView': 'Gracze i ich role',
+          'MasterNightZeroView': 'Noc 0',
         },
         'de_DE': {
           'game': 'Spiel',

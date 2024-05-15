@@ -40,7 +40,7 @@ class MasterController extends GetxController {
   void onReady() {
     super.onReady();
 
-    Get.toNamed('/master-night-zero');
+    //Get.toNamed('/master-night-zero');
   }
 
   @override

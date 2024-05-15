@@ -1,13 +1,17 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/additional_info.dart';
 import 'package:project/app/constants/maps/fraction.dart';
+import 'package:project/app/shared/widgets/main_image_widget.dart';
 
 import '../../../constants/maps/character_rate.dart';
+import '../../../shared/widgets/desc_with_label.dart';
 import '../controllers/character_controller.dart';
 import 'package:project/app/data/character/models/character.dart';
 
@@ -30,15 +34,6 @@ class CharacterView extends GetView<CharacterController> {
         child: const Icon(Icons.play_arrow_outlined),
       ),
     );
-    // body: controller.obx(
-    //   (character) => characterLoaded(character, context),
-    //   onLoading: const Center(
-    //     child: CircularProgressIndicator(),
-    //   ),
-    //   onError: (error) => Center(
-    //     child: Text('Wystąpił błąd: $error'),
-    //   ),
-    // ));
   }
 
   Widget characterLoaded(Character? character, BuildContext context) {
@@ -54,7 +49,7 @@ class CharacterView extends GetView<CharacterController> {
           fit: BoxFit.fitWidth,
           alignment: Alignment.topCenter,
           colorFilter:
-              ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.darken),
+              ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken),
         ),
       ),
       child: Stack(
@@ -64,58 +59,19 @@ class CharacterView extends GetView<CharacterController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Opacity(
-                      opacity: 0.0,
-                      child: Image.asset(
-                        character.imagePath,
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ),
-                    Container(
-                      height: 300.0, // Height of the gradient
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          colors: [
-                            Color.fromARGB(255, 0, 0, 0),
-                            Colors.transparent
-                          ],
-                        ),
-                      ),
-                    ).animate().fadeIn(
-                        curve: Curves.ease,
-                        //delay: const Duration(milliseconds: 100),
-                        duration: const Duration(seconds: 1)),
-                    Text(character.name,
-                            style: GoogleFonts.dancingScript(fontSize: 60),
-                            textAlign: TextAlign.center)
-                        .animate()
-                        .fadeIn(
-                            curve: Curves.ease,
-                            delay: const Duration(milliseconds: 300),
-                            duration: const Duration(seconds: 1)),
-                  ],
-                ),
+                MainImageWidget(
+                    imagePath: character.imagePath, name: character.name),
                 //CharacterImageSection(character: character),
                 //const SizedBox(height: 5),
-                Column(
-                  children: [
-                    Container(
-                      color: Colors.black,
-                      child: CharacterInfoSection(character: character)
-                          .animate()
-                          .fadeIn(
-                              delay: const Duration(milliseconds: 1000),
-                              duration: const Duration(seconds: 1)),
-                    ),
-                  ],
+                Container(
+                  color: Colors.black,
+                  child: CharacterInfoSection(character: character)
+                      .animate()
+                      .fadeIn(
+                          delay: const Duration(milliseconds: 1000),
+                          duration: const Duration(seconds: 1)),
                 ),
-
-                // const SizedBox(height: 40),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -152,52 +108,6 @@ class CharacterView extends GetView<CharacterController> {
   }
 }
 
-class CharacterImageSection extends StatelessWidget {
-  final Character character;
-
-  const CharacterImageSection({super.key, required this.character});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.topCenter,
-      children: [
-        Image.asset(character.imagePath),
-        Positioned(
-          bottom: 0.0,
-          left: 0.0,
-          right: 0.0,
-          child: Container(
-            height: 300.0, // Height of the gradient
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                colors: [Color.fromARGB(255, 0, 0, 0), Colors.transparent],
-              ),
-            ),
-          ).animate().fadeIn(
-              curve: Curves.ease,
-              //delay: const Duration(milliseconds: 100),
-              duration: const Duration(seconds: 1)),
-        ),
-        Positioned(
-          bottom: 0,
-          child: Text(character.name,
-              style: GoogleFonts.dancingScript(fontSize: 60),
-              textAlign: TextAlign.center),
-        ).animate().fadeIn(
-            curve: Curves.ease,
-            delay: const Duration(milliseconds: 300),
-            duration: const Duration(seconds: 1)),
-        // NavigationAndFractionSection(character: character, scrollControllerWithGetX: scrollControllerWithGetX,).animate().fadeIn(
-        //     delay: const Duration(milliseconds: 1000),
-        //     duration: const Duration(seconds: 1)),
-      ],
-    );
-  }
-}
-
 class NavigationAndFractionSection extends StatelessWidget {
   final Character character;
   final ScrollControllerWithGetX scrollControllerWithGetX;
@@ -212,66 +122,63 @@ class NavigationAndFractionSection extends StatelessWidget {
     var fraction = fractionMap[character.fraction]!;
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        //color: Colors.greenAccent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    spreadRadius: 0.1,
-                    blurRadius: 10,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: const Icon(Icons.arrow_back),
-                iconSize: 30,
-                color: Colors.white,
-              ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          DecoratedBox(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  spreadRadius: 0.1,
+                  blurRadius: 10,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                boxShadow: [
-                  BoxShadow(
-                    color: fraction.color.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 30,
-                    offset: const Offset(0, 3),
-                  ),
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.7),
-                    spreadRadius: 10,
-                    blurRadius: 30,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    fraction.name,
-                    style: GoogleFonts.dancingScript(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  fraction.image,
-                ],
-              ),
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back),
+              iconSize: 30,
+              color: Colors.white,
             ),
-          ],
-        ),
+          ),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              boxShadow: [
+                BoxShadow(
+                  color: fraction.color.withOpacity(0.3),
+                  spreadRadius: 1,
+                  blurRadius: 30,
+                  offset: const Offset(0, 3),
+                ),
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.7),
+                  spreadRadius: 10,
+                  blurRadius: 30,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Text(
+                  fraction.name,
+                  style: GoogleFonts.dancingScript(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                fraction.image,
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -287,9 +194,9 @@ class CharacterInfoSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        descWithLabel("Opis", character.description, context),
+        DescWithLabel(label: "Opis", description: character.description),
         const Divider(),
-        descWithLabel("Historia", character.story, context),
+        DescWithLabel(label: "Historia", description: character.story),
         const Divider(),
         if (character.howToPlay.isNotEmpty)
           Column(
@@ -315,30 +222,6 @@ class CharacterInfoSection extends StatelessWidget {
       ],
     );
   }
-}
-
-Widget descWithLabel(String label, String text, BuildContext context) {
-  return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            //style: Theme.of(context).textTheme.labelLarge,
-            style: GoogleFonts.dancingScript(
-              fontSize: 20,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            text,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontStyle: FontStyle.italic,
-                ),
-          ),
-        ],
-      ));
 }
 
 Widget characterRate(Map<String, int> rates, BuildContext context) {

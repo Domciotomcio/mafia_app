@@ -16,9 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Fraction {
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   Color get color => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String get target => throw _privateConstructorUsedError;
+  String get history => throw _privateConstructorUsedError;
   Widget get image => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
 
@@ -33,9 +36,12 @@ abstract class $FractionCopyWith<$Res> {
       _$FractionCopyWithImpl<$Res, Fraction>;
   @useResult
   $Res call(
-      {String name,
+      {String id,
+      String name,
       Color color,
       String description,
+      String target,
+      String history,
       Widget image,
       String imagePath});
 }
@@ -53,13 +59,20 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? color = null,
     Object? description = null,
+    Object? target = null,
+    Object? history = null,
     Object? image = null,
     Object? imagePath = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -71,6 +84,14 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      target: null == target
+          ? _value.target
+          : target // ignore: cast_nullable_to_non_nullable
+              as String,
+      history: null == history
+          ? _value.history
+          : history // ignore: cast_nullable_to_non_nullable
               as String,
       image: null == image
           ? _value.image
@@ -93,9 +114,12 @@ abstract class _$$FractionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
+      {String id,
+      String name,
       Color color,
       String description,
+      String target,
+      String history,
       Widget image,
       String imagePath});
 }
@@ -111,13 +135,20 @@ class __$$FractionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? color = null,
     Object? description = null,
+    Object? target = null,
+    Object? history = null,
     Object? image = null,
     Object? imagePath = null,
   }) {
     return _then(_$FractionImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -129,6 +160,14 @@ class __$$FractionImplCopyWithImpl<$Res>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      target: null == target
+          ? _value.target
+          : target // ignore: cast_nullable_to_non_nullable
+              as String,
+      history: null == history
+          ? _value.history
+          : history // ignore: cast_nullable_to_non_nullable
               as String,
       image: null == image
           ? _value.image
@@ -146,12 +185,17 @@ class __$$FractionImplCopyWithImpl<$Res>
 
 class _$FractionImpl implements _Fraction {
   const _$FractionImpl(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.color,
       required this.description,
+      required this.target,
+      required this.history,
       required this.image,
       required this.imagePath});
 
+  @override
+  final String id;
   @override
   final String name;
   @override
@@ -159,13 +203,17 @@ class _$FractionImpl implements _Fraction {
   @override
   final String description;
   @override
+  final String target;
+  @override
+  final String history;
+  @override
   final Widget image;
   @override
   final String imagePath;
 
   @override
   String toString() {
-    return 'Fraction(name: $name, color: $color, description: $description, image: $image, imagePath: $imagePath)';
+    return 'Fraction(id: $id, name: $name, color: $color, description: $description, target: $target, history: $history, image: $image, imagePath: $imagePath)';
   }
 
   @override
@@ -173,18 +221,21 @@ class _$FractionImpl implements _Fraction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FractionImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.target, target) || other.target == target) &&
+            (identical(other.history, history) || other.history == history) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, color, description, image, imagePath);
+  int get hashCode => Object.hash(runtimeType, id, name, color, description,
+      target, history, image, imagePath);
 
   @JsonKey(ignore: true)
   @override
@@ -195,18 +246,27 @@ class _$FractionImpl implements _Fraction {
 
 abstract class _Fraction implements Fraction {
   const factory _Fraction(
-      {required final String name,
+      {required final String id,
+      required final String name,
       required final Color color,
       required final String description,
+      required final String target,
+      required final String history,
       required final Widget image,
       required final String imagePath}) = _$FractionImpl;
 
+  @override
+  String get id;
   @override
   String get name;
   @override
   Color get color;
   @override
   String get description;
+  @override
+  String get target;
+  @override
+  String get history;
   @override
   Widget get image;
   @override
