@@ -2,10 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/data/character/providers/firebase_character_provider.dart';
-import 'package:project/app/data/character/providers/mock_character_provider.dart';
 import 'package:project/app/data/character/repositories/character_repository.dart';
 import 'package:project/app/data/character/services/character_service.dart';
 import 'package:project/app/data/tutorial/providers/json_tutorial_provider.dart';
@@ -13,7 +11,6 @@ import 'package:project/app/data/tutorial/repositories/tutorial_repository.dart'
 import 'package:project/app/data/tutorial/services/tutorial_service.dart';
 import 'package:project/app/translations/translations.dart';
 
-import 'app/data/tutorial/providers/tutorial_provider.dart';
 import 'app/routes/app_pages.dart';
 import 'firebase_options.dart';
 
@@ -30,7 +27,7 @@ Future<void> main() async {
       theme: ThemeData(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
           scaffoldBackgroundColor: Colors.black,
-          appBarTheme: AppBarTheme().copyWith(
+          appBarTheme: const AppBarTheme().copyWith(
             backgroundColor: Colors.black,
             titleTextStyle: GoogleFonts.dancingScript(
               fontSize: 30,
@@ -40,7 +37,7 @@ Future<void> main() async {
             surfaceTintColor: Colors.black,
             elevation: 4,
           ),
-          colorScheme: ColorScheme.highContrastDark(
+          colorScheme: const ColorScheme.highContrastDark(
             primary: Color.fromARGB(255, 255, 255, 255),
             secondary: Colors.green,
             surface: Colors.black,
@@ -48,7 +45,7 @@ Future<void> main() async {
           )),
       translations: Messages(),
       //locale: Locale('pl', 'PL'),
-      locale: Locale('pl', 'PL'),
+      locale: const Locale('pl', 'PL'),
       //fallbackLocale: Locale('en', 'US'),
     ),
   );

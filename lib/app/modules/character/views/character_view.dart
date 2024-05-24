@@ -41,9 +41,7 @@ class CharacterView extends GetView<CharacterController> {
     // ));
   }
 
-  Widget characterLoaded(Character? character, BuildContext context) {
-    var fraction = fractionMap[character!.fraction]!;
-
+  Widget characterLoaded(Character character, BuildContext context) {
     return Container(
       //color: Color.fromARGB(255, 132, 255, 0),
       width: double.infinity,
@@ -212,66 +210,63 @@ class NavigationAndFractionSection extends StatelessWidget {
     var fraction = fractionMap[character.fraction]!;
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        //color: Colors.greenAccent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    spreadRadius: 0.1,
-                    blurRadius: 10,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: const Icon(Icons.arrow_back),
-                iconSize: 30,
-                color: Colors.white,
-              ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  spreadRadius: 0.1,
+                  blurRadius: 10,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                boxShadow: [
-                  BoxShadow(
-                    color: fraction.color.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 30,
-                    offset: const Offset(0, 3),
-                  ),
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.7),
-                    spreadRadius: 10,
-                    blurRadius: 30,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    fraction.name,
-                    style: GoogleFonts.dancingScript(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  fraction.image,
-                ],
-              ),
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back),
+              iconSize: 30,
+              color: Colors.white,
             ),
-          ],
-        ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              boxShadow: [
+                BoxShadow(
+                  color: fraction.color.withOpacity(0.3),
+                  spreadRadius: 1,
+                  blurRadius: 30,
+                  offset: const Offset(0, 3),
+                ),
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.7),
+                  spreadRadius: 10,
+                  blurRadius: 30,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Text(
+                  fraction.name,
+                  style: GoogleFonts.dancingScript(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                fraction.image,
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -499,23 +494,21 @@ Widget howToPlayInfo(List<String> howToPlay, BuildContext context) {
 }
 
 Widget characterQuote(String quote, BuildContext context) {
-  return Container(
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: AnimatedTextKit(
-        animatedTexts: [
-          TyperAnimatedText(
-            '"' + quote + '"',
-            textStyle: GoogleFonts.dancingScript(
-              fontSize: 25,
-              fontStyle: FontStyle.italic,
-            ),
-            textAlign: TextAlign.center,
-            speed: const Duration(milliseconds: 100),
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: AnimatedTextKit(
+      animatedTexts: [
+        TyperAnimatedText(
+          quote,
+          textStyle: GoogleFonts.dancingScript(
+            fontSize: 25,
+            fontStyle: FontStyle.italic,
           ),
-        ],
-        totalRepeatCount: 1,
-      ),
+          textAlign: TextAlign.center,
+          speed: const Duration(milliseconds: 100),
+        ),
+      ],
+      totalRepeatCount: 1,
     ),
   );
 }
@@ -539,6 +532,5 @@ class ScrollControllerWithGetX extends GetxController {
 
   void _updateScrollPosition() {
     scrollPosition.value = scrollController.position.pixels;
-    print(scrollPosition.value);
   }
 }

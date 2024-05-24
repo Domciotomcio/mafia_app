@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:project/app/shared/widgets/loading_indicator_widget.dart';
 
 import '../../../data/tutorial/models/chapter.dart';
-import '../../../data/tutorial/models/tutorial.dart';
 import '../controllers/how_to_play_controller.dart';
 
 class HowToPlayView extends GetView<HowToPlayController> {
@@ -21,22 +20,22 @@ class HowToPlayView extends GetView<HowToPlayController> {
         (state) => PageView(
           children: [
             for (var chapter in controller.tutorial!.chapters)
-              chapterWidget(chapter: chapter)
+              ChapterWidget(chapter: chapter)
           ],
         ),
-        onLoading: LoadingIndicatorWidget(),
+        onLoading: const LoadingIndicatorWidget(),
       ),
     );
   }
 }
 
-class chapterWidget extends StatelessWidget {
-  Color colorFilter;
-  double colorOpacity;
-  Chapter chapter;
-  String imagePath;
+class ChapterWidget extends StatelessWidget {
+  final Color colorFilter;
+  final double colorOpacity;
+  final Chapter chapter;
+  final String imagePath;
 
-  chapterWidget({
+  const ChapterWidget({
     super.key,
     this.colorFilter = Colors.black,
     this.colorOpacity = 0.8,
@@ -59,7 +58,7 @@ class chapterWidget extends StatelessWidget {
           ),
         ),
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
@@ -72,8 +71,8 @@ class chapterWidget extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
           // child: Column(
           //   mainAxisAlignment: MainAxisAlignment.center,
           //   crossAxisAlignment: CrossAxisAlignment.start,

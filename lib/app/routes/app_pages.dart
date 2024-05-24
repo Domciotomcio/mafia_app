@@ -42,6 +42,7 @@ class AppPages {
 
   // static const INITIAL = Routes.HOME;
   // static const INITIAL = Routes.CHARACTER;
+  // ignore: constant_identifier_names
   static const INITIAL = Routes.GUIDEBOOK;
   // static const INITIAL = Routes.GAME_CARD;
 
@@ -56,12 +57,12 @@ class AppPages {
       page: () => CharacterView(),
       binding: CharacterBinding(),
       transition: Transition.fadeIn,
-      transitionDuration: Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 500),
       curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.GUIDEBOOK,
-      page: () => GuidebookView(),
+      page: () => const GuidebookView(),
       binding: GuidebookBinding(),
     ),
     GetPage(
@@ -86,7 +87,7 @@ class AppPages {
       page: () => const FractionView(),
       binding: FractionBinding(),
       transition: Transition.fadeIn,
-      transitionDuration: Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 500),
       curve: Curves.easeIn,
     ),
     GetPage(
@@ -94,7 +95,7 @@ class AppPages {
       page: () => const HowToPlayView(),
       binding: HowToPlayBinding(),
       transition: Transition.fadeIn,
-      transitionDuration: Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 500),
       curve: Curves.easeIn,
     ),
     GetPage(
@@ -129,7 +130,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.GAME_CARD,
-      page: () => GameCardView(),
+      page: () => const GameCardView(),
       binding: GameCardBinding(),
     ),
     GetPage(

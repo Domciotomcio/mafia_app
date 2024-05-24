@@ -44,7 +44,7 @@ class GameSetupController extends GetxController {
   ].obs;
 
   var characters = <Character>[
-    Character(
+    const Character(
       id: '1',
       name: 'Członek mafii',
       description: 'Zabij innego gracza',
@@ -57,7 +57,7 @@ class GameSetupController extends GetxController {
       otherNames: [],
       imagePath: '',
     ),
-    Character(
+    const Character(
       id: '2',
       name: 'Członek miasta',
       description: 'Zabij innego gracza',
@@ -70,7 +70,7 @@ class GameSetupController extends GetxController {
       otherNames: [],
       imagePath: '',
     ),
-    Character(
+    const Character(
       id: '2',
       name: 'Członek syndykatu',
       description: 'Zabij innego gracza',

@@ -23,7 +23,7 @@ class GameCardView extends GetView<GameCardController> {
           direction: FlipDirection.HORIZONTAL,
           front: Obx(
             () => controller.cardReversed.value == false
-                ? Card(Row(
+                ? card(const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Naciśnij, by odwrócić kartę"),
@@ -31,16 +31,16 @@ class GameCardView extends GetView<GameCardController> {
                       Icon(Icons.reply),
                     ],
                   ))
-                : Card(NextRow()),
+                : card(nextRow()),
           ),
-          back: Card(CharacterRow(context)),
+          back: card(characterRow(context)),
           onFlipDone: (isFront) => controller.cardReversed.value = true,
         ),
       ),
     );
   }
 
-  Widget Card(Widget content) {
+  Widget card(Widget content) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -57,20 +57,20 @@ class GameCardView extends GetView<GameCardController> {
           ),
         ],
       ),
+      height: double.infinity,
+      width: double.infinity,
       child: Center(
         child: content,
       ),
-      height: double.infinity,
-      width: double.infinity,
     );
   }
 
-  Widget CharacterRow(BuildContext context) {
+  Widget characterRow(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("Mieszaniec", style: GoogleFonts.dancingScript(fontSize: 30)),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -80,7 +80,7 @@ class GameCardView extends GetView<GameCardController> {
                     fontStyle: FontStyle.italic,
                   ),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             fractionMap[Fraction.townsfolk]!.image,
           ],
         ),
@@ -88,7 +88,7 @@ class GameCardView extends GetView<GameCardController> {
     );
   }
 
-  Widget NextRow() {
+  Widget nextRow() {
     return GestureDetector(
       onTap: () {},
       child: Container(
@@ -98,8 +98,8 @@ class GameCardView extends GetView<GameCardController> {
         child: Center(
           child: FilledButton.icon(
               onPressed: () {},
-              icon: Icon(Icons.arrow_forward),
-              label: Text("Przekaż telefon kolejnej osobie")),
+              icon: const Icon(Icons.arrow_forward),
+              label: const Text("Przekaż telefon kolejnej osobie")),
         ),
       ),
     );

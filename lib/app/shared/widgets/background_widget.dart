@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BackgroundWidget extends StatelessWidget {
   final Widget child;
 
-  BackgroundWidget({required this.child});
+  const BackgroundWidget({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class BackgroundWidget extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/hat.jpg'),
+            image: const AssetImage('assets/images/hat.jpg'),
             fit: BoxFit.fitWidth,
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.7), BlendMode.darken),

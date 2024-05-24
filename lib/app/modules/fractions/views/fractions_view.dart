@@ -50,7 +50,6 @@ class FractionListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print(fraction);
         Get.toNamed('/fraction/${fraction.name}', arguments: {'id': fraction});
       },
       child: Stack(

@@ -104,11 +104,9 @@ class GuidebookController extends GetxController {
     if (flagPath == 'assets/images/flags/pl.png') {
       flagPath = 'assets/images/flags/en.png';
       Get.updateLocale(const Locale('en', 'US'));
-      print('en');
     } else {
       flagPath = 'assets/images/flags/pl.png';
       Get.updateLocale(const Locale('pl', 'PL'));
-      print('pl');
     }
     update();
   }

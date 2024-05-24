@@ -54,7 +54,7 @@ class GameSetupView extends GetView<GameSetupController> {
         ),
         body: ListView(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               "1234",
               textAlign: TextAlign.center,
@@ -63,9 +63,9 @@ class GameSetupView extends GetView<GameSetupController> {
                   .displayLarge
                   ?.copyWith(letterSpacing: 5),
             ),
-            Text("Kod gry", textAlign: TextAlign.center),
-            SizedBox(height: 20),
-            Divider(),
+            const Text("Kod gry", textAlign: TextAlign.center),
+            const SizedBox(height: 20),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -92,27 +92,27 @@ class GameSetupView extends GetView<GameSetupController> {
               ListTile(
                   title: Text(item['title']! as String),
                   leading: item['leading'] as Widget,
-                  trailing: Container(
+                  trailing: SizedBox(
                       width: 110,
                       child: Row(children: [
                         IconButton(
                             onPressed: () => controller.removePlayerFromCount(
                                 item['fraction'] as Fraction),
-                            icon: Icon(Icons.arrow_left)),
+                            icon: const Icon(Icons.arrow_left)),
                         Obx(
                           () => Text(
                             controller.numberOfPlayers[item['name'] as String]
                                 .toString(),
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                         IconButton(
                             onPressed: () => controller
                                 .addPlayerToCount(item['fraction'] as Fraction),
-                            icon: Icon(Icons.arrow_right)),
+                            icon: const Icon(Icons.arrow_right)),
                       ]))),
 
-            Divider(),
+            const Divider(),
 
             // PLAYERS
 
@@ -131,7 +131,7 @@ class GameSetupView extends GetView<GameSetupController> {
                               child: Column(
                                 children: [
                                   TextFormField(
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       labelText: 'Imię',
                                       border: OutlineInputBorder(),
                                     ),
@@ -143,7 +143,7 @@ class GameSetupView extends GetView<GameSetupController> {
                                     },
                                     controller: nameController,
                                   ),
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -160,13 +160,13 @@ class GameSetupView extends GetView<GameSetupController> {
                                             Get.back();
                                           }
                                         },
-                                        icon: Icon(Icons.check),
-                                        label: Text('Dodaj'),
+                                        icon: const Icon(Icons.check),
+                                        label: const Text('Dodaj'),
                                       ),
                                       ElevatedButton.icon(
                                         onPressed: () => Get.back(),
-                                        icon: Icon(Icons.cancel_outlined),
-                                        label: Text('Anuluj'),
+                                        icon: const Icon(Icons.cancel_outlined),
+                                        label: const Text('Anuluj'),
                                       ),
                                     ],
                                   ),
@@ -174,8 +174,8 @@ class GameSetupView extends GetView<GameSetupController> {
                               ),
                             ),
                           ),
-                      icon: Icon(Icons.add),
-                      label: Text('Dodaj gracza')),
+                      icon: const Icon(Icons.add),
+                      label: const Text('Dodaj gracza')),
                 ],
               ),
             ),
@@ -188,7 +188,7 @@ class GameSetupView extends GetView<GameSetupController> {
               ),
             ),
             Obx(
-              () => Container(
+              () => SizedBox(
                 height: controller.players.length * 60.0,
                 child: ReorderableListView(
                   physics: const NeverScrollableScrollPhysics(),
@@ -197,15 +197,15 @@ class GameSetupView extends GetView<GameSetupController> {
                             key: ValueKey(item),
                             title: Text(item.name),
                             leading: item.device == Device.main
-                                ? Icon(Icons.person)
+                                ? const Icon(Icons.person)
                                 : item.device == Device.mobile
-                                    ? Icon(Icons.smartphone_outlined)
-                                    : Icon(Icons.tablet),
+                                    ? const Icon(Icons.smartphone_outlined)
+                                    : const Icon(Icons.tablet),
                             trailing: IconButton(
                                 onPressed: () {
                                   controller.players.remove(item);
                                 },
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.delete,
                                   color: Colors.red,
                                 )),
@@ -216,7 +216,7 @@ class GameSetupView extends GetView<GameSetupController> {
                 ),
               ),
             ),
-            Divider(),
+            const Divider(),
 
             // CHARACTERS
 
@@ -229,8 +229,8 @@ class GameSetupView extends GetView<GameSetupController> {
                       style: GoogleFonts.dancingScript(fontSize: 25)),
                   OutlinedButton.icon(
                       onPressed: () {},
-                      icon: Icon(Icons.add),
-                      label: Text('Dodaj postać')),
+                      icon: const Icon(Icons.add),
+                      label: const Text('Dodaj postać')),
                 ],
               ),
             ),
@@ -240,18 +240,18 @@ class GameSetupView extends GetView<GameSetupController> {
                 leading: fractionMap[item.fraction]!.image,
                 trailing: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.delete,
                       color: Colors.red,
                     )),
               ),
-            Divider(),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child:
-                  FilledButton(onPressed: () {}, child: Text('Rozpocznij grę')),
+              child: FilledButton(
+                  onPressed: () {}, child: const Text('Rozpocznij grę')),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ));
   }
