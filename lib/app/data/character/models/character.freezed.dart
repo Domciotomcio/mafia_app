@@ -22,6 +22,7 @@ Character _$CharacterFromJson(Map<String, dynamic> json) {
 mixin _$Character {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get nameId => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get story => throw _privateConstructorUsedError;
   String get quote => throw _privateConstructorUsedError;
@@ -32,6 +33,7 @@ mixin _$Character {
   Map<String, int> get rate =>
       throw _privateConstructorUsedError; // from 1 to 5
   String get imagePath => throw _privateConstructorUsedError;
+  String? get audioPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,6 +49,7 @@ abstract class $CharacterCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
+      String nameId,
       String description,
       String story,
       String quote,
@@ -55,7 +58,8 @@ abstract class $CharacterCopyWith<$Res> {
       List<String> howToPlay,
       List<String> otherNames,
       Map<String, int> rate,
-      String imagePath});
+      String imagePath,
+      String? audioPath});
 }
 
 /// @nodoc
@@ -73,6 +77,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? nameId = null,
     Object? description = null,
     Object? story = null,
     Object? quote = null,
@@ -82,6 +87,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
     Object? otherNames = null,
     Object? rate = null,
     Object? imagePath = null,
+    Object? audioPath = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -91,6 +97,10 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameId: null == nameId
+          ? _value.nameId
+          : nameId // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -128,6 +138,10 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      audioPath: freezed == audioPath
+          ? _value.audioPath
+          : audioPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -143,6 +157,7 @@ abstract class _$$CharacterImplCopyWith<$Res>
   $Res call(
       {String id,
       String name,
+      String nameId,
       String description,
       String story,
       String quote,
@@ -151,7 +166,8 @@ abstract class _$$CharacterImplCopyWith<$Res>
       List<String> howToPlay,
       List<String> otherNames,
       Map<String, int> rate,
-      String imagePath});
+      String imagePath,
+      String? audioPath});
 }
 
 /// @nodoc
@@ -167,6 +183,7 @@ class __$$CharacterImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? nameId = null,
     Object? description = null,
     Object? story = null,
     Object? quote = null,
@@ -176,6 +193,7 @@ class __$$CharacterImplCopyWithImpl<$Res>
     Object? otherNames = null,
     Object? rate = null,
     Object? imagePath = null,
+    Object? audioPath = freezed,
   }) {
     return _then(_$CharacterImpl(
       id: null == id
@@ -185,6 +203,10 @@ class __$$CharacterImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameId: null == nameId
+          ? _value.nameId
+          : nameId // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -222,6 +244,10 @@ class __$$CharacterImplCopyWithImpl<$Res>
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      audioPath: freezed == audioPath
+          ? _value.audioPath
+          : audioPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -232,6 +258,7 @@ class _$CharacterImpl implements _Character {
   const _$CharacterImpl(
       {required this.id,
       required this.name,
+      required this.nameId,
       required this.description,
       required this.story,
       required this.quote,
@@ -240,7 +267,8 @@ class _$CharacterImpl implements _Character {
       required final List<String> howToPlay,
       required final List<String> otherNames,
       required final Map<String, int> rate,
-      required this.imagePath})
+      required this.imagePath,
+      this.audioPath})
       : _additionalInfo = additionalInfo,
         _howToPlay = howToPlay,
         _otherNames = otherNames,
@@ -253,6 +281,8 @@ class _$CharacterImpl implements _Character {
   final String id;
   @override
   final String name;
+  @override
+  final String nameId;
   @override
   final String description;
   @override
@@ -296,10 +326,12 @@ class _$CharacterImpl implements _Character {
 // from 1 to 5
   @override
   final String imagePath;
+  @override
+  final String? audioPath;
 
   @override
   String toString() {
-    return 'Character(id: $id, name: $name, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, rate: $rate, imagePath: $imagePath)';
+    return 'Character(id: $id, name: $name, nameId: $nameId, description: $description, story: $story, quote: $quote, fraction: $fraction, additionalInfo: $additionalInfo, howToPlay: $howToPlay, otherNames: $otherNames, rate: $rate, imagePath: $imagePath, audioPath: $audioPath)';
   }
 
   @override
@@ -309,6 +341,7 @@ class _$CharacterImpl implements _Character {
             other is _$CharacterImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.nameId, nameId) || other.nameId == nameId) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.story, story) || other.story == story) &&
@@ -323,7 +356,9 @@ class _$CharacterImpl implements _Character {
                 .equals(other._otherNames, _otherNames) &&
             const DeepCollectionEquality().equals(other._rate, _rate) &&
             (identical(other.imagePath, imagePath) ||
-                other.imagePath == imagePath));
+                other.imagePath == imagePath) &&
+            (identical(other.audioPath, audioPath) ||
+                other.audioPath == audioPath));
   }
 
   @JsonKey(ignore: true)
@@ -332,6 +367,7 @@ class _$CharacterImpl implements _Character {
       runtimeType,
       id,
       name,
+      nameId,
       description,
       story,
       quote,
@@ -340,7 +376,8 @@ class _$CharacterImpl implements _Character {
       const DeepCollectionEquality().hash(_howToPlay),
       const DeepCollectionEquality().hash(_otherNames),
       const DeepCollectionEquality().hash(_rate),
-      imagePath);
+      imagePath,
+      audioPath);
 
   @JsonKey(ignore: true)
   @override
@@ -360,6 +397,7 @@ abstract class _Character implements Character {
   const factory _Character(
       {required final String id,
       required final String name,
+      required final String nameId,
       required final String description,
       required final String story,
       required final String quote,
@@ -368,7 +406,8 @@ abstract class _Character implements Character {
       required final List<String> howToPlay,
       required final List<String> otherNames,
       required final Map<String, int> rate,
-      required final String imagePath}) = _$CharacterImpl;
+      required final String imagePath,
+      final String? audioPath}) = _$CharacterImpl;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
       _$CharacterImpl.fromJson;
@@ -377,6 +416,8 @@ abstract class _Character implements Character {
   String get id;
   @override
   String get name;
+  @override
+  String get nameId;
   @override
   String get description;
   @override
@@ -395,6 +436,8 @@ abstract class _Character implements Character {
   Map<String, int> get rate;
   @override // from 1 to 5
   String get imagePath;
+  @override
+  String? get audioPath;
   @override
   @JsonKey(ignore: true)
   _$$CharacterImplCopyWith<_$CharacterImpl> get copyWith =>

@@ -1,51 +1,127 @@
 import 'package:get/get.dart';
 import 'package:project/app/constants/enums/fraction.dart';
 import 'package:project/app/data/character/models/character.dart';
+import 'package:project/app/shared/sorting/sort.dart';
 
 import '../../../constants/enums/device.dart';
 
 class GameSetupController extends GetxController {
   var numberOfPlayers = {
-    'total': 5,
-    'mafia': 1,
-    'townsfolk': 3,
-    'sindicate': 1,
+    'total': 6,
+    'mafia': 2,
+    'townsfolk': 4,
+    'sindicate': 0,
     'redMafia': 0,
   }.obs;
+
+  var isOfflineMode = false.obs;
 
   var selectedSegment = 1.obs;
 
   var players = <Player>[
     Player(
       id: '1',
-      name: 'Gracz 1',
+      name: 'Ala',
       device: Device.main,
     ),
     Player(
       id: '2',
-      name: 'Gracz 2',
+      name: 'Adam',
       device: Device.main,
     ),
     Player(
       id: '3',
-      name: 'Gracz 3',
-      device: Device.mobile,
+      name: 'Grzegorz',
+      device: Device.main,
     ),
     Player(
       id: '4',
-      name: 'Gracz 4',
-      device: Device.mobile,
+      name: 'Tomek',
+      device: Device.main,
     ),
     Player(
       id: '5',
-      name: 'Gracz 5',
-      device: Device.tablet,
+      name: 'Tola',
+      device: Device.main,
+    ),
+    Player(
+      id: '6',
+      name: 'Andrzej',
+      device: Device.main,
     ),
   ].obs;
 
   var characters = <Character>[
     const Character(
       id: '1',
+      name: 'Szef mafii',
+      description: 'Zabij innego gracza',
+      story: '',
+      quote: '',
+      fraction: Fraction.mafia,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'mafiaLeader',
+    ),
+    Character(
+        id: '2',
+        name: 'Członek miasta',
+        description: '',
+        story: '',
+        quote: '',
+        fraction: Fraction.townsfolk,
+        additionalInfo: {},
+        howToPlay: [],
+        rate: {},
+        otherNames: [],
+        imagePath: '',
+        nameId: 'citizen'),
+    Character(
+        id: '3',
+        name: 'Członek miasta',
+        description: 'Zabij innego gracza',
+        story: '',
+        quote: '',
+        fraction: Fraction.townsfolk,
+        additionalInfo: {},
+        howToPlay: [],
+        rate: {},
+        otherNames: [],
+        imagePath: '',
+        nameId: 'citizen'),
+    Character(
+      id: '4',
+      name: 'Katani',
+      description: '',
+      story: '',
+      quote: '',
+      fraction: Fraction.townsfolk,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'cattani',
+    ),
+    Character(
+      id: '5',
+      name: 'Lekarz',
+      description: '',
+      story: '',
+      quote: '',
+      fraction: Fraction.townsfolk,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'doctor',
+    ),
+    Character(
+      id: '6',
       name: 'Członek mafii',
       description: 'Zabij innego gracza',
       story: '',
@@ -56,32 +132,7 @@ class GameSetupController extends GetxController {
       rate: {},
       otherNames: [],
       imagePath: '',
-    ),
-    const Character(
-      id: '2',
-      name: 'Członek miasta',
-      description: 'Zabij innego gracza',
-      story: '',
-      quote: '',
-      fraction: Fraction.townsfolk,
-      additionalInfo: {},
-      howToPlay: [],
-      rate: {},
-      otherNames: [],
-      imagePath: '',
-    ),
-    const Character(
-      id: '2',
-      name: 'Członek syndykatu',
-      description: 'Zabij innego gracza',
-      story: '',
-      quote: '',
-      fraction: Fraction.sindicate,
-      additionalInfo: {},
-      howToPlay: [],
-      rate: {},
-      otherNames: [],
-      imagePath: '',
+      nameId: 'mafiaMember',
     ),
   ].obs;
 
@@ -156,6 +207,49 @@ class GameSetupController extends GetxController {
     final id = (int.parse(players.last.id) + 1).toString();
 
     players.add(Player(id: id, name: playerName, device: Device.main));
+  }
+
+  bool setupGame() {
+    print("numberOfPlayers['total'] == ${numberOfPlayers['total']}");
+    print("players.length == ${players.length}");
+    print("characters.length == ${characters.length}");
+
+    var isOk = (numberOfPlayers['total'] == players.length);
+
+    isOk = isOk && (players.length == characters.length);
+
+    if (isOk) {
+      mergePlayersWithCharacters();
+
+      Get.snackbar(
+        'Sukces',
+        'Gra została poprawnie skonfigurowana',
+      );
+      Get.toNamed('master');
+
+      return true;
+    }
+    Get.snackbar(
+      'Błąd',
+      'Liczba graczy nie zgadza się z ilością wybranych postaci',
+    );
+    return false;
+  }
+
+  void mergePlayersWithCharacters() {
+    characters.shuffle();
+    for (var i = 0; i < players.length; i++) {
+      players[i].character = characters[i];
+    }
+  }
+
+  void addCharacter(Character player) {
+    characters.add(player);
+    sortByName(characters);
+  }
+
+  void removeCharacter(Character player) {
+    characters.remove(player);
   }
 }
 

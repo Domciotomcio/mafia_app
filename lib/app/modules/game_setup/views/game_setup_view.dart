@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
+import 'package:project/app/shared/sorting/sort.dart';
 
 import '../../../constants/enums/device.dart';
 import '../../../constants/enums/fraction.dart';
 import '../controllers/game_setup_controller.dart';
+import 'game_setup_characters.dart';
 
 class GameSetupView extends GetView<GameSetupController> {
   GameSetupView({Key? key}) : super(key: key);
@@ -54,57 +57,63 @@ class GameSetupView extends GetView<GameSetupController> {
         ),
         body: ListView(
           children: [
-            const SizedBox(height: 20),
-            Text(
-              "1234",
-              textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge
-                  ?.copyWith(letterSpacing: 5),
+            SizedBox(height: 20),
+            Obx(() => controller.isOfflineMode.value
+                ? const SizedBox()
+                : Column(
+                    children: [
+                      Text("Kod gry", textAlign: TextAlign.center),
+                      Text(
+                        "1234",
+                        textAlign: TextAlign.center,
+                        style:
+                            Theme.of(context).textTheme.displayLarge?.copyWith(
+                                  letterSpacing: 5,
+                                ),
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  )),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Tryb offline'),
+                Obx(() => Checkbox(
+                    value: controller.isOfflineMode.value,
+                    onChanged: (value) {
+                      controller.isOfflineMode.value = value!;
+                    })),
+              ],
             ),
-            const Text("Kod gry", textAlign: TextAlign.center),
-            const SizedBox(height: 20),
-            const Divider(),
+
+            Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Liczba wszystkich graczy',
+              child: Obx(() => Text(
+                    'Liczba postaci: ${controller.numberOfPlayers['total']!}',
                     style: GoogleFonts.dancingScript(fontSize: 25),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 60),
-                    child: Obx(
-                      () => Text(
-                        controller.numberOfPlayers['total']!.toString(),
-                        style: const TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                  )),
             ),
 
             for (var item in playersMap)
-              ListTile(
+              Obx(() => ListTile(
                   title: Text(item['title']! as String),
                   leading: item['leading'] as Widget,
                   trailing: SizedBox(
                       width: 110,
                       child: Row(children: [
                         IconButton(
-                            onPressed: () => controller.removePlayerFromCount(
-                                item['fraction'] as Fraction),
+                            onPressed:
+                                controller.numberOfPlayers[item['name']]! > 0
+                                    ? () => controller.removePlayerFromCount(
+                                        item['fraction'] as Fraction)
+                                    : null,
                             icon: const Icon(Icons.arrow_left)),
-                        Obx(
-                          () => Text(
-                            controller.numberOfPlayers[item['name'] as String]
-                                .toString(),
-                            style: const TextStyle(fontSize: 20),
-                          ),
+                        Text(
+                          controller.numberOfPlayers[item['name'] as String]
+                              .toString(),
+                          style: const GoogleFonts.dancingScript(fontSize: 20),
                         ),
                         IconButton(
                             onPressed: () => controller
@@ -121,7 +130,7 @@ class GameSetupView extends GetView<GameSetupController> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Gracze",
+                  Text("Gracze: ${controller.players.length}",
                       style: GoogleFonts.dancingScript(fontSize: 25)),
                   OutlinedButton.icon(
                       onPressed: () => Get.defaultDialog(
@@ -225,31 +234,39 @@ class GameSetupView extends GetView<GameSetupController> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Postacie",
-                      style: GoogleFonts.dancingScript(fontSize: 25)),
+                  Obx(() => Text("Postacie: ${controller.characters.length}",
+                      style: GoogleFonts.dancingScript(fontSize: 25))),
                   OutlinedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
-                      label: const Text('Dodaj postać')),
+                      onPressed: () => Get.to(GameSetupCharacters()),
+                      icon: Icon(Icons.add),
+                      label: Text('Dodaj postać')),
                 ],
               ),
             ),
-            for (var item in controller.characters)
-              ListTile(
-                title: Text(item.name),
-                leading: fractionMap[item.fraction]!.image,
-                trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.delete,
-                      color: Colors.red,
-                    )),
-              ),
-            const Divider(),
+            Obx(() => Column(
+                  children: [
+                    for (var item in controller.characters)
+                      ListTile(
+                        title: Text(item.name),
+                        leading: fractionMap[item.fraction]!.image,
+                        trailing: IconButton(
+                            onPressed: () {
+                              controller.removeCharacter(item);
+                            },
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                            )),
+                      ).animate().fadeIn(),
+                  ],
+                )),
+
+            Divider(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: FilledButton(
-                  onPressed: () {}, child: const Text('Rozpocznij grę')),
+                  onPressed: () => controller.setupGame(),
+                  child: Text('Rozpocznij grę')),
             ),
             const SizedBox(height: 20),
           ],

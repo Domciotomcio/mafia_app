@@ -6,9 +6,12 @@ part 'fraction.freezed.dart';
 @freezed
 abstract class Fraction with _$Fraction {
   const factory Fraction({
+    required String id,
     required String name,
     required Color color,
     required String description,
+    required String target,
+    required String history,
     required Widget image,
     required String imagePath,
   }) = _Fraction;

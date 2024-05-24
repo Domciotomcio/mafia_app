@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../modules/Master/bindings/master_binding.dart';
+import '../modules/Master/views/master_first_view.dart';
+import '../modules/Master/views/master_view.dart';
+import '../modules/Master_night_zero/bindings/master_night_zero_binding.dart';
+import '../modules/Master_night_zero/views/master_night_zero_view.dart';
 import '../modules/additional_info/bindings/additional_info_binding.dart';
 import '../modules/additional_info/views/additional_info_view.dart';
-import '../modules/character/bindings/character_binding.dart';
-import '../modules/character/views/character_view.dart';
-import '../modules/characters/bindings/characters_binding.dart';
-import '../modules/characters/views/characters_view.dart';
+import '../modules/compendium/character/bindings/character_binding.dart';
+import '../modules/compendium/character/views/character_view.dart';
+import '../modules/compendium/characters/bindings/characters_binding.dart';
+import '../modules/compendium/characters/views/characters_view.dart';
 import '../modules/create_character/bindings/create_character_binding.dart';
 import '../modules/create_character/views/create_character_view.dart';
-import '../modules/fraction/bindings/fraction_binding.dart';
-import '../modules/fraction/views/fraction_view.dart';
-import '../modules/fractions/bindings/fractions_binding.dart';
-import '../modules/fractions/views/fractions_view.dart';
+import '../modules/compendium/fraction/bindings/fraction_binding.dart';
+import '../modules/compendium/fraction/views/fraction_view.dart';
+import '../modules/compendium/fractions/bindings/fractions_binding.dart';
+import '../modules/compendium/fractions/views/fractions_view.dart';
 import '../modules/game_card/bindings/game_card_binding.dart';
 import '../modules/game_card/views/game_card_view.dart';
 import '../modules/game_preparing/bindings/game_preparing_binding.dart';
@@ -45,6 +50,7 @@ class AppPages {
   // ignore: constant_identifier_names
   static const INITIAL = Routes.GUIDEBOOK;
   // static const INITIAL = Routes.GAME_CARD;
+  // static const INITIAL = Routes.GAME_SETUP;
 
   static final routes = [
     GetPage(
@@ -84,7 +90,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FRACTION,
-      page: () => const FractionView(),
+      page: () => FractionView(),
       binding: FractionBinding(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
@@ -137,6 +143,16 @@ class AppPages {
       name: _Paths.HOW_TO_PLAY_MENU,
       page: () => const HowToPlayMenuView(),
       binding: HowToPlayMenuBinding(),
+    ),
+    GetPage(
+      name: _Paths.MASTER,
+      page: () => MasterFirstView(),
+      binding: MasterBinding(),
+    ),
+    GetPage(
+      name: _Paths.MASTER_NIGHT_ZERO,
+      page: () => MasterNightZeroView(),
+      binding: MasterNightZeroBinding(),
     ),
   ];
 }
