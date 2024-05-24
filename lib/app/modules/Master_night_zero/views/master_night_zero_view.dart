@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/request/request.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/modules/Master_night_zero/controllers/master_night_zero_controller.dart';
 
-import '../../../constants/enums/fraction.dart';
 import '../../../constants/maps/fraction.dart';
-import '../../game_setup/controllers/game_setup_controller.dart';
-import '../../Master/controllers/master_controller.dart';
 
 class MasterNightZeroView extends GetView<MasterNightZeroController> {
   MasterNightZeroView({Key? key}) : super(key: key);
@@ -89,9 +84,7 @@ class MasterNightZeroView extends GetView<MasterNightZeroController> {
                 SizedBox(
                   width: double.infinity,
                   child: FilledButton(
-                      onPressed: () {
-                        print("dalej");
-                      },
+                      onPressed: () {},
                       child: const Text(
                         "Dalej",
                       )),
@@ -146,9 +139,6 @@ class WakeWidget extends GetView<MasterNightZeroController> {
                             (element) => element.player.id == player.player.id)
                         .hasWokenUp
                         .value = value!;
-                    print(controller.playersActiveNightZero
-                        .where((element) => element.hasWokenUp.value)
-                        .length);
                   },
                 ));
           }),

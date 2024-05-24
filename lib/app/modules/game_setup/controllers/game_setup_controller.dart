@@ -66,7 +66,7 @@ class GameSetupController extends GetxController {
       imagePath: '',
       nameId: 'mafiaLeader',
     ),
-    Character(
+    const Character(
         id: '2',
         name: 'Członek miasta',
         description: '',
@@ -79,7 +79,7 @@ class GameSetupController extends GetxController {
         otherNames: [],
         imagePath: '',
         nameId: 'citizen'),
-    Character(
+    const Character(
         id: '3',
         name: 'Członek miasta',
         description: 'Zabij innego gracza',
@@ -92,7 +92,7 @@ class GameSetupController extends GetxController {
         otherNames: [],
         imagePath: '',
         nameId: 'citizen'),
-    Character(
+    const Character(
       id: '4',
       name: 'Katani',
       description: '',
@@ -106,7 +106,7 @@ class GameSetupController extends GetxController {
       imagePath: '',
       nameId: 'cattani',
     ),
-    Character(
+    const Character(
       id: '5',
       name: 'Lekarz',
       description: '',
@@ -120,7 +120,7 @@ class GameSetupController extends GetxController {
       imagePath: '',
       nameId: 'doctor',
     ),
-    Character(
+    const Character(
       id: '6',
       name: 'Członek mafii',
       description: 'Zabij innego gracza',
@@ -210,10 +210,6 @@ class GameSetupController extends GetxController {
   }
 
   bool setupGame() {
-    print("numberOfPlayers['total'] == ${numberOfPlayers['total']}");
-    print("players.length == ${players.length}");
-    print("characters.length == ${characters.length}");
-
     var isOk = (numberOfPlayers['total'] == players.length);
 
     isOk = isOk && (players.length == characters.length);

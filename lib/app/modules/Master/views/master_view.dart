@@ -7,7 +7,7 @@ import '../../game_setup/controllers/game_setup_controller.dart';
 import '../controllers/master_controller.dart';
 
 class MasterView extends GetView<MasterController> {
-  MasterView({Key? key}) : super(key: key);
+  const MasterView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

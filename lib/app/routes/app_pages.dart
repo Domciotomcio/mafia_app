@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../modules/Master/bindings/master_binding.dart';
 import '../modules/Master/views/master_first_view.dart';
-import '../modules/Master/views/master_view.dart';
 import '../modules/Master_night_zero/bindings/master_night_zero_binding.dart';
 import '../modules/Master_night_zero/views/master_night_zero_view.dart';
 import '../modules/additional_info/bindings/additional_info_binding.dart';
@@ -73,7 +72,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.CHARACTERS,
-      page: () => CharactersView(),
+      page: () => const CharactersView(),
       binding: CharactersBinding(),
       transition: Transition.fadeIn,
     ),

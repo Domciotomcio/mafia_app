@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-TextStyle baseStyle = TextStyle(
+TextStyle baseStyle = const TextStyle(
   fontSize: 16.0,
   color: Colors.black,
 );

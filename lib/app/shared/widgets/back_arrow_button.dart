@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 class BackArrowButton extends StatelessWidget {
-  BackArrowButton({super.key});
+  const BackArrowButton({super.key});
 
   @override
   Widget build(BuildContext context) {

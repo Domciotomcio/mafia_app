@@ -15,19 +15,17 @@ class MainImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(imageAsset);
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
         // This box is sized of background image
         Opacity(
           opacity: 0.0,
-          child: imageAsset != null
-              ? imageAsset
-              : Image.asset(
-                  imagePath,
-                  fit: BoxFit.fitWidth,
-                ),
+          child: imageAsset ??
+              Image.asset(
+                imagePath,
+                fit: BoxFit.fitWidth,
+              ),
         ),
         // Bottom gradient of the image
         Container(

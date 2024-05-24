@@ -4,7 +4,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
-import 'package:project/app/shared/sorting/sort.dart';
 
 import '../../../constants/enums/device.dart';
 import '../../../constants/enums/fraction.dart';
@@ -57,12 +56,12 @@ class GameSetupView extends GetView<GameSetupController> {
         ),
         body: ListView(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Obx(() => controller.isOfflineMode.value
                 ? const SizedBox()
                 : Column(
                     children: [
-                      Text("Kod gry", textAlign: TextAlign.center),
+                      const Text("Kod gry", textAlign: TextAlign.center),
                       Text(
                         "1234",
                         textAlign: TextAlign.center,
@@ -74,11 +73,10 @@ class GameSetupView extends GetView<GameSetupController> {
                       const SizedBox(height: 20),
                     ],
                   )),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Tryb offline'),
+                const Text('Tryb offline'),
                 Obx(() => Checkbox(
                     value: controller.isOfflineMode.value,
                     onChanged: (value) {
@@ -86,8 +84,7 @@ class GameSetupView extends GetView<GameSetupController> {
                     })),
               ],
             ),
-
-            Divider(),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Obx(() => Text(
@@ -95,7 +92,6 @@ class GameSetupView extends GetView<GameSetupController> {
                     style: GoogleFonts.dancingScript(fontSize: 25),
                   )),
             ),
-
             for (var item in playersMap)
               Obx(() => ListTile(
                   title: Text(item['title']! as String),
@@ -113,13 +109,13 @@ class GameSetupView extends GetView<GameSetupController> {
                         Text(
                           controller.numberOfPlayers[item['name'] as String]
                               .toString(),
-                          style: const GoogleFonts.dancingScript(fontSize: 20),
+                          style: GoogleFonts.dancingScript(fontSize: 20),
                         ),
                         IconButton(
                             onPressed: () => controller
                                 .addPlayerToCount(item['fraction'] as Fraction),
                             icon: const Icon(Icons.arrow_right)),
-                      ]))),
+                      ])))),
 
             const Divider(),
 
@@ -238,8 +234,8 @@ class GameSetupView extends GetView<GameSetupController> {
                       style: GoogleFonts.dancingScript(fontSize: 25))),
                   OutlinedButton.icon(
                       onPressed: () => Get.to(GameSetupCharacters()),
-                      icon: Icon(Icons.add),
-                      label: Text('Dodaj postać')),
+                      icon: const Icon(Icons.add),
+                      label: const Text('Dodaj postać')),
                 ],
               ),
             ),
@@ -253,7 +249,7 @@ class GameSetupView extends GetView<GameSetupController> {
                             onPressed: () {
                               controller.removeCharacter(item);
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.delete,
                               color: Colors.red,
                             )),
@@ -261,12 +257,12 @@ class GameSetupView extends GetView<GameSetupController> {
                   ],
                 )),
 
-            Divider(),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: FilledButton(
                   onPressed: () => controller.setupGame(),
-                  child: Text('Rozpocznij grę')),
+                  child: const Text('Rozpocznij grę')),
             ),
             const SizedBox(height: 20),
           ],

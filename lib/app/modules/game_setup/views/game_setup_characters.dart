@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
 import 'package:project/app/modules/compendium/characters/controllers/characters_controller.dart';
 
-import '../../../constants/enums/device.dart';
 import '../../../constants/enums/fraction.dart';
 import '../../../data/character/models/character.dart';
 import '../controllers/game_setup_controller.dart';

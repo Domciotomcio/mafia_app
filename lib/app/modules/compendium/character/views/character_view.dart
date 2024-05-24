@@ -1,7 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
@@ -384,23 +382,21 @@ Widget howToPlayInfo(List<String> howToPlay, BuildContext context) {
 }
 
 Widget characterQuote(String quote, BuildContext context) {
-  return Container(
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: AnimatedTextKit(
-        animatedTexts: [
-          TyperAnimatedText(
-            '"' + quote + '"',
-            textStyle: GoogleFonts.dancingScript(
-              fontSize: 25,
-              fontStyle: FontStyle.italic,
-            ),
-            textAlign: TextAlign.center,
-            speed: const Duration(milliseconds: 100),
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: AnimatedTextKit(
+      animatedTexts: [
+        TyperAnimatedText(
+          quote,
+          textStyle: GoogleFonts.dancingScript(
+            fontSize: 25,
+            fontStyle: FontStyle.italic,
           ),
-        ],
-        totalRepeatCount: 1,
-      ),
+          textAlign: TextAlign.center,
+          speed: const Duration(milliseconds: 100),
+        ),
+      ],
+      totalRepeatCount: 1,
     ),
   );
 }
@@ -424,6 +420,5 @@ class ScrollControllerWithGetX extends GetxController {
 
   void _updateScrollPosition() {
     scrollPosition.value = scrollController.position.pixels;
-    print(scrollPosition.value);
   }
 }

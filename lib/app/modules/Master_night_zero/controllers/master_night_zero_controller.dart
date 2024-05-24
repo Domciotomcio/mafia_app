@@ -1,7 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_rx/get_rx.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/state_manager.dart';
 import 'package:project/app/constants/enums/fraction.dart';
 
 import '../../Master/controllers/master_controller.dart';
@@ -35,16 +32,6 @@ class MasterNightZeroController extends GetxController {
     }
 
     super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 
   List<Player> getPlayersToWakeUp(Fraction fraction) {
