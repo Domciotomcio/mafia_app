@@ -39,6 +39,7 @@ flutter:
     - assets/images/characters/
     - assets/images/fractions/
     - assets/images/howToPlay/
+    - assets/images/locations/
     - assets/images/main_menu/
     - assets/images/flags/
     - assets/icons/

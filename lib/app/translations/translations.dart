@@ -68,6 +68,14 @@ class Messages extends Translations {
           //master
           'MasterFirstView': 'Gracze i ich role',
           'MasterNightZeroView': 'Noc 0',
+
+          //locations
+          'LocationsView': 'Lokacje',
+          'police headquarters': 'Komisariat',
+          'court': 'Sąd',
+          'harbor': 'Port',
+          'warehouse': 'Magazyn',
+          'hospital': 'Szpital',
         },
         'de_DE': {
           'game': 'Spiel',
