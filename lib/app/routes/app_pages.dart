@@ -12,12 +12,14 @@ import '../modules/compendium/character/bindings/character_binding.dart';
 import '../modules/compendium/character/views/character_view.dart';
 import '../modules/compendium/characters/bindings/characters_binding.dart';
 import '../modules/compendium/characters/views/characters_view.dart';
-import '../modules/create_character/bindings/create_character_binding.dart';
-import '../modules/create_character/views/create_character_view.dart';
 import '../modules/compendium/fraction/bindings/fraction_binding.dart';
 import '../modules/compendium/fraction/views/fraction_view.dart';
 import '../modules/compendium/fractions/bindings/fractions_binding.dart';
 import '../modules/compendium/fractions/views/fractions_view.dart';
+import '../modules/compendium/locations/bindings/locations_binding.dart';
+import '../modules/compendium/locations/views/locations_view.dart';
+import '../modules/create_character/bindings/create_character_binding.dart';
+import '../modules/create_character/views/create_character_view.dart';
 import '../modules/game_card/bindings/game_card_binding.dart';
 import '../modules/game_card/views/game_card_view.dart';
 import '../modules/game_preparing/bindings/game_preparing_binding.dart';
@@ -32,8 +34,12 @@ import '../modules/how_to_play/bindings/how_to_play_binding.dart';
 import '../modules/how_to_play/views/how_to_play_view.dart';
 import '../modules/how_to_play_menu/bindings/how_to_play_menu_binding.dart';
 import '../modules/how_to_play_menu/views/how_to_play_menu_view.dart';
-import '../modules/locations/bindings/locations_binding.dart';
-import '../modules/locations/views/locations_view.dart';
+import '../modules/compendium/location/bindings/location_binding.dart';
+import '../modules/compendium/location/views/location_view.dart';
+import '../modules/compendium/scenario/bindings/scenario_binding.dart';
+import '../modules/compendium/scenario/views/scenario_view.dart';
+import '../modules/compendium/scenarios/bindings/scenarios_binding.dart';
+import '../modules/compendium/scenarios/views/scenarios_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/test/bindings/test_binding.dart';
@@ -155,6 +161,21 @@ class AppPages {
       name: _Paths.MASTER_NIGHT_ZERO,
       page: () => MasterNightZeroView(),
       binding: MasterNightZeroBinding(),
+    ),
+    GetPage(
+      name: _Paths.SCENARIOS,
+      page: () => const ScenariosView(),
+      binding: ScenariosBinding(),
+    ),
+    GetPage(
+      name: _Paths.SCENARIO,
+      page: () => const ScenarioView(),
+      binding: ScenarioBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOCATION,
+      page: () => const LocationView(),
+      binding: LocationBinding(),
     ),
   ];
 }

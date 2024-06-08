@@ -23,6 +23,9 @@ abstract class Routes {
   static const HOW_TO_PLAY_MENU = _Paths.HOW_TO_PLAY_MENU;
   static const MASTER = _Paths.MASTER;
   static const MASTER_NIGHT_ZERO = _Paths.MASTER_NIGHT_ZERO;
+  static const SCENARIOS = _Paths.SCENARIOS;
+  static const SCENARIO = _Paths.SCENARIO;
+  static const LOCATION = _Paths.LOCATION;
 }
 
 abstract class _Paths {
@@ -45,4 +48,7 @@ abstract class _Paths {
   static const HOW_TO_PLAY_MENU = '/how-to-play-menu';
   static const MASTER = '/master';
   static const MASTER_NIGHT_ZERO = '/master-night-zero';
+  static const SCENARIOS = '/scenarios';
+  static const SCENARIO = '/scenario';
+  static const LOCATION = '/location';
 }
