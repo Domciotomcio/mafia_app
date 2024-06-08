@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project/app/modules/Master_night_zero/controllers/master_night_zero_controller.dart';
+import 'package:project/app/modules/game/Master_night_zero/controllers/master_night_zero_controller.dart';
 
-import '../../../constants/maps/fraction.dart';
+import '../../../../constants/maps/fraction.dart';
 
 class MasterNightZeroView extends GetView<MasterNightZeroController> {
   MasterNightZeroView({Key? key}) : super(key: key);

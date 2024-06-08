@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
 
-import '../../../constants/enums/device.dart';
-import '../../../constants/enums/fraction.dart';
+import '../../../../constants/enums/device.dart';
+import '../../../../constants/enums/fraction.dart';
 import '../controllers/game_setup_controller.dart';
 import 'game_setup_characters.dart';
 

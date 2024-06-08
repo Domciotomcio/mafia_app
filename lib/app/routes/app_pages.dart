@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../modules/Master/bindings/master_binding.dart';
-import '../modules/Master/views/master_first_view.dart';
-import '../modules/Master_night_zero/bindings/master_night_zero_binding.dart';
-import '../modules/Master_night_zero/views/master_night_zero_view.dart';
 import '../modules/additional_info/bindings/additional_info_binding.dart';
 import '../modules/additional_info/views/additional_info_view.dart';
 import '../modules/compendium/character/bindings/character_binding.dart';
@@ -16,16 +12,28 @@ import '../modules/compendium/fraction/bindings/fraction_binding.dart';
 import '../modules/compendium/fraction/views/fraction_view.dart';
 import '../modules/compendium/fractions/bindings/fractions_binding.dart';
 import '../modules/compendium/fractions/views/fractions_view.dart';
+import '../modules/compendium/location/bindings/location_binding.dart';
+import '../modules/compendium/location/views/location_view.dart';
 import '../modules/compendium/locations/bindings/locations_binding.dart';
 import '../modules/compendium/locations/views/locations_view.dart';
+import '../modules/compendium/scenario/bindings/scenario_binding.dart';
+import '../modules/compendium/scenario/views/scenario_view.dart';
+import '../modules/compendium/scenarios/bindings/scenarios_binding.dart';
+import '../modules/compendium/scenarios/views/scenarios_view.dart';
 import '../modules/create_character/bindings/create_character_binding.dart';
 import '../modules/create_character/views/create_character_view.dart';
-import '../modules/game_card/bindings/game_card_binding.dart';
-import '../modules/game_card/views/game_card_view.dart';
-import '../modules/game_preparing/bindings/game_preparing_binding.dart';
-import '../modules/game_preparing/views/game_preparing_view.dart';
-import '../modules/game_setup/bindings/game_setup_binding.dart';
-import '../modules/game_setup/views/game_setup_view.dart';
+import '../modules/game/Master/bindings/master_binding.dart';
+import '../modules/game/Master/views/master_first_view.dart';
+import '../modules/game/Master_night_zero/bindings/master_night_zero_binding.dart';
+import '../modules/game/Master_night_zero/views/master_night_zero_view.dart';
+import '../modules/game/game_card/bindings/game_card_binding.dart';
+import '../modules/game/game_card/views/game_card_view.dart';
+import '../modules/game/game_preparing/bindings/game_preparing_binding.dart';
+import '../modules/game/game_preparing/views/game_preparing_view.dart';
+import '../modules/game/game_setup/bindings/game_setup_binding.dart';
+import '../modules/game/game_setup/views/game_setup_view.dart';
+import '../modules/game/join_game/bindings/join_game_binding.dart';
+import '../modules/game/join_game/views/join_game_view.dart';
 import '../modules/guidebook/bindings/guidebook_binding.dart';
 import '../modules/guidebook/views/guidebook_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -34,12 +42,6 @@ import '../modules/how_to_play/bindings/how_to_play_binding.dart';
 import '../modules/how_to_play/views/how_to_play_view.dart';
 import '../modules/how_to_play_menu/bindings/how_to_play_menu_binding.dart';
 import '../modules/how_to_play_menu/views/how_to_play_menu_view.dart';
-import '../modules/compendium/location/bindings/location_binding.dart';
-import '../modules/compendium/location/views/location_view.dart';
-import '../modules/compendium/scenario/bindings/scenario_binding.dart';
-import '../modules/compendium/scenario/views/scenario_view.dart';
-import '../modules/compendium/scenarios/bindings/scenarios_binding.dart';
-import '../modules/compendium/scenarios/views/scenarios_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/test/bindings/test_binding.dart';
@@ -176,6 +178,11 @@ class AppPages {
       name: _Paths.LOCATION,
       page: () => const LocationView(),
       binding: LocationBinding(),
+    ),
+    GetPage(
+      name: _Paths.JOIN_GAME,
+      page: () => const JoinGameView(),
+      binding: JoinGameBinding(),
     ),
   ];
 }

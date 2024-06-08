@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
 
-import '../../../constants/enums/fraction.dart';
+import '../../../../constants/enums/fraction.dart';
 import '../controllers/game_card_controller.dart';
 
 class GameCardView extends GetView<GameCardController> {

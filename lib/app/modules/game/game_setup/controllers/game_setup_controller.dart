@@ -3,7 +3,7 @@ import 'package:project/app/constants/enums/fraction.dart';
 import 'package:project/app/data/character/models/character.dart';
 import 'package:project/app/shared/sorting/sort.dart';
 
-import '../../../constants/enums/device.dart';
+import '../../../../constants/enums/device.dart';
 
 class GameSetupController extends GetxController {
   var numberOfPlayers = {

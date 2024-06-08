@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../constants/maps/fraction.dart';
+import '../../../../constants/maps/fraction.dart';
 import '../../game_setup/controllers/game_setup_controller.dart';
 import '../controllers/master_controller.dart';
 
@@ -24,7 +24,6 @@ class MasterView extends GetView<MasterController> {
             title: Text(player.name),
             subtitle: Text(player.character!.name),
             leading: fractionMap[player.character?.fraction]!.image,
-            onTap: () => Text('Selected player ${player.name}'),
           );
         },
       ),

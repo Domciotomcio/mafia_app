@@ -26,6 +26,7 @@ abstract class Routes {
   static const SCENARIOS = _Paths.SCENARIOS;
   static const SCENARIO = _Paths.SCENARIO;
   static const LOCATION = _Paths.LOCATION;
+  static const JOIN_GAME = _Paths.JOIN_GAME;
 }
 
 abstract class _Paths {
@@ -51,4 +52,5 @@ abstract class _Paths {
   static const SCENARIOS = '/scenarios';
   static const SCENARIO = '/scenario';
   static const LOCATION = '/location';
+  static const JOIN_GAME = '/join-game';
 }
