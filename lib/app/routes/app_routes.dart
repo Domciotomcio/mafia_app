@@ -51,6 +51,6 @@ abstract class _Paths {
   static const MASTER_NIGHT_ZERO = '/master-night-zero';
   static const SCENARIOS = '/scenarios';
   static const SCENARIO = '/scenario';
-  static const LOCATION = '/location';
+  static const LOCATION = '/location/:id';
   static const JOIN_GAME = '/join-game';
 }

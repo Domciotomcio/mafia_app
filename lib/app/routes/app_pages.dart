@@ -178,6 +178,9 @@ class AppPages {
       name: _Paths.LOCATION,
       page: () => const LocationView(),
       binding: LocationBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.JOIN_GAME,

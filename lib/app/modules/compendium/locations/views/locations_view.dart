@@ -32,6 +32,7 @@ class LocationsView extends GetView<LocationsController> {
             top: 60,
             right: 20,
             child: MapButton(
+              onPressed: () => Get.toNamed('/location/police'),
               text: 'police headquarters'.tr,
               icon: Icons.local_police_outlined,
               imagePath: 'assets/images/locations/police.jpg',
@@ -41,6 +42,7 @@ class LocationsView extends GetView<LocationsController> {
             top: 400,
             right: 20,
             child: MapButton(
+              onPressed: () => Get.toNamed('/location/court'),
               text: 'court'.tr,
               icon: Icons.gavel_outlined,
               imagePath: 'assets/images/locations/court.jpg',
@@ -50,6 +52,7 @@ class LocationsView extends GetView<LocationsController> {
             bottom: 20,
             right: 20,
             child: MapButton(
+              onPressed: () => Get.toNamed('/location/harbor'),
               text: 'harbor'.tr,
               icon: Icons.directions_boat_outlined,
               imagePath: 'assets/images/locations/harbor.jpg',
@@ -59,6 +62,7 @@ class LocationsView extends GetView<LocationsController> {
             bottom: 60,
             left: 20,
             child: MapButton(
+              onPressed: () => Get.toNamed('/location/warehouse'),
               text: 'warehouse'.tr,
               icon: Icons.account_balance_outlined,
               imagePath: 'assets/images/locations/warehouse.jpg',
@@ -68,6 +72,7 @@ class LocationsView extends GetView<LocationsController> {
             top: 200,
             left: 20,
             child: MapButton(
+              onPressed: () => Get.toNamed('/location/hospital'),
               text: 'hospital'.tr,
               icon: Icons.local_hospital_outlined,
               imagePath: 'assets/images/locations/hospital.jpg',
@@ -85,21 +90,18 @@ class MapButton extends StatelessWidget {
     required this.text,
     required this.icon,
     required this.imagePath,
+    required this.onPressed,
   });
 
   final String text;
   final IconData icon;
   final String imagePath;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return FilledButton.icon(
-        onPressed: () => Get.snackbar(
-              "In progress",
-              "Functionality is not yet implemented",
-              colorText: Color.fromARGB(255, 247, 204, 88),
-              backgroundColor: Colors.black,
-            ),
+        onPressed: onPressed,
         label: Text(text.tr,
             style:
                 GoogleFonts.dancingScript(color: Colors.white, fontSize: 25)),
