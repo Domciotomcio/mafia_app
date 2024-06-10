@@ -23,7 +23,7 @@ class GuidebookController extends GetxController {
           subtitle: 'joinSubtitle',
           icon: const Icon(Icons.arrow_forward_ios_rounded),
           imagePath: 'assets/images/main_menu/join_game.jpg',
-          route: '/game-setup',
+          route: '/join-game',
         ),
       ],
     ),

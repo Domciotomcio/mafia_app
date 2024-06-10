@@ -13,12 +13,29 @@ class JoinGameView extends GetView<JoinGameController> {
         title: const Text('JoinGameView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'JoinGameView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Join a game function in progress",
+                  style: TextStyle(color: Colors.orange)),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter game code',
+                ),
+              ),
+              SizedBox(height: 5),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: null,
+                  child: Text('Join Game'),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }

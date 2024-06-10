@@ -48,7 +48,7 @@ class CharacterController extends GetxController with StateMixin<Character> {
     if (audioController.isPlaying.value) {
       audioController.stopAudio();
     } else {
-      audioController.playAudio(character!.audioPath!);
+      audioController.playAudio("audio/${character!.audioPath!}");
     }
 
     // if (audioPlayer.playing) {

@@ -22,8 +22,10 @@ mixin _$Fraction {
   String get description => throw _privateConstructorUsedError;
   String get target => throw _privateConstructorUsedError;
   String get history => throw _privateConstructorUsedError;
+  String? get historicContext => throw _privateConstructorUsedError;
   Widget get image => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
+  String? get audioPath => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FractionCopyWith<Fraction> get copyWith =>
@@ -42,8 +44,10 @@ abstract class $FractionCopyWith<$Res> {
       String description,
       String target,
       String history,
+      String? historicContext,
       Widget image,
-      String imagePath});
+      String imagePath,
+      String? audioPath});
 }
 
 /// @nodoc
@@ -65,8 +69,10 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
     Object? description = null,
     Object? target = null,
     Object? history = null,
+    Object? historicContext = freezed,
     Object? image = null,
     Object? imagePath = null,
+    Object? audioPath = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -93,6 +99,10 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
           ? _value.history
           : history // ignore: cast_nullable_to_non_nullable
               as String,
+      historicContext: freezed == historicContext
+          ? _value.historicContext
+          : historicContext // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -101,6 +111,10 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      audioPath: freezed == audioPath
+          ? _value.audioPath
+          : audioPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -120,8 +134,10 @@ abstract class _$$FractionImplCopyWith<$Res>
       String description,
       String target,
       String history,
+      String? historicContext,
       Widget image,
-      String imagePath});
+      String imagePath,
+      String? audioPath});
 }
 
 /// @nodoc
@@ -141,8 +157,10 @@ class __$$FractionImplCopyWithImpl<$Res>
     Object? description = null,
     Object? target = null,
     Object? history = null,
+    Object? historicContext = freezed,
     Object? image = null,
     Object? imagePath = null,
+    Object? audioPath = freezed,
   }) {
     return _then(_$FractionImpl(
       id: null == id
@@ -169,6 +187,10 @@ class __$$FractionImplCopyWithImpl<$Res>
           ? _value.history
           : history // ignore: cast_nullable_to_non_nullable
               as String,
+      historicContext: freezed == historicContext
+          ? _value.historicContext
+          : historicContext // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -177,6 +199,10 @@ class __$$FractionImplCopyWithImpl<$Res>
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      audioPath: freezed == audioPath
+          ? _value.audioPath
+          : audioPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -191,8 +217,10 @@ class _$FractionImpl implements _Fraction {
       required this.description,
       required this.target,
       required this.history,
+      this.historicContext,
       required this.image,
-      required this.imagePath});
+      required this.imagePath,
+      this.audioPath});
 
   @override
   final String id;
@@ -207,13 +235,17 @@ class _$FractionImpl implements _Fraction {
   @override
   final String history;
   @override
+  final String? historicContext;
+  @override
   final Widget image;
   @override
   final String imagePath;
+  @override
+  final String? audioPath;
 
   @override
   String toString() {
-    return 'Fraction(id: $id, name: $name, color: $color, description: $description, target: $target, history: $history, image: $image, imagePath: $imagePath)';
+    return 'Fraction(id: $id, name: $name, color: $color, description: $description, target: $target, history: $history, historicContext: $historicContext, image: $image, imagePath: $imagePath, audioPath: $audioPath)';
   }
 
   @override
@@ -228,14 +260,18 @@ class _$FractionImpl implements _Fraction {
                 other.description == description) &&
             (identical(other.target, target) || other.target == target) &&
             (identical(other.history, history) || other.history == history) &&
+            (identical(other.historicContext, historicContext) ||
+                other.historicContext == historicContext) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.imagePath, imagePath) ||
-                other.imagePath == imagePath));
+                other.imagePath == imagePath) &&
+            (identical(other.audioPath, audioPath) ||
+                other.audioPath == audioPath));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, color, description,
-      target, history, image, imagePath);
+      target, history, historicContext, image, imagePath, audioPath);
 
   @JsonKey(ignore: true)
   @override
@@ -252,8 +288,10 @@ abstract class _Fraction implements Fraction {
       required final String description,
       required final String target,
       required final String history,
+      final String? historicContext,
       required final Widget image,
-      required final String imagePath}) = _$FractionImpl;
+      required final String imagePath,
+      final String? audioPath}) = _$FractionImpl;
 
   @override
   String get id;
@@ -268,9 +306,13 @@ abstract class _Fraction implements Fraction {
   @override
   String get history;
   @override
+  String? get historicContext;
+  @override
   Widget get image;
   @override
   String get imagePath;
+  @override
+  String? get audioPath;
   @override
   @JsonKey(ignore: true)
   _$$FractionImplCopyWith<_$FractionImpl> get copyWith =>

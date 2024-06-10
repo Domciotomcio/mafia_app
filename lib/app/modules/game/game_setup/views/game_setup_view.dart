@@ -74,13 +74,13 @@ class GameSetupView extends GetView<GameSetupController> {
                     ],
                   )),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Tryb offline'),
-                Obx(() => Checkbox(
+                const Text('Tryb offline', style: TextStyle(fontSize: 18)),
+                Obx(() => Switch(
                     value: controller.isOfflineMode.value,
                     onChanged: (value) {
-                      controller.isOfflineMode.value = value!;
+                      controller.isOfflineMode.value = value;
                     })),
               ],
             ),

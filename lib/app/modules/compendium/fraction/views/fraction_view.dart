@@ -18,10 +18,11 @@ class FractionView extends GetView<FractionController> {
   @override
   Widget build(BuildContext context) {
     // final fraction = fractionMap[fraction_enum.Fraction.mafia]!;
-    final fraction = Get.arguments['id'] as fraction_model.Fraction;
+    final fraction = controller.fraction;
 
     return Scaffold(
       body: fractionLoaded(fraction, context),
+      floatingActionButton: AudioButton(controller: controller),
     );
   }
 
@@ -110,4 +111,25 @@ Widget fractionInfoSection({required fraction_model.Fraction fraction}) {
       DescWithLabel(label: "Historia", description: fraction.history),
     ],
   );
+}
+
+class AudioButton extends StatelessWidget {
+  const AudioButton({
+    super.key,
+    required this.controller,
+  });
+
+  final FractionController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        controller.toggleAudio();
+      },
+      child: Obx(() => Icon(controller.audioController.isPlaying.value
+          ? Icons.pause_outlined
+          : Icons.play_arrow_outlined)),
+    );
+  }
 }

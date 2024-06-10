@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -12,12 +13,19 @@ import 'package:project/app/data/tutorial/services/tutorial_service.dart';
 import 'package:project/app/translations/translations.dart';
 
 import 'app/routes/app_pages.dart';
+import 'app/shared/controllers/audio_controller.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
   await initServices();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   WidgetsFlutterBinding.ensureInitialized();
+
+  // background music
+  AudioController audioController = Get.put(AudioController(),
+      tag: 'backgroundAudioController', permanent: true);
+  // audioController.playAudio('audio/background.mp3', loop: true, volume: 0.2);
+
   runApp(
     GetMaterialApp(
       title: "Application",

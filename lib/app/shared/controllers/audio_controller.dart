@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 
@@ -12,9 +14,12 @@ class AudioController extends GetxController {
     super.onClose();
   }
 
-  void playAudio(String path) async {
+  void playAudio(String path, {bool? loop, double? volume = 0.5}) async {
     if (!isPlaying.value) {
-      await audioPlayer.play(AssetSource('audio/$path'));
+      if (loop != null && loop == true) {
+        await audioPlayer.setReleaseMode(ReleaseMode.loop);
+      }
+      await audioPlayer.play(AssetSource('$path'), volume: volume);
       isPlaying.value = true;
     }
   }

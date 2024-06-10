@@ -25,14 +25,9 @@ class CharacterView extends GetView<CharacterController> {
     return Scaffold(
       body: characterLoaded(character, context),
       backgroundColor: const Color.fromARGB(172, 0, 0, 0),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          controller.toggleAudio();
-        },
-        child: Obx(() => Icon(controller.audioController.isPlaying.value
-            ? Icons.pause_outlined
-            : Icons.play_arrow_outlined)),
-      ),
+      floatingActionButton: controller.character?.audioPath != null
+          ? AudioButton(controller: controller)
+          : null,
     );
   }
 
@@ -104,6 +99,27 @@ class CharacterView extends GetView<CharacterController> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class AudioButton extends StatelessWidget {
+  const AudioButton({
+    super.key,
+    required this.controller,
+  });
+
+  final CharacterController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        controller.toggleAudio();
+      },
+      child: Obx(() => Icon(controller.audioController.isPlaying.value
+          ? Icons.pause_outlined
+          : Icons.play_arrow_outlined)),
     );
   }
 }
@@ -214,8 +230,14 @@ class CharacterInfoSection extends StatelessWidget {
               const Divider(),
             ],
           ),
-        characterRate(character.rate, context),
-        const Divider(),
+        if (character.rate.isNotEmpty)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              characterRate(character.rate, context),
+              const Divider(),
+            ],
+          ),
         const SizedBox(height: 10),
         Center(child: characterQuote(character.quote, context)),
         const SizedBox(height: 10),
@@ -260,11 +282,6 @@ Widget characterRate(Map<String, int> rates, BuildContext context) {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text("${characterRateTranslationMap[rate.key]}",
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontStyle: FontStyle.italic,
-                      )),
-              const SizedBox(width: 12),
               Text(rate.value.toString(),
                   style: TextStyle(
                       fontSize: 18,
@@ -276,6 +293,12 @@ Widget characterRate(Map<String, int> rates, BuildContext context) {
                       fontStyle: FontStyle.italic,
                     ),
               ),
+              const SizedBox(width: 12),
+              Text("${characterRateTranslationMap[rate.key]}",
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        fontStyle: FontStyle.italic,
+                      )),
+              const SizedBox(width: 12),
             ],
           ),
         // Row(
@@ -316,14 +339,15 @@ Widget additionalInfo(Map<String, bool> additionalInfo, BuildContext context) {
           children: additionalInfo.entries
               .map((entry) => Row(
                     children: [
+                      entry.value
+                          ? const Icon(Icons.check, color: Colors.green)
+                          : const Icon(Icons.close, color: Colors.red),
+                      const SizedBox(width: 8),
                       Text(additionalInfoTranslationMap[entry.key]!,
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall
                               ?.copyWith(fontStyle: FontStyle.italic)),
-                      entry.value
-                          ? const Icon(Icons.check, color: Colors.green)
-                          : const Icon(Icons.close, color: Colors.red),
                     ],
                   ))
               .toList(),

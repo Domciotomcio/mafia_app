@@ -12,7 +12,9 @@ abstract class Fraction with _$Fraction {
     required String description,
     required String target,
     required String history,
+    String? historicContext,
     required Widget image,
     required String imagePath,
+    String? audioPath,
   }) = _Fraction;
 }

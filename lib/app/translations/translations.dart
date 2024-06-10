@@ -58,6 +58,11 @@ class Messages extends Translations {
           'settingsTitle': 'Ustawienia',
           'settingsSubtitle': 'Dostosuj ustawienia gry',
 
+          //join game
+          'JoinGameView': 'Dołącz do gry',
+          'Enter game code': 'Wprowadź kod gry',
+          'Join Game': 'Dołącz do gry',
+
           //settings
           'SettingsView': 'Ustawienia',
 
