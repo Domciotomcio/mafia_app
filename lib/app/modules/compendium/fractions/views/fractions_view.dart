@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/data/fraction/models/fraction.dart';
 
@@ -13,9 +14,22 @@ class FractionsView extends GetView<FractionsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Frakcje'),
+        title: Text('FractionsView'.tr),
         actions: [
-          IconButton(icon: const Icon(Icons.info_outline), onPressed: () {}),
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () => Get.dialog(Dialog(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(children: [
+                  Text('FractionsView'.tr, style: TextStyle(fontSize: 20)),
+                  SizedBox(height: 10),
+                  Text(
+                      'This is a list of all fractions in the game. Click on a fraction to see more details.'),
+                ]),
+              ),
+            )),
+          ),
         ],
       ),
       backgroundColor: Colors.black,

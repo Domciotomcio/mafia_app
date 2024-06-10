@@ -22,7 +22,9 @@ class FractionView extends GetView<FractionController> {
 
     return Scaffold(
       body: fractionLoaded(fraction, context),
-      floatingActionButton: AudioButton(controller: controller),
+      floatingActionButton: controller.fraction.audioPath != null
+          ? AudioButton(controller: controller)
+          : null,
     );
   }
 

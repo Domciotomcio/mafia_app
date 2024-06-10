@@ -81,6 +81,9 @@ class Messages extends Translations {
           'harbor': 'Port',
           'warehouse': 'Magazyn',
           'hospital': 'Szpital',
+
+          //fractions
+          'FractionsView': 'Frakcje',
         },
         'de_DE': {
           'game': 'Spiel',

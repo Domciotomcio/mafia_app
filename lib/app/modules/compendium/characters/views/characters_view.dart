@@ -21,7 +21,7 @@ class CharactersView extends GetView<CharactersController> {
         ),
         actions: [
           IconButton(
-            onPressed: () => Get.toNamed('/add-character'),
+            onPressed: () => controller.toggleSort(),
             icon: const Icon(Icons.sort_outlined),
           ),
           IconButton(icon: const Icon(Icons.info_outline), onPressed: () {}),
