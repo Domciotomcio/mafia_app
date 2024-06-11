@@ -27,6 +27,8 @@ abstract class Routes {
   static const SCENARIO = _Paths.SCENARIO;
   static const LOCATION = _Paths.LOCATION;
   static const JOIN_GAME = _Paths.JOIN_GAME;
+  static const NIGHT_PHASE = _Paths.NIGHT_PHASE;
+  static const DAY_PHASE = _Paths.DAY_PHASE;
 }
 
 abstract class _Paths {
@@ -53,4 +55,6 @@ abstract class _Paths {
   static const SCENARIO = '/scenario';
   static const LOCATION = '/location/:id';
   static const JOIN_GAME = '/join-game';
+  static const NIGHT_PHASE = '/night-phase';
+  static const DAY_PHASE = '/day-phase';
 }

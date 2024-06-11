@@ -20,9 +20,13 @@ class CharactersView extends GetView<CharactersController> {
           style: GoogleFonts.dancingScript(fontSize: 30),
         ),
         actions: [
-          IconButton(
-            onPressed: () => controller.toggleSort(),
-            icon: const Icon(Icons.sort_outlined),
+          controller.obx(
+            (state) => IconButton(
+              onPressed: () => controller.toggleSort(),
+              icon: const Icon(Icons.sort_outlined),
+            ).animate().fadeIn(),
+            onEmpty: SizedBox(),
+            onLoading: SizedBox(),
           ),
           IconButton(icon: const Icon(Icons.info_outline), onPressed: () {}),
         ],

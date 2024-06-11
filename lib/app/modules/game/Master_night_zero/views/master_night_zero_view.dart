@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/modules/game/Master_night_zero/controllers/master_night_zero_controller.dart';
 
 import '../../../../constants/maps/fraction.dart';
+import 'master_day_zero_view.dart';
 
 class MasterNightZeroView extends GetView<MasterNightZeroController> {
   MasterNightZeroView({Key? key}) : super(key: key);
@@ -37,27 +38,24 @@ class MasterNightZeroView extends GetView<MasterNightZeroController> {
                 Text("Budzi się Mafia",
                     style: GoogleFonts.dancingScript(fontSize: 30)),
                 const Divider(),
-                const Text("Mafia poznaje swoich członków"),
+                const Text("Mafia poznaje swoich członków. Pomacha nam:"),
                 const SizedBox(height: 10),
                 for (NightZeroPlayer p in controller.playersActiveNightZero)
                   Obx(() => ListTile(
-                        title: Text("Pomacha nam ${p.player.character!.name}",
+                        title: Text("${p.player.character!.name}",
                             style: p.hasWokenUp.value
                                 ? const TextStyle(
                                     decoration: TextDecoration.lineThrough,
                                     color: Colors.grey)
                                 : null),
-                        subtitle: Text("Gracz: ${p.player.name}",
-                            style: p.hasWokenUp.value
-                                ? const TextStyle(
-                                    decoration: TextDecoration.lineThrough,
-                                    color: Colors.grey)
-                                : const TextStyle(color: Colors.grey)),
                         leading:
                             fractionMap[p.player.character!.fraction]!.image,
-                        trailing: Checkbox(
-                            value: p.hasWokenUp.value,
-                            onChanged: (value) => p.hasWokenUp.value = value!),
+                        trailing: Text(p.player.name,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontStyle: FontStyle.italic,
+                            )),
+                        onTap: () => p.hasWokenUp.value = !p.hasWokenUp.value,
                       )),
                 // WakeWidget(
                 //   title: "Budzi się cała Mafia",
@@ -84,7 +82,7 @@ class MasterNightZeroView extends GetView<MasterNightZeroController> {
                 SizedBox(
                   width: double.infinity,
                   child: FilledButton(
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => MasterDayZeroView()),
                       child: const Text(
                         "Dalej",
                       )),
@@ -127,6 +125,7 @@ class WakeWidget extends GetView<MasterNightZeroController> {
                     "Pomacha nam ${myPlayer.player.character!.name} ${myPlayer.player.name}",
                     style: const TextStyle(fontSize: 16)),
                 dense: true,
+                onTap: () => print("Tapped"),
                 trailing: Checkbox(
                   value: controller.playersActiveNightZero
                       .firstWhere(

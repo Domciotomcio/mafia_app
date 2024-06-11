@@ -13,6 +13,7 @@ class MasterNightZeroController extends GetxController {
   // KEEP IT UP TO DATE!!!
   List<String> charactersToWakeUp = [
     'mafiaLeader',
+    'mafiaMember',
     'syndicateLeader',
   ];
 

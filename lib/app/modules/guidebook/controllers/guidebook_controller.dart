@@ -68,7 +68,7 @@ class GuidebookController extends GetxController {
           subtitle: 'scenariosSubtitle',
           icon: const Icon(Icons.import_contacts_outlined),
           imagePath: 'assets/images/main_menu/scenarios.jpg',
-          route: '/locations',
+          route: '/scenarios',
         ),
       ],
     ),

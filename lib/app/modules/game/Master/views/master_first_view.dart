@@ -4,13 +4,12 @@ import 'package:get/get.dart';
 import 'package:project/app/shared/widgets/next_button.dart';
 
 import '../../../../constants/maps/fraction.dart';
+import '../../../../shared/widgets/player_list_tile.dart';
 import '../../game_setup/controllers/game_setup_controller.dart';
 import '../controllers/master_controller.dart';
 
 class MasterFirstView extends GetView<MasterController> {
   MasterFirstView({Key? key}) : super(key: key);
-
-  final masterFirstController = Get.put(MasterFirstController());
 
   @override
   Widget build(BuildContext context) {
@@ -58,24 +57,10 @@ class MasterFirstView extends GetView<MasterController> {
                   itemBuilder: (context, index) {
                     Player player = controller.playersList[index];
 
-                    return Obx(() => SizedBox(
-                        child: masterFirstController.showFirstCharacter.value
-                            ? ListTile(
-                                title: Text(player.name),
-                                subtitle: Text(player.character!.name,
-                                    style: const TextStyle(color: Colors.grey)),
-                                leading:
-                                    fractionMap[player.character?.fraction]!
-                                        .image,
-                              )
-                            : ListTile(
-                                title: Text(player.character!.name),
-                                subtitle: Text(player.name,
-                                    style: const TextStyle(color: Colors.grey)),
-                                leading:
-                                    fractionMap[player.character?.fraction]!
-                                        .image,
-                              )));
+                    return SizedBox(
+                        child: PlayerListTile(
+                      player: player,
+                    ));
                   },
                 )),
           ),
@@ -87,8 +72,4 @@ class MasterFirstView extends GetView<MasterController> {
       ),
     );
   }
-}
-
-class MasterFirstController extends GetxController {
-  RxBool showFirstCharacter = true.obs;
 }

@@ -63,16 +63,22 @@ class Messages extends Translations {
           'Enter game code': 'Wprowadź kod gry',
           'Join Game': 'Dołącz do gry',
 
+          //game
+          'GameView': 'Gra',
+          'MasterView': 'Mistrz Gry',
+          'PlayersView': 'Gracze',
+          'MasterNightZeroView': 'Noc 0',
+          'MasterFirstView': 'Gracze i ich role',
+          'MasterDayZeroView': 'Dzień 0',
+          'NightPhaseView': 'Faza Nocna',
+          'DayPhaseView': 'Faza Dzienna',
+
           //settings
           'SettingsView': 'Ustawienia',
 
           //additional info
           'AdditionalInfoView': 'Dodatkowe informacje',
           'Author': 'Autor',
-
-          //master
-          'MasterFirstView': 'Gracze i ich role',
-          'MasterNightZeroView': 'Noc 0',
 
           //locations
           'LocationsView': 'Lokacje',

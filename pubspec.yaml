@@ -42,6 +42,7 @@ flutter:
     - assets/images/locations/
     - assets/images/main_menu/
     - assets/images/flags/
+    - assets/images/scenarios/
     - assets/icons/
     - assets/tutorial/
     - assets/tutorial/pl_PL/

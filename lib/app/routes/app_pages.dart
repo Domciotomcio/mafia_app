@@ -22,6 +22,8 @@ import '../modules/compendium/scenarios/bindings/scenarios_binding.dart';
 import '../modules/compendium/scenarios/views/scenarios_view.dart';
 import '../modules/create_character/bindings/create_character_binding.dart';
 import '../modules/create_character/views/create_character_view.dart';
+import '../modules/game/day_phase/bindings/day_phase_binding.dart';
+import '../modules/game/day_phase/views/day_phase_view.dart';
 import '../modules/game/Master/bindings/master_binding.dart';
 import '../modules/game/Master/views/master_first_view.dart';
 import '../modules/game/Master_night_zero/bindings/master_night_zero_binding.dart';
@@ -42,6 +44,8 @@ import '../modules/how_to_play/bindings/how_to_play_binding.dart';
 import '../modules/how_to_play/views/how_to_play_view.dart';
 import '../modules/how_to_play_menu/bindings/how_to_play_menu_binding.dart';
 import '../modules/how_to_play_menu/views/how_to_play_menu_view.dart';
+import '../modules/game/night_phase/bindings/night_phase_binding.dart';
+import '../modules/game/night_phase/views/night_phase_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/test/bindings/test_binding.dart';
@@ -173,6 +177,9 @@ class AppPages {
       name: _Paths.SCENARIO,
       page: () => const ScenarioView(),
       binding: ScenarioBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.LOCATION,
@@ -186,6 +193,16 @@ class AppPages {
       name: _Paths.JOIN_GAME,
       page: () => const JoinGameView(),
       binding: JoinGameBinding(),
+    ),
+    GetPage(
+      name: _Paths.NIGHT_PHASE,
+      page: () => const NightPhaseView(),
+      binding: NightPhaseBinding(),
+    ),
+    GetPage(
+      name: _Paths.DAY_PHASE,
+      page: () => const DayPhaseView(),
+      binding: DayPhaseBinding(),
     ),
   ];
 }
