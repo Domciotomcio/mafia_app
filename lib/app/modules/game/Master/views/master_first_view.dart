@@ -15,7 +15,7 @@ class MasterFirstView extends GetView<MasterController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MasterFirstView'),
+        title: Text('MasterFirstView'.tr),
         centerTitle: true,
         actions: const [
           // IconButton(

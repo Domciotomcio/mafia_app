@@ -10,6 +10,7 @@ class HowToPlayController extends GetxController with StateMixin<Tutorial> {
   Future<void> onInit() async {
     change(null, status: RxStatus.loading());
     tutorial = await tutorialService.getTutorial('id');
+    print(tutorial!); // prints 3 (example
     change(tutorial, status: RxStatus.success());
     super.onInit();
   }

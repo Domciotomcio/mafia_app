@@ -17,10 +17,6 @@ class SettingsView extends GetView<SettingsController> {
       body: Center(
         child: Column(
           children: [
-            Text(
-              'SettingsView is working',
-              style: TextStyle(fontSize: 20),
-            ),
             Obx(() => ElevatedButton.icon(
                 onPressed: () => controller.toggleBackgroundMusic(),
                 icon:

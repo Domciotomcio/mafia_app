@@ -41,7 +41,7 @@ class NightPhaseController extends GetxController {
       'assasinatedPlayer': mwc.playerTarget.value,
     };
 
-    Get.toNamed('/day-phase', arguments: isAssassinationSuccess);
+    Get.toNamed('/day-phase', arguments: arguments);
   }
 }
 

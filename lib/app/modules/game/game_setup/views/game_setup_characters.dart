@@ -49,7 +49,7 @@ class GameSetupCharacters extends GetView<GameSetupController> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('GameSetupCharactersView'),
+          title:  Text('GameSetupCharactersView'.tr),
           centerTitle: true,
         ),
         body: charactersController.obx(

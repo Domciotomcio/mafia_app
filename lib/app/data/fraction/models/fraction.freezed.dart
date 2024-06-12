@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Fraction {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get nameId => throw _privateConstructorUsedError;
   Color get color => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get target => throw _privateConstructorUsedError;
@@ -40,6 +41,7 @@ abstract class $FractionCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
+      String nameId,
       Color color,
       String description,
       String target,
@@ -65,6 +67,7 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? nameId = null,
     Object? color = null,
     Object? description = null,
     Object? target = null,
@@ -82,6 +85,10 @@ class _$FractionCopyWithImpl<$Res, $Val extends Fraction>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameId: null == nameId
+          ? _value.nameId
+          : nameId // ignore: cast_nullable_to_non_nullable
               as String,
       color: null == color
           ? _value.color
@@ -130,6 +137,7 @@ abstract class _$$FractionImplCopyWith<$Res>
   $Res call(
       {String id,
       String name,
+      String nameId,
       Color color,
       String description,
       String target,
@@ -153,6 +161,7 @@ class __$$FractionImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? nameId = null,
     Object? color = null,
     Object? description = null,
     Object? target = null,
@@ -170,6 +179,10 @@ class __$$FractionImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameId: null == nameId
+          ? _value.nameId
+          : nameId // ignore: cast_nullable_to_non_nullable
               as String,
       color: null == color
           ? _value.color
@@ -213,6 +226,7 @@ class _$FractionImpl implements _Fraction {
   const _$FractionImpl(
       {required this.id,
       required this.name,
+      required this.nameId,
       required this.color,
       required this.description,
       required this.target,
@@ -226,6 +240,8 @@ class _$FractionImpl implements _Fraction {
   final String id;
   @override
   final String name;
+  @override
+  final String nameId;
   @override
   final Color color;
   @override
@@ -245,7 +261,7 @@ class _$FractionImpl implements _Fraction {
 
   @override
   String toString() {
-    return 'Fraction(id: $id, name: $name, color: $color, description: $description, target: $target, history: $history, historicContext: $historicContext, image: $image, imagePath: $imagePath, audioPath: $audioPath)';
+    return 'Fraction(id: $id, name: $name, nameId: $nameId, color: $color, description: $description, target: $target, history: $history, historicContext: $historicContext, image: $image, imagePath: $imagePath, audioPath: $audioPath)';
   }
 
   @override
@@ -255,6 +271,7 @@ class _$FractionImpl implements _Fraction {
             other is _$FractionImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.nameId, nameId) || other.nameId == nameId) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -270,8 +287,19 @@ class _$FractionImpl implements _Fraction {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, color, description,
-      target, history, historicContext, image, imagePath, audioPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      nameId,
+      color,
+      description,
+      target,
+      history,
+      historicContext,
+      image,
+      imagePath,
+      audioPath);
 
   @JsonKey(ignore: true)
   @override
@@ -284,6 +312,7 @@ abstract class _Fraction implements Fraction {
   const factory _Fraction(
       {required final String id,
       required final String name,
+      required final String nameId,
       required final Color color,
       required final String description,
       required final String target,
@@ -297,6 +326,8 @@ abstract class _Fraction implements Fraction {
   String get id;
   @override
   String get name;
+  @override
+  String get nameId;
   @override
   Color get color;
   @override

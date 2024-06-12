@@ -21,8 +21,8 @@ class AdditionalInfoView extends GetView<AdditionalInfoController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Author: $author'.tr),
-            Text('CopyRight: $copyRight'.tr),
+            Text('Autor Aplikacji: $author'.tr),
+            Text('Copyright: $copyRight'.tr),
           ],
         ),
       ),

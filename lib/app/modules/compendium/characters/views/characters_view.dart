@@ -28,7 +28,19 @@ class CharactersView extends GetView<CharactersController> {
             onEmpty: SizedBox(),
             onLoading: SizedBox(),
           ),
-          IconButton(icon: const Icon(Icons.info_outline), onPressed: () {}),
+          IconButton(
+              icon: const Icon(Icons.info_outline),
+              onPressed: () => Get.dialog(AlertDialog(
+                    title: Text('Info'),
+                    content: Text(
+                        'Kliknij na postać, aby zobaczyć więcej informacji.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Get.back(),
+                        child: const Text('Zamknij'),
+                      ),
+                    ],
+                  ))),
         ],
       ),
       backgroundColor: const Color.fromARGB(255, 0, 0, 0),

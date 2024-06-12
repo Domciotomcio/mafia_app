@@ -7,6 +7,7 @@ Map<fraction_enum.Fraction, fraction_model.Fraction> fractionMap = {
   fraction_enum.Fraction.mafia: fraction_model.Fraction(
       id: '1',
       name: 'Mafia',
+      nameId: 'mafia',
       color: const Color.fromARGB(255, 29, 45, 66),
       description:
           "Frakcja Mafia w grze towarzyskiej Mafia to grupa graczy, którzy współpracują ze sobą, aby wyeliminować wszystkich innych uczestników gry, szczególnie członków frakcji miasta",
@@ -40,6 +41,7 @@ Map<fraction_enum.Fraction, fraction_model.Fraction> fractionMap = {
   fraction_enum.Fraction.townsfolk: fraction_model.Fraction(
       id: '2',
       name: 'Miasteczko',
+      nameId: 'townsfolk',
       color: const Color.fromARGB(255, 245, 90, 0),
       description:
           'Zadaniem miasteczka jest wyeliminowanie wszystkich członków mafii.',
@@ -72,6 +74,7 @@ Map<fraction_enum.Fraction, fraction_model.Fraction> fractionMap = {
   fraction_enum.Fraction.sindicate: fraction_model.Fraction(
     id: '3',
     name: 'Syndykat',
+    nameId: 'sindicate',
     color: const Color.fromARGB(255, 1, 10, 143),
     description:
         'Zadaniem syndykatu jest wyeliminowanie wszystkich członków miasteczka.',
@@ -102,6 +105,7 @@ Map<fraction_enum.Fraction, fraction_model.Fraction> fractionMap = {
   fraction_enum.Fraction.redMafia: fraction_model.Fraction(
     id: '4',
     name: 'Czerwona Mafia',
+    nameId: 'red_mafia',
     color: const Color.fromARGB(255, 150, 1, 1),
     description:
         'Zadaniem czerwonej mafii jest wyeliminowanie wszystkich członków miasteczka.',

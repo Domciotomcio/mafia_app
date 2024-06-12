@@ -8,6 +8,7 @@ abstract class Fraction with _$Fraction {
   const factory Fraction({
     required String id,
     required String name,
+    required String nameId,
     required Color color,
     required String description,
     required String target,

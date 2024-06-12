@@ -17,19 +17,18 @@ class FractionsView extends GetView<FractionsController> {
         title: Text('FractionsView'.tr),
         actions: [
           IconButton(
-            icon: const Icon(Icons.info_outline),
-            onPressed: () => Get.dialog(Dialog(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(children: [
-                  Text('FractionsView'.tr, style: TextStyle(fontSize: 20)),
-                  SizedBox(height: 10),
-                  Text(
-                      'This is a list of all fractions in the game. Click on a fraction to see more details.'),
-                ]),
-              ),
-            )),
-          ),
+              icon: const Icon(Icons.info_outline),
+              onPressed: () => Get.dialog(AlertDialog(
+                    title: Text('Info'),
+                    content: Text(
+                        'Kliknij na frakcję, aby zobaczyć więcej informacji.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Get.back(),
+                        child: const Text('Zamknij'),
+                      ),
+                    ],
+                  ))),
         ],
       ),
       backgroundColor: Colors.black,

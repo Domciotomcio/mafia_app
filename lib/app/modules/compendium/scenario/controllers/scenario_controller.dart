@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
 class ScenarioController extends GetxController {
-  //TODO: Implement ScenarioController
+  var scenario;
 
-  final count = 0.obs;
   @override
   void onInit() {
+    scenario = Get.arguments['scenario'];
     super.onInit();
   }
 
@@ -18,6 +18,4 @@ class ScenarioController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

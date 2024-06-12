@@ -63,6 +63,8 @@ class Messages extends Translations {
           'Enter game code': 'Wprowadź kod gry',
           'Join Game': 'Dołącz do gry',
 
+          'GameSetupCharactersView': 'Wybór postaci',
+
           //game
           'GameView': 'Gra',
           'MasterView': 'Mistrz Gry',
@@ -75,6 +77,7 @@ class Messages extends Translations {
 
           //settings
           'SettingsView': 'Ustawienia',
+          'HowToPlayView': 'Jak grać?',
 
           //additional info
           'AdditionalInfoView': 'Dodatkowe informacje',
@@ -90,6 +93,13 @@ class Messages extends Translations {
 
           //fractions
           'FractionsView': 'Frakcje',
+
+          // scenarios
+          'ScenariosView': 'Scenariusze',
+          'Scenarios': 'Scenariusze',
+          'location': 'Miejsce',
+          'scenario': 'Scenariusz',
+          'year': 'Rok',
         },
         'de_DE': {
           'game': 'Spiel',

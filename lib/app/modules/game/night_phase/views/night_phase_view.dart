@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:project/app/modules/game/Master/controllers/master_controller.dart';
+import 'package:project/app/shared/widgets/next_button.dart';
 import 'package:project/app/shared/widgets/player_list_tile.dart';
 
 import '../../../../constants/enums/fraction.dart' as FractionEnum;
@@ -25,14 +26,7 @@ class NightPhaseView extends GetView<NightPhaseController> {
           const Divider(),
           DoctorWakeWidget(),
           const Divider(),
-          SizedBox(
-            width: double.infinity,
-            child: FilledButton(
-                onPressed: () => controller.nightSummary(),
-                child: const Text(
-                  "Dalej",
-                )),
-          )
+          NextButton(onPressed: () => controller.nightSummary())
         ],
       ),
     );
@@ -179,9 +173,14 @@ Widget CattaniWakeWidget() {
                               player: player,
                               onPressed: () {
                                 Get.back();
-                                Get.dialog(Dialog(
-                                    child: personStatus(cattaniWakeController
-                                        .selectPlayerToCheck(player))));
+                                Get.dialog(AlertDialog(
+                                    content: personStatus(cattaniWakeController
+                                        .selectPlayerToCheck(player)),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () => Get.back(),
+                                          child: const Text('Zamknij'))
+                                    ]));
                               }),
                       ],
                     ),
