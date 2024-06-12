@@ -211,15 +211,15 @@ class CharacterInfoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DescWithLabel(label: "Opis", description: character.description),
-        const Divider(),
+        // const Divider(),
         DescWithLabel(label: "Historia", description: character.story),
-        const Divider(),
+        // const Divider(),
         if (character.howToPlay.isNotEmpty)
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               howToPlayInfo(character.howToPlay, context),
-              const Divider(),
+              // const Divider(),
             ],
           ),
         if (character.additionalInfo.isNotEmpty)
@@ -227,7 +227,7 @@ class CharacterInfoSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               additionalInfo(character.additionalInfo, context),
-              const Divider(),
+              // const Divider(),
             ],
           ),
         if (character.rate.isNotEmpty)
@@ -235,10 +235,10 @@ class CharacterInfoSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               characterRate(character.rate, context),
-              const Divider(),
+              // const Divider(),
             ],
           ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 24),
         Center(child: characterQuote(character.quote, context)),
         const SizedBox(height: 10),
       ],
@@ -267,55 +267,65 @@ Widget characterRate(Map<String, int> rates, BuildContext context) {
 
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Ocena",
-          // style: Theme.of(context).textTheme.labelLarge,
-          style: GoogleFonts.dancingScript(
-            fontSize: 20,
+    child: Center(
+      child: Column(
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Ocena",
+            style: GoogleFonts.dancingScript(
+              fontSize: 24,
+            ),
+            textAlign: TextAlign.end,
           ),
-        ),
-        const SizedBox(height: 8),
-        for (var rate in rates.entries)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(rate.value.toString(),
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: levelColor[rate.value]!)),
-              Text(
-                "/5",
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontStyle: FontStyle.italic,
-                    ),
-              ),
-              const SizedBox(width: 12),
-              Text("${characterRateTranslationMap[rate.key]}",
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontStyle: FontStyle.italic,
-                      )),
-              const SizedBox(width: 12),
-            ],
+          const SizedBox(height: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: rates.entries
+                .map((rate) => Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(rate.value.toString(),
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: levelColor[rate.value]!)),
+                        Text(
+                          "/5",
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                        ),
+                        const SizedBox(width: 12),
+                        Text("${characterRateTranslationMap[rate.key]}",
+                            style:
+                                Theme.of(context).textTheme.bodySmall?.copyWith(
+                                      fontStyle: FontStyle.italic,
+                                    )),
+                        const SizedBox(width: 12),
+                      ],
+                    ))
+                .toList(),
           ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.start,
-        //   children: [
-        //     Text(level.toString(),
-        //         style: TextStyle(
-        //             fontSize: 18,
-        //             fontWeight: FontWeight.bold,
-        //             color: levelColor[level]!)),
-        //     Text(" - ${levelDesc[level]!}",
-        //         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-        //               fontStyle: FontStyle.italic,
-        //             )),
-        //   ],
-        // ),
-      ],
+
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   children: [
+          //     Text(level.toString(),
+          //         style: TextStyle(
+          //             fontSize: 18,
+          //             fontWeight: FontWeight.bold,
+          //             color: levelColor[level]!)),
+          //     Text(" - ${levelDesc[level]!}",
+          //         style: Theme.of(context).textTheme.bodySmall?.copyWith(
+          //               fontStyle: FontStyle.italic,
+          //             )),
+          //   ],
+          // ),
+        ],
+      ),
     ),
   );
 }
@@ -324,33 +334,38 @@ Widget additionalInfo(Map<String, bool> additionalInfo, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           "Dodatkowe informacje",
           // style: Theme.of(context).textTheme.labelLarge,
           style: GoogleFonts.dancingScript(
-            fontSize: 20,
+            fontSize: 24,
           ),
         ),
         const SizedBox(height: 8),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: additionalInfo.entries
-              .map((entry) => Row(
-                    children: [
-                      entry.value
-                          ? const Icon(Icons.check, color: Colors.green)
-                          : const Icon(Icons.close, color: Colors.red),
-                      const SizedBox(width: 8),
-                      Text(additionalInfoTranslationMap[entry.key]!,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall
-                              ?.copyWith(fontStyle: FontStyle.italic)),
-                    ],
-                  ))
-              .toList(),
+        Center(
+          child: Container(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: additionalInfo.entries
+                  .map((entry) => Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          entry.value
+                              ? const Icon(Icons.check, color: Colors.green)
+                              : const Icon(Icons.close, color: Colors.red),
+                          const SizedBox(width: 8),
+                          Text(additionalInfoTranslationMap[entry.key]!,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall
+                                  ?.copyWith(fontStyle: FontStyle.italic)),
+                        ],
+                      ))
+                  .toList(),
+            ),
+          ),
         ),
       ],
     ),
@@ -360,47 +375,33 @@ Widget additionalInfo(Map<String, bool> additionalInfo, BuildContext context) {
 Widget howToPlayInfo(List<String> howToPlay, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Jak grać",
-          // style: Theme.of(context).textTheme.labelLarge,
-          style: GoogleFonts.dancingScript(
-            fontSize: 20,
+    child: Center(
+      child: Column(
+        children: [
+          Text(
+            "Jak grać",
+            // style: Theme.of(context).textTheme.labelLarge,
+            style: GoogleFonts.dancingScript(
+              fontSize: 24,
+            ),
           ),
-        ),
-        const SizedBox(height: 8),
-        AnimatedTextKit(
-          animatedTexts: [
-            for (String s in howToPlay)
-              TyperAnimatedText(
-                s,
-                textStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontStyle: FontStyle.italic,
-                    ),
-                speed: const Duration(milliseconds: 30),
-              ),
-          ],
-          pause: const Duration(seconds: 4),
-        ),
-        // const SizedBox(height: 8),
-        // Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: howToPlay
-        //       .map((entry) => Column(
-        //             children: [
-        //               Text("- " + entry,
-        //                   style:
-        //                       Theme.of(context).textTheme.bodySmall?.copyWith(
-        //                             fontStyle: FontStyle.italic,
-        //                           )),
-        //               SizedBox(height: 8),
-        //             ],
-        //           ))
-        //       .toList(),
-        // ),
-      ],
+          const SizedBox(height: 8),
+          AnimatedTextKit(
+            animatedTexts: [
+              for (String s in howToPlay)
+                TyperAnimatedText(
+                  s,
+                  textStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      // fontStyle: FontStyle.italic,
+                      ),
+                  textAlign: TextAlign.justify,
+                  speed: const Duration(milliseconds: 30),
+                ),
+            ],
+            pause: const Duration(seconds: 4),
+          ),
+        ],
+      ),
     ),
   );
 }

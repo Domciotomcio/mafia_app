@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DescWithLabel extends StatelessWidget {
@@ -19,21 +20,22 @@ class DescWithLabel extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         width: width,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               label,
               //style: Theme.of(context).textTheme.labelLarge,
               style: GoogleFonts.dancingScript(
-                fontSize: 20,
+                fontSize: 24,
               ),
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 16),
             Text(
               description,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontStyle: FontStyle.italic,
+                  // fontStyle: FontStyle.italic,
                   ),
+              textAlign: TextAlign.justify,
             ),
           ],
         ));

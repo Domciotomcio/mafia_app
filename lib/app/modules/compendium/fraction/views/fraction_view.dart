@@ -107,9 +107,9 @@ Widget fractionInfoSection({required fraction_model.Fraction fraction}) {
     children: [
       // Name
       DescWithLabel(label: "Opis", description: fraction.description),
-      const Divider(),
+      // const Divider(),
       DescWithLabel(label: "Cel", description: fraction.target),
-      const Divider(),
+      // const Divider(),
       DescWithLabel(label: "Historia", description: fraction.history),
     ],
   );
