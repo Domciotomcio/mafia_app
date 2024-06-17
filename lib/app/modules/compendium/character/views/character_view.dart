@@ -240,7 +240,7 @@ class CharacterInfoSection extends StatelessWidget {
           ),
         const SizedBox(height: 24),
         Center(child: characterQuote(character.quote, context)),
-        const SizedBox(height: 10),
+        const SizedBox(height: 24),
       ],
     );
   }
@@ -372,7 +372,7 @@ Widget additionalInfo(Map<String, bool> additionalInfo, BuildContext context) {
   );
 }
 
-Widget howToPlayInfo(List<String> howToPlay, BuildContext context) {
+Widget howToPlayInfoOld(List<String> howToPlay, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Center(
@@ -402,6 +402,44 @@ Widget howToPlayInfo(List<String> howToPlay, BuildContext context) {
           ),
         ],
       ),
+    ),
+  );
+}
+
+Widget howToPlayInfo(List<String> howToPlay, BuildContext context) {
+  return Container(
+    //color: Colors.red,
+    width: double.infinity,
+    padding: const EdgeInsets.all(16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Jak grać",
+              // style: Theme.of(context).textTheme.labelLarge,
+              style: GoogleFonts.dancingScript(
+                fontSize: 24,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        for (String s in howToPlay)
+          ListTile(
+              leading: const Icon(Icons.arrow_right),
+              title: Text(
+                s,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(),
+              )),
+        // Text(
+        //   "\u2022 ${s}",
+        //   textAlign: TextAlign.start,
+        // ),
+      ],
     ),
   );
 }

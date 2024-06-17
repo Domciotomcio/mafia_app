@@ -17,7 +17,7 @@ class DescWithLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(16),
         width: width,
         child: Column(
           children: [
@@ -32,9 +32,7 @@ class DescWithLabel extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               description,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  // fontStyle: FontStyle.italic,
-                  ),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(),
               textAlign: TextAlign.justify,
             ),
           ],
