@@ -26,6 +26,7 @@ dependencies:
   flutter_markdown: ^0.7.1
   audioplayers: ^6.0.0
   dcli: ^4.0.1-beta.4
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies: 
   flutter_test: 
@@ -49,3 +50,7 @@ flutter:
     - assets/audio/
     - assets/audio/fractions/
 
+flutter_launcher_icons:
+  android: true
+  min_sdk_android: 21
+  image_path_android: "assets/icons/logo.png"

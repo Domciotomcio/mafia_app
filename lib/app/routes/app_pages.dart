@@ -98,6 +98,8 @@ class AppPages {
       page: () => const FractionsView(),
       binding: FractionsBinding(),
       transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.FRACTION,
@@ -124,11 +126,17 @@ class AppPages {
       name: _Paths.GAME_PREPARING,
       page: () => const GamePreparingView(),
       binding: GamePreparingBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.GAME_SETUP,
       page: () => GameSetupView(),
       binding: GameSetupBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.LOCATIONS,
@@ -142,11 +150,17 @@ class AppPages {
       name: _Paths.SETTINGS,
       page: () => SettingsView(),
       binding: SettingsBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.ADDITIONAL_INFO,
       page: () => const AdditionalInfoView(),
       binding: AdditionalInfoBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.GAME_CARD,
@@ -172,6 +186,9 @@ class AppPages {
       name: _Paths.SCENARIOS,
       page: () => const ScenariosView(),
       binding: ScenariosBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.SCENARIO,
@@ -198,11 +215,17 @@ class AppPages {
       name: _Paths.NIGHT_PHASE,
       page: () => const NightPhaseView(),
       binding: NightPhaseBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
     GetPage(
       name: _Paths.DAY_PHASE,
       page: () => const DayPhaseView(),
       binding: DayPhaseBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
     ),
   ];
 }
