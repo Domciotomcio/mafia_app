@@ -4,8 +4,6 @@ import '../../../../constants/enums/fraction.dart' as FractionEnum;
 import '../../game_setup/controllers/game_setup_controller.dart';
 
 class NightPhaseController extends GetxController {
-  //TODO: Implement NightPhaseController
-
   void nightSummary() {
     final mwc = Get.find<MafiaWakeController>();
     final cwc = Get.find<CattaniWakeController>();

@@ -25,8 +25,8 @@ class CharacterService extends GetxService {
     return characters;
   }
 
-  Future<void> updateCharacter(Character character) async {
-    await characterRepository.updateCharacter(character);
+  Future<void> updateCharacter(String id, Character character) async {
+    await characterRepository.updateCharacter(id, character);
   }
 
   Future<void> deleteCharacter(String id) async {

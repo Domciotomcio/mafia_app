@@ -17,6 +17,11 @@ class MasterNightZeroView extends GetView<MasterNightZeroController> {
 
   var MafiaWavingOrder = [
     'mafiaLeader',
+    'coquette',
+    'terrorist',
+    'blackMailer',
+    'mafiaGunslinger',
+    'mafiaMember'
   ];
 
   @override

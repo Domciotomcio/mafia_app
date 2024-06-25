@@ -7,9 +7,20 @@ import 'character_provider.dart';
 
 class FirebaseCharacterProvider implements CharacterProvider {
   @override
-  Future<void> deleteCharacter(String id) {
-    // TODO: implement deleteCharacter
-    throw UnimplementedError();
+  Future<bool> deleteCharacter(String id) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('characters')
+          .doc('characters_sets')
+          .collection('default')
+          .doc(id)
+          .delete();
+
+      return true;
+    } catch (e) {
+      log("Error while deleting character: ${e.toString()}");
+      return false;
+    }
   }
 
   @override
@@ -37,7 +48,6 @@ class FirebaseCharacterProvider implements CharacterProvider {
   @override
   Future<Character?> fetchCharacter(String id) async {
     try {
-      // fetch data from firebase
       var docSnapshot = await FirebaseFirestore.instance
           .collection('characters')
           .doc('characters_sets')
@@ -55,8 +65,19 @@ class FirebaseCharacterProvider implements CharacterProvider {
   }
 
   @override
-  Future<void> updateCharacter(Character character) {
-    // TODO: implement updateCharacter
-    throw UnimplementedError();
+  Future<bool> updateCharacter(String id, Character character) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('characters')
+          .doc('characters_sets')
+          .collection('default')
+          .doc(id)
+          .update(character.toJson());
+
+      return true;
+    } catch (e) {
+      log("Error while updating character: ${e.toString()}");
+      return false;
+    }
   }
 }

@@ -66,12 +66,14 @@ class MockCharacterProvider implements CharacterProvider {
   }
 
   @override
-  Future<void> updateCharacter(Character character) async {
-    // In a mock provider, this method might do nothing.
+  Future<bool> updateCharacter(String id, Character character) async {
+    Future.delayed(const Duration(seconds: 1));
+    return true;
   }
 
   @override
-  Future<void> deleteCharacter(String id) async {
-    // In a mock provider, this method might do nothing.
+  Future<bool> deleteCharacter(String id) async {
+    Future.delayed(const Duration(seconds: 1));
+    return true;
   }
 }

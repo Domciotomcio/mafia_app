@@ -21,7 +21,13 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // background music
+<<<<<<< HEAD
   Get.put(AudioController(), tag: 'backgroundAudioController', permanent: true);
+=======
+  // ignore: unused_local_variable
+  AudioController audioController = Get.put(AudioController(),
+      tag: 'backgroundAudioController', permanent: true);
+>>>>>>> 3b7ee09c1324bfc573275121b010639e6289e3c4
   // audioController.playAudio('audio/background.mp3', loop: true, volume: 0.2);
 
   runApp(
@@ -50,7 +56,6 @@ Future<void> main() async {
             inverseSurface: Colors.white,
           )),
       translations: Messages(),
-      //locale: Locale('pl', 'PL'),
       locale: const Locale('pl', 'PL'),
       //fallbackLocale: Locale('en', 'US'),
     ),

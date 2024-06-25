@@ -12,7 +12,7 @@ import '../controllers/game_setup_controller.dart';
 class GameSetupCharacters extends GetView<GameSetupController> {
   GameSetupCharacters({Key? key}) : super(key: key);
 
-  var charactersController = Get.put(CharactersController());
+  final charactersController = Get.put(CharactersController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class GameSetupCharacters extends GetView<GameSetupController> {
 
     return Scaffold(
         appBar: AppBar(
-          title:  Text('GameSetupCharactersView'.tr),
+          title: Text('GameSetupCharactersView'.tr),
           centerTitle: true,
         ),
         body: charactersController.obx(

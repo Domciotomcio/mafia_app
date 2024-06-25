@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 import 'package:project/app/data/character/services/character_service.dart';
 

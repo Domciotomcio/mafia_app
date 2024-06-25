@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 
 class ScenariosController extends GetxController {
-  //TODO: Implement ScenariosController
-
   final scenarios = {
     'scenario1': Scenario(
         title: 'Zimna Wojna',

@@ -60,15 +60,18 @@ class CharactersView extends GetView<CharactersController> {
                   height: 70,
                   fit: BoxFit.cover,
                   colorBlendMode: BlendMode.darken,
-                  color: Colors.black.withOpacity(0.8),
+                  color: Colors.black.withOpacity(0.6),
                 ),
                 ListTile(
                   title: Text(character.name,
                       style: GoogleFonts.dancingScript(fontSize: 24)),
-                  subtitle: Text(character.otherNames.join(', '),
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            fontStyle: FontStyle.italic,
-                          )),
+                  subtitle: character.otherNames.length != 0
+                      ? Text(character.otherNames.join(', '),
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    fontStyle: FontStyle.italic,
+                                  ))
+                      : null,
                   trailing: fraction.image,
                   // onTap: () => Get.to(const CharacterView(),
                   //     binding: CharacterBinding(),
