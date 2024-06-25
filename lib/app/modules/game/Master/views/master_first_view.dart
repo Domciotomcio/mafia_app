@@ -16,36 +16,6 @@ class MasterFirstView extends GetView<MasterController> {
       appBar: AppBar(
         title: Text('MasterFirstView'.tr),
         centerTitle: true,
-        actions: const [
-          // IconButton(
-          //   onPressed: () {
-          //     masterFirstController.showFirstCharacter.value =
-          //         !masterFirstController.showFirstCharacter.value;
-
-          //     if (masterFirstController.showFirstCharacter.value) {
-          //       controller.playersList.sort(
-          //           (a, b) => (a as Player).name.compareTo((b as Player).name));
-          //     } else {
-          //       controller.playersList.sort((a, b) {
-          //         int fractionCompare = (a as Player)
-          //             .character!
-          //             .fraction
-          //             .index
-          //             .compareTo((b as Player).character!.fraction.index);
-          //         if (fractionCompare == 0) {
-          //           return (a as Player)
-          //               .character!
-          //               .name
-          //               .compareTo((b as Player).character!.name);
-          //         } else {
-          //           return fractionCompare;
-          //         }
-          //       });
-          //     }
-          //   },
-          //   icon: const Icon(Icons.sort_outlined),
-          // ),
-        ],
       ),
       body: Column(
         children: [
@@ -72,7 +42,6 @@ class MasterFirstView extends GetView<MasterController> {
                   },
                 )),
           ),
-          //NextButton(onPressed: () => print("SIEMA"), text: "Zacznij noc 0"),
           NextButton(
               onPressed: () => Get.toNamed('/master-night-zero'),
               text: "Rozpocznij noc 0"),
