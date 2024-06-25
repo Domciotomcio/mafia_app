@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +21,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // background music
+  // ignore: unused_local_variable
   AudioController audioController = Get.put(AudioController(),
       tag: 'backgroundAudioController', permanent: true);
   // audioController.playAudio('audio/background.mp3', loop: true, volume: 0.2);
@@ -52,7 +52,6 @@ Future<void> main() async {
             inverseSurface: Colors.white,
           )),
       translations: Messages(),
-      //locale: Locale('pl', 'PL'),
       locale: const Locale('pl', 'PL'),
       //fallbackLocale: Locale('en', 'US'),
     ),

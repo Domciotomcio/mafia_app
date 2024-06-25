@@ -17,8 +17,8 @@ class CharacterRepository {
     return charactersData;
   }
 
-  Future<void> updateCharacter(Character character) async {
-    await characterProvider.updateCharacter(character);
+  Future<void> updateCharacter(String id, Character character) async {
+    await characterProvider.updateCharacter(id, character);
   }
 
   Future<void> deleteCharacter(String id) async {
