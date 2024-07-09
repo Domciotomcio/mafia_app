@@ -20,28 +20,30 @@ class MasterFirstView extends GetView<MasterController> {
       body: Column(
         children: [
           const Text('Przeciągnij, aby zmienić kolejność'),
-          Expanded(
-              child: ReorderableListView(
-            onReorder: (int oldIndex, int newIndex) =>
-                controller.gameSetup.onReorder(oldIndex, newIndex),
-            children: controller.playersList.map((player) => PlayerListTile(
-                  player: player,
-                  key: ValueKey(player),
-                )),
-          )),
-          Expanded(
-            child: Obx(() => ListView.builder(
-                  itemCount: controller.playersList.length,
-                  itemBuilder: (context, index) {
-                    Player player = controller.playersList[index];
+          Obx(() => Expanded(
+                  child: ReorderableListView(
+                onReorder: (int oldIndex, int newIndex) =>
+                    controller.gameSetup.onReorder(oldIndex, newIndex),
+                children: controller.playersList
+                    .map<Widget>((player) => PlayerListTile(
+                          player: player,
+                          key: ValueKey(player),
+                        ))
+                    .toList(),
+              ))),
+          // Expanded(
+          //   child: Obx(() => ListView.builder(
+          //         itemCount: controller.playersList.length,
+          //         itemBuilder: (context, index) {
+          //           Player player = controller.playersList[index];
 
-                    return SizedBox(
-                        child: PlayerListTile(
-                      player: player,
-                    ));
-                  },
-                )),
-          ),
+          //           return SizedBox(
+          //               child: PlayerListTile(
+          //             player: player,
+          //           ));
+          //         },
+          //       )),
+          // ),
           NextButton(
               onPressed: () => Get.toNamed('/master-night-zero'),
               text: "Rozpocznij noc 0"),

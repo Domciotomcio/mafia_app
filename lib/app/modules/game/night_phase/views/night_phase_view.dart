@@ -63,6 +63,7 @@ Widget MafiaWakeWidget() {
                   style: const TextStyle(
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
+                    color: Colors.red,
                   )),
           onTap: () => Get.dialog(
                 Dialog(
@@ -135,60 +136,54 @@ Widget CattaniWakeWidget() {
     );
   }
 
-  return Column(
-    children: [
-      Obx(() => ListTile(
-          leading: fractionMap[FractionEnum.Fraction.townsfolk]!.image,
-          title: Text("Budzi się Cattani",
-              style: cattaniWakeController.checked.value
-                  ? TextStyle(
-                      decoration: TextDecoration.lineThrough,
-                      color: Colors.grey)
-                  : null),
-          subtitle: Text("Cattani wybiera osobę do sprawdzenia",
-              style: cattaniWakeController.checked.value
-                  ? TextStyle(
-                      decoration: TextDecoration.lineThrough,
-                      color: Colors.grey)
-                  : null),
-          trailing: cattaniWakeController.playerToCheck.value == null
-              ? Icon(Icons.person)
-              : Text(cattaniWakeController.playerToCheck.value!.name,
-                  style: const TextStyle(
-                      fontSize: 16, fontStyle: FontStyle.italic)),
-          onTap: () => Get.dialog(
-                Dialog(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text(
-                          'Wybierz osobę do sprawdzenia',
-                          textAlign: TextAlign.center,
-                        ),
-                        const Divider(),
-                        for (var player in masterController.playersList)
-                          PlayerListTile(
-                              player: player,
-                              onPressed: () {
-                                Get.back();
-                                Get.dialog(AlertDialog(
-                                    content: personStatus(cattaniWakeController
-                                        .selectPlayerToCheck(player)),
-                                    actions: [
-                                      TextButton(
-                                          onPressed: () => Get.back(),
-                                          child: const Text('Zamknij'))
-                                    ]));
-                              }),
-                      ],
+  return Obx(() => ListTile(
+      leading: fractionMap[FractionEnum.Fraction.townsfolk]!.image,
+      title: Text("Budzi się Cattani",
+          style: cattaniWakeController.checked.value
+              ? TextStyle(
+                  decoration: TextDecoration.lineThrough, color: Colors.grey)
+              : null),
+      subtitle: Text("Cattani wybiera osobę do sprawdzenia",
+          style: cattaniWakeController.checked.value
+              ? TextStyle(
+                  decoration: TextDecoration.lineThrough, color: Colors.grey)
+              : null),
+      trailing: cattaniWakeController.playerToCheck.value == null
+          ? Icon(Icons.person)
+          : Text(cattaniWakeController.playerToCheck.value!.name,
+              style:
+                  const TextStyle(fontSize: 16, fontStyle: FontStyle.italic)),
+      onTap: () => Get.dialog(
+            Dialog(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'Wybierz osobę do sprawdzenia',
+                      textAlign: TextAlign.center,
                     ),
-                  ),
+                    const Divider(),
+                    for (var player in masterController.playersList)
+                      PlayerListTile(
+                          player: player,
+                          onPressed: () {
+                            Get.back();
+                            Get.dialog(AlertDialog(
+                                content: personStatus(cattaniWakeController
+                                    .selectPlayerToCheck(player)),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () => Get.back(),
+                                      child: const Text('Zamknij'))
+                                ]));
+                          }),
+                  ],
                 ),
-              ))),
-    ],
-  );
+              ),
+            ),
+          )));
 }
 
 Widget DoctorWakeWidget() {

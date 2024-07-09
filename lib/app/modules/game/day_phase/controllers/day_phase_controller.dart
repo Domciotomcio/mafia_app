@@ -1,23 +1,25 @@
 import 'package:get/get.dart';
 
-class DayPhaseController extends GetxController {
-  //TODO: Implement DayPhaseController
+import '../../game_setup/controllers/game_setup_controller.dart';
 
-  final count = 0.obs;
+class DayPhaseController extends GetxController {
+  var checkOrKill = CheckOrKill.none.obs;
+  var selectedPlayer = Rx<Player?>(null);
+
   @override
   void onInit() {
     super.onInit();
+    print('DayPhaseController created, checkOrKill: $checkOrKill');
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void setCheckOrKill(CheckOrKill value) {
+    checkOrKill.value = value;
+    selectedPlayer.value = null;
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  void setSelectedPlayer(Player player) {
+    selectedPlayer.value = player;
   }
-
-  void increment() => count.value++;
 }
+
+enum CheckOrKill { check, kill, none }

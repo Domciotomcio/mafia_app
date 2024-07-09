@@ -43,22 +43,24 @@ Widget WeatherForecastWidget() {
     'red_mafia': controller.getNumberOfPlayers('red_mafia'),
   };
 
+  Widget weatherRow(String text, int number) {
+    return Row(
+      children: [
+        Text(text),
+        Text(number.toString(), style: const TextStyle(fontSize: 24)),
+      ],
+    );
+  }
+
   return Container(
     width: double.infinity,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Prognoza pogody",
-            style: GoogleFonts.dancingScript(fontSize: 20),
-            textAlign: TextAlign.start),
-        const Text("..."),
-        Text(
-          'Liczba postaci: ${numOfPlayers['all']}',
-        ),
-        Text("Liczba miastowych: ${numOfPlayers['townsfolk']}"),
-        Text("Liczba mafii: ${numOfPlayers['mafia']}"),
-        Text("Liczba syndykatu: ${numOfPlayers['sindicate']}"),
-        Text("Liczba czerwonej mafii: ${numOfPlayers['red_mafia']}"),
+        weatherRow("Liczba postaci:", numOfPlayers['all']!),
+        weatherRow("Liczba miastowych:", numOfPlayers['townsfolk']!),
+        weatherRow("Liczba mafii:", numOfPlayers['mafia']!),
+        weatherRow("Liczba syndykatu:", numOfPlayers['sindicate']!),
       ],
     ),
   );

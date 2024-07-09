@@ -72,8 +72,8 @@ class Messages extends Translations {
           'MasterNightZeroView': 'Noc 0',
           'MasterFirstView': 'Gracze i ich role',
           'MasterDayZeroView': 'Dzień 0',
-          'NightPhaseView': 'Faza Nocna',
-          'DayPhaseView': 'Faza Dzienna',
+          'NightPhaseView': 'Faza Nocy',
+          'DayPhaseView': 'Faza Dnia',
 
           //settings
           'SettingsView': 'Ustawienia',
