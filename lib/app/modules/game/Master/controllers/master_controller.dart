@@ -3,68 +3,45 @@ import 'package:project/app/constants/enums/fraction.dart';
 
 import '../../game_setup/controllers/game_setup_controller.dart';
 
+const NIGHT_PHASES = [
+  'mafia',
+  'cattani',
+  'doctor',
+];
+
+const DAY_PHASES = [
+  'voteCheckKill',
+  'selectPlayer',
+];
+
+const NIGHT_ZERO_PHASES = [
+  'mafia',
+];
+
 class MasterController extends GetxController {
   var gameSetup = Get.find<GameSetupController>();
 
-  var playersList;
-
-  var nightZeroPhases = [
-    'mafia',
-  ];
-
-  var nightPhases = [
-    'mafia',
-    'cattani',
-    'doctor',
-  ];
-
-  var dayPhases = [
-    'check-kill',
-    'vote',
-  ];
-
-  var actPhase = 'mafia';
+  List<Player> playersList = [];
+  List<Player> deadPlayers = [];
 
   @override
   void onInit() {
-    playersList = gameSetup.players;
+    // when the game starts, we get the players list from the game setup
+    playersList = List.from(gameSetup.players);
 
     super.onInit();
   }
 
-  // mafia roles -ERRORS
-  void getMafiaRoles() {
-    playersList
-        .where((player) => player.character!.fraction == 'mafia')
-        .toList();
+  /// Get the number of alive players from given fracion in the game
+  int numOfPlayers(Fraction fraction) {
+    return playersList
+        .where((player) => player.character!.fraction == fraction)
+        .toList()
+        .length;
   }
 
-  int getNumberOfPlayers(String fraction) {
-    switch (fraction) {
-      case 'all':
-        return playersList.length;
-      case 'mafia':
-        return playersList
-            .where((player) => player.character!.fraction == Fraction.mafia)
-            .toList()
-            .length;
-      case 'townsfolk':
-        return playersList
-            .where((player) => player.character!.fraction == Fraction.townsfolk)
-            .toList()
-            .length;
-      case 'sindicate':
-        return playersList
-            .where((player) => player.character!.fraction == Fraction.sindicate)
-            .toList()
-            .length;
-      case 'red_mafia':
-        return playersList
-            .where((player) => player.character!.fraction == Fraction.redMafia)
-            .toList()
-            .length;
-      default:
-        return -1;
-    }
+  void movePlayerToDeadPlayers(Player player) {
+    deadPlayers.add(player);
+    playersList.remove(player);
   }
 }

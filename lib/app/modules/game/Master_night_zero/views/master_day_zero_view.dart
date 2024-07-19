@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project/app/modules/game/Master/views/master_view.dart';
 
 import '../controllers/master_night_zero_controller.dart';
 
@@ -20,12 +21,12 @@ class MasterDayZeroView extends GetView<MasterNightZeroController> {
           ),
           const Divider(),
           const Text("Prognoza na dziś"),
-          const Text("..."),
+          WeatherForecastWidget(),
           const Divider(),
           SizedBox(
             width: double.infinity,
             child: FilledButton(
-                onPressed: () => Get.toNamed('/night-phase'),
+                onPressed: () => Get.offAllNamed('/night-phase'),
                 child: const Text(
                   "Dalej",
                 )),

@@ -51,6 +51,14 @@ class GameSetupCharacters extends GetView<GameSetupController> {
         appBar: AppBar(
           title: Text('GameSetupCharactersView'.tr),
           centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.holiday_village),
+              onPressed: () {
+                Get.back();
+              },
+            ),
+          ],
         ),
         body: charactersController.obx(
           (state) => ListView.separated(

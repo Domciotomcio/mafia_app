@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
+import 'package:project/app/modules/game/Master/controllers/master_controller.dart';
 
 import '../../../../constants/enums/fraction.dart' as FractionEnum;
 import '../../game_setup/controllers/game_setup_controller.dart';
 
 class NightPhaseController extends GetxController {
   void nightSummary() {
+    final master = Get.find<MasterController>();
+
     final mwc = Get.find<MafiaWakeController>();
     final cwc = Get.find<CattaniWakeController>();
     final dwc = Get.find<DoctorWakeController>();
@@ -30,6 +33,9 @@ class NightPhaseController extends GetxController {
         print('Mafia nie zabiła gracza');
       } else {
         isAssassinationSuccess = true;
+
+        // move eleminated player to deadPlayers list
+        master.movePlayerToDeadPlayers(mwc.playerTarget.value!);
         print('Mafia zabiła gracza');
       }
     }
@@ -39,7 +45,7 @@ class NightPhaseController extends GetxController {
       'assasinatedPlayer': mwc.playerTarget.value,
     };
 
-    Get.toNamed('/day-phase', arguments: arguments);
+    Get.offAndToNamed('/day-phase', arguments: arguments);
   }
 }
 

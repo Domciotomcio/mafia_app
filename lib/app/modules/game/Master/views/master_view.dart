@@ -1,8 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../constants/enums/fraction.dart';
 import '../../../../constants/maps/fraction.dart';
 import '../../game_setup/controllers/game_setup_controller.dart';
 import '../controllers/master_controller.dart';
@@ -36,11 +39,13 @@ Widget WeatherForecastWidget() {
   final MasterController controller = Get.find<MasterController>();
 
   Map<String, int> numOfPlayers = {
-    'all': controller.getNumberOfPlayers('all'),
-    'townsfolk': controller.getNumberOfPlayers('townsfolk'),
-    'mafia': controller.getNumberOfPlayers('mafia'),
-    'sindicate': controller.getNumberOfPlayers('sindicate'),
-    'red_mafia': controller.getNumberOfPlayers('red_mafia'),
+    'all': Fraction.values
+        .map((fraction) => controller.numOfPlayers(fraction))
+        .reduce((a, b) => a + b),
+    'townsfolk': controller.numOfPlayers(Fraction.townsfolk),
+    'mafia': controller.numOfPlayers(Fraction.mafia),
+    'sindicate': controller.numOfPlayers(Fraction.sindicate),
+    'red_mafia': controller.numOfPlayers(Fraction.redMafia),
   };
 
   Widget weatherRow(String text, int number) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:project/app/modules/game/game_setup/views/game_setup_summary.dart';
 
 import '../modules/additional_info/bindings/additional_info_binding.dart';
 import '../modules/additional_info/views/additional_info_view.dart';
@@ -25,13 +26,10 @@ import '../modules/create_character/views/create_character_view.dart';
 import '../modules/game/day_phase/bindings/day_phase_binding.dart';
 import '../modules/game/day_phase/views/day_phase_view.dart';
 import '../modules/game/Master/bindings/master_binding.dart';
-import '../modules/game/Master/views/master_first_view.dart';
 import '../modules/game/Master_night_zero/bindings/master_night_zero_binding.dart';
 import '../modules/game/Master_night_zero/views/master_night_zero_view.dart';
 import '../modules/game/game_card/bindings/game_card_binding.dart';
 import '../modules/game/game_card/views/game_card_view.dart';
-import '../modules/game/game_preparing/bindings/game_preparing_binding.dart';
-import '../modules/game/game_preparing/views/game_preparing_view.dart';
 import '../modules/game/game_setup/bindings/game_setup_binding.dart';
 import '../modules/game/game_setup/views/game_setup_view.dart';
 import '../modules/game/join_game/bindings/join_game_binding.dart';
@@ -123,16 +121,16 @@ class AppPages {
       binding: TestBinding(),
     ),
     GetPage(
-      name: _Paths.GAME_PREPARING,
-      page: () => const GamePreparingView(),
-      binding: GamePreparingBinding(),
+      name: _Paths.GAME_SETUP,
+      page: () => GameSetupView(),
+      binding: GameSetupBinding(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
       curve: Curves.easeIn,
     ),
     GetPage(
-      name: _Paths.GAME_SETUP,
-      page: () => GameSetupView(),
+      name: _Paths.GAME_SETUP_SUMMARY,
+      page: () => GameSetupSummary(),
       binding: GameSetupBinding(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
@@ -171,11 +169,6 @@ class AppPages {
       name: _Paths.HOW_TO_PLAY_MENU,
       page: () => const HowToPlayMenuView(),
       binding: HowToPlayMenuBinding(),
-    ),
-    GetPage(
-      name: _Paths.MASTER,
-      page: () => MasterFirstView(),
-      binding: MasterBinding(),
     ),
     GetPage(
       name: _Paths.MASTER_NIGHT_ZERO,

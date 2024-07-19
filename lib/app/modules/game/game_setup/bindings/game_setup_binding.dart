@@ -5,8 +5,9 @@ import '../controllers/game_setup_controller.dart';
 class GameSetupBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<GameSetupController>(
-      () => GameSetupController(),
+    Get.put<GameSetupController>(
+      GameSetupController(),
+      permanent: true,
     );
   }
 }

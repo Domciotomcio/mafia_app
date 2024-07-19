@@ -38,7 +38,9 @@ class DayPhaseView extends GetView<DayPhaseController> {
           Obx(() => PlayerToElWiget()),
           const Divider(),
           NextButton(
-              onPressed: () => Get.toNamed('/night-phase'), text: "Dalej"),
+              //onPressed: () => Get.toNamed('/night-phase'), text: "Dalej"),
+              onPressed: () => controller.daySummary(),
+              text: "Dalej"),
         ],
       ),
     );

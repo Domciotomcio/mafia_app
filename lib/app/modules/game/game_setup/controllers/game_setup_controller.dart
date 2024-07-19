@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 import 'package:project/app/constants/enums/fraction.dart';
 import 'package:project/app/data/character/models/character.dart';
+import 'package:project/app/modules/game/Master/controllers/master_controller.dart';
+import 'package:project/app/modules/game/game_setup/views/game_setup_characters.dart';
+import 'package:project/app/modules/game/game_setup/views/game_setup_summary.dart';
 import 'package:project/app/shared/sorting/sort.dart';
 
 import '../../../../constants/enums/device.dart';
@@ -221,7 +224,9 @@ class GameSetupController extends GetxController {
         'Sukces',
         'Gra została poprawnie skonfigurowana',
       );
-      Get.toNamed('master');
+      Get.offAll(
+        () => GameSetupSummary(),
+      );
 
       return true;
     }
@@ -232,11 +237,19 @@ class GameSetupController extends GetxController {
     return false;
   }
 
+  bool startGame() {
+    Get.put(MasterController(), permanent: true);
+    Get.delete<GameSetupController>();
+    Get.offAllNamed('/master-night-zero');
+    return true;
+  }
+
   void mergePlayersWithCharacters() {
     characters.shuffle();
     for (var i = 0; i < players.length; i++) {
       players[i].character = characters[i];
     }
+    print(players);
   }
 
   void addCharacter(Character player) {

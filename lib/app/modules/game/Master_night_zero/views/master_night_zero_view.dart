@@ -62,32 +62,10 @@ class MasterNightZeroView extends GetView<MasterNightZeroController> {
                             )),
                         onTap: () => p.hasWokenUp.value = !p.hasWokenUp.value,
                       )),
-                // WakeWidget(
-                //   title: "Budzi się cała Mafia",
-                //   subtitle: "Mafia poznaje swoich członków",
-                //   fraction: Fraction.mafia,
-                // ),
-                // WakeWidget(
-                //   title: "Budzą się osoby z miasta",
-                //   fraction: Fraction.townsfolk,
-                // ),
-                // controller.getPlayersToWakeUp(Fraction.sindicate).isNotEmpty
-                //     ? WakeWidget(
-                //         title: "Budzą się osoby z syndykatu",
-                //         fraction: Fraction.sindicate,
-                //       )
-                //     : SizedBox(),
-                // controller.getPlayersToWakeUp(Fraction.redMafia).isNotEmpty
-                //     ? WakeWidget(
-                //         title: "Budzą się Czerwona Mafia",
-                //         subtitle: "Mafia poznaje swoich członków",
-                //         fraction: Fraction.redMafia,
-                //       )
-                //     : SizedBox(),
                 SizedBox(
                   width: double.infinity,
                   child: FilledButton(
-                      onPressed: () => Get.to(() => MasterDayZeroView()),
+                      onPressed: () => Get.offAll(() => MasterDayZeroView()),
                       child: const Text(
                         "Dalej",
                       )),

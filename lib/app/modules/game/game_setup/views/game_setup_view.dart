@@ -120,7 +120,6 @@ class GameSetupView extends GetView<GameSetupController> {
             const Divider(),
 
             // PLAYERS
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -224,7 +223,6 @@ class GameSetupView extends GetView<GameSetupController> {
             const Divider(),
 
             // CHARACTERS
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(

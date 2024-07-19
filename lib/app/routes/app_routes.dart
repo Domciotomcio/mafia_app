@@ -16,6 +16,7 @@ abstract class Routes {
   static const TEST = _Paths.TEST;
   static const GAME_PREPARING = _Paths.GAME_PREPARING;
   static const GAME_SETUP = _Paths.GAME_SETUP;
+  static const GAME_SETUP_SUMMARY = _Paths.GAME_SETUP_SUMMARY;
   static const LOCATIONS = _Paths.LOCATIONS;
   static const SETTINGS = _Paths.SETTINGS;
   static const ADDITIONAL_INFO = _Paths.ADDITIONAL_INFO;
@@ -44,6 +45,7 @@ abstract class _Paths {
   static const TEST = '/test';
   static const GAME_PREPARING = '/game-preparing';
   static const GAME_SETUP = '/game-setup';
+  static const GAME_SETUP_SUMMARY = '/game-setup-summary';
   static const LOCATIONS = '/locations';
   static const SETTINGS = '/settings';
   static const ADDITIONAL_INFO = '/additional-info';

@@ -5,10 +5,8 @@ import '../../Master/controllers/master_controller.dart';
 import '../../game_setup/controllers/game_setup_controller.dart';
 
 class MasterNightZeroController extends GetxController {
-  var playersList;
-
+  List<Player> playersList = [];
   late MasterController master;
-  var gameSetup;
 
   // KEEP IT UP TO DATE!!!
   List<String> charactersToWakeUp = [
@@ -21,11 +19,8 @@ class MasterNightZeroController extends GetxController {
 
   @override
   void onInit() {
-    gameSetup = Get.find<GameSetupController>();
     master = Get.find<MasterController>();
-
-    playersList = gameSetup.players;
-
+    playersList = master.playersList;
     // add all active players to list
     for (var f in Fraction.values) {
       playersActiveNightZero.addAll(getPlayersToWakeUp(f)
