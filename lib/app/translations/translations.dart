@@ -78,10 +78,15 @@ class Messages extends Translations {
           //settings
           'SettingsView': 'Ustawienia',
           'HowToPlayView': 'Jak grać?',
+          'Music': 'Muzyka',
+          'Music in background': 'Czy grać muzykę w tle?',
 
           //additional info
           'AdditionalInfoView': 'Dodatkowe informacje',
           'Author': 'Autor',
+          'About app': 'O aplikacji',
+          'App authors': 'Autorzy aplikacji',
+          'App version': 'Wersja aplikacji',
 
           //locations
           'LocationsView': 'Lokacje',
