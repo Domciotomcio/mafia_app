@@ -18,13 +18,13 @@ class GuidebookController extends GetxController {
           imagePath: 'assets/images/main_menu/start_game.jpg',
           route: '/game-setup',
         ),
-        SubSection(
-          title: 'joinTitle',
-          subtitle: 'joinSubtitle',
-          icon: const Icon(Icons.arrow_forward_ios_rounded),
-          imagePath: 'assets/images/main_menu/join_game.jpg',
-          route: '/join-game',
-        ),
+        // SubSection(
+        //   title: 'joinTitle',
+        //   subtitle: 'joinSubtitle',
+        //   icon: const Icon(Icons.arrow_forward_ios_rounded),
+        //   imagePath: 'assets/images/main_menu/join_game.jpg',
+        //   route: '/join-game',
+        // ),
       ],
     ),
     Section(
@@ -56,13 +56,13 @@ class GuidebookController extends GetxController {
           imagePath: 'assets/images/fractions/mafia.jpg',
           route: '/fractions',
         ),
-        SubSection(
-          title: 'locationsTitle',
-          subtitle: 'locationsSubtitle',
-          icon: const Icon(Icons.map_outlined),
-          imagePath: 'assets/images/fractions/townsfolk.jpg',
-          route: '/locations',
-        ),
+        // SubSection(
+        //   title: 'locationsTitle',
+        //   subtitle: 'locationsSubtitle',
+        //   icon: const Icon(Icons.map_outlined),
+        //   imagePath: 'assets/images/fractions/townsfolk.jpg',
+        //   route: '/locations',
+        // ),
         SubSection(
           title: 'scenariosTitle',
           subtitle: 'scenariosSubtitle',

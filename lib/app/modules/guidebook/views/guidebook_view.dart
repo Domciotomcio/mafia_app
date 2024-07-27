@@ -22,15 +22,15 @@ class GuidebookView extends GetView<GuidebookController> {
       appBar: AppBar(
         title: Text('mainTitle'.tr),
         centerTitle: true,
-        actions: [
-          GetBuilder<GuidebookController>(
-            builder: (c) => TextButton(
-                    onPressed: () => c.changeLanguage(),
-                    child: Image.asset(controller.flagPath, width: 30))
-                .animate()
-                .fade(duration: const Duration(milliseconds: 2000)),
-          ),
-        ],
+        // actions: [
+        //   GetBuilder<GuidebookController>(
+        //     builder: (c) => TextButton(
+        //             onPressed: () => c.changeLanguage(),
+        //             child: Image.asset(controller.flagPath, width: 30))
+        //         .animate()
+        //         .fade(duration: const Duration(milliseconds: 2000)),
+        //   ),
+        // ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

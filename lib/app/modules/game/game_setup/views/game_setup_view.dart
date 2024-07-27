@@ -57,34 +57,35 @@ class GameSetupView extends GetView<GameSetupController> {
         body: ListView(
           children: [
             const SizedBox(height: 20),
-            Obx(() => controller.isOfflineMode.value
-                ? const SizedBox()
-                : Column(
-                    children: [
-                      const Text("Kod gry", textAlign: TextAlign.center),
-                      Text(
-                        "1234",
-                        textAlign: TextAlign.center,
-                        style:
-                            Theme.of(context).textTheme.displayLarge?.copyWith(
-                                  letterSpacing: 5,
-                                ),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Tryb offline', style: TextStyle(fontSize: 18)),
-                Obx(() => Switch(
-                    value: controller.isOfflineMode.value,
-                    onChanged: (value) {
-                      controller.isOfflineMode.value = value;
-                    })),
-              ],
-            ),
-            const Divider(),
+            // FOR NOW NO ONLINE MODE
+            // Obx(() => controller.isOfflineMode.value
+            //     ? const SizedBox()
+            //     : Column(
+            //         children: [
+            //           const Text("Kod gry", textAlign: TextAlign.center),
+            //           Text(
+            //             "1234",
+            //             textAlign: TextAlign.center,
+            //             style:
+            //                 Theme.of(context).textTheme.displayLarge?.copyWith(
+            //                       letterSpacing: 5,
+            //                     ),
+            //           ),
+            //           const SizedBox(height: 20),
+            //         ],
+            //       )),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     const Text('Tryb offline', style: TextStyle(fontSize: 18)),
+            //     Obx(() => Switch(
+            //         value: controller.isOfflineMode.value,
+            //         onChanged: (value) {
+            //           controller.isOfflineMode.value = value;
+            //         })),
+            //   ],
+            // ),
+            // const Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Obx(() => Text(

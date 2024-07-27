@@ -17,13 +17,15 @@ class SettingsView extends GetView<SettingsController> {
       body: Center(
         child: Column(
           children: [
-            Obx(() => ElevatedButton.icon(
-                onPressed: () => controller.toggleBackgroundMusic(),
-                icon:
-                    controller.backgroundMusicController.isPlaying.value == true
-                        ? Icon(Icons.volume_up)
-                        : Icon(Icons.volume_off),
-                label: Text("Muzyka w tle")))
+            ListTile(
+              title: Text("Music".tr),
+              subtitle: Text("Music in background".tr),
+              trailing: Obx(() => Switch(
+                  value: controller.backgroundMusicController.isPlaying.value,
+                  onChanged: (value) {
+                    controller.toggleBackgroundMusic();
+                  })),
+            ),
           ],
         ),
       ),
