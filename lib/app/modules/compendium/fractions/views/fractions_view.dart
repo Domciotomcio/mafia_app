@@ -95,18 +95,16 @@ class FractionImage extends StatelessWidget {
           colorBlendMode: BlendMode.darken,
           color: fraction.color.withOpacity(0.2),
         ),
-        Positioned(
-          bottom: 0.0,
-          left: 0.0,
-          right: 0.0,
-          child: Container(
-            height: 150.0, // Height of the gradient
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                colors: [Colors.black.withOpacity(0.7), Colors.transparent],
-              ),
+        Container(
+          height: 220,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.black.withOpacity(0.3),
+                Colors.black,
+              ],
             ),
           ),
         ),
@@ -148,8 +146,7 @@ class FractionName extends StatelessWidget {
           child: Text(
             fraction.name,
             style: GoogleFonts.dancingScript(
-              fontSize: 40,
-              color: Colors.white,
+              fontSize: 35,
             ),
           ),
         ),

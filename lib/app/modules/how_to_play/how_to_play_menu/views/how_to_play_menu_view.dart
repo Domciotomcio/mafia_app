@@ -18,7 +18,6 @@ class HowToPlayMenuView extends GetView<HowToPlayMenuController> {
       ),
       body: ListView.builder(
         itemCount: tutorial.sections.length,
-        //separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, index) {
           var section = tutorial.sections[index];
           return Container(
@@ -35,7 +34,9 @@ class HowToPlayMenuView extends GetView<HowToPlayMenuController> {
                 section.title,
                 style: GoogleFonts.dancingScript(fontSize: 25),
               ),
-              subtitle: Text(section.subtitle),
+              subtitle: Text(section.subtitle,
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, color: Colors.grey)),
               leading: Icon(section.icon),
               children: [
                 for (var subSection in section.subSections)
@@ -47,7 +48,10 @@ class HowToPlayMenuView extends GetView<HowToPlayMenuController> {
                           style: GoogleFonts.dancingScript(fontSize: 20),
                         ),
                         SizedBox(width: 10),
-                        Expanded(child: const Divider()),
+                        Expanded(
+                            child: Divider(
+                          color: Colors.grey[800],
+                        )),
                       ],
                     ),
                     trailing:

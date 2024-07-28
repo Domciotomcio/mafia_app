@@ -173,6 +173,8 @@ class AppPages {
       name: _Paths.MASTER_NIGHT_ZERO,
       page: () => MasterNightZeroView(),
       binding: MasterNightZeroBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
     ),
     GetPage(
       name: _Paths.SCENARIOS,

@@ -224,8 +224,9 @@ class GameSetupController extends GetxController {
         'Sukces',
         'Gra została poprawnie skonfigurowana',
       );
-      Get.offAll(
+      Get.to(
         () => GameSetupSummary(),
+        transition: Transition.rightToLeft,
       );
 
       return true;
@@ -240,7 +241,7 @@ class GameSetupController extends GetxController {
   bool startGame() {
     Get.put(MasterController(), permanent: true);
     Get.delete<GameSetupController>();
-    Get.offAllNamed('/master-night-zero');
+    Get.toNamed('/master-night-zero');
     return true;
   }
 

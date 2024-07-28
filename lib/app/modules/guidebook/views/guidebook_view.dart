@@ -19,9 +19,18 @@ class GuidebookView extends GetView<GuidebookController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('mainTitle'.tr),
+        title: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(text: 'mainTitle'.tr),
+              TextSpan(
+                  text: '`', style: TextStyle(fontSize: 65, color: Colors.red)),
+            ],
+          ),
+        ),
         centerTitle: true,
         // actions: [
+        // CHANGE LANGUAGE BUTTON
         //   GetBuilder<GuidebookController>(
         //     builder: (c) => TextButton(
         //             onPressed: () => c.changeLanguage(),
@@ -35,22 +44,53 @@ class GuidebookView extends GetView<GuidebookController> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            for (var el in controller.sections) ...[
-              ListTile(
-                title: Text(el.title.tr,
-                    style: GoogleFonts.dancingScript(fontSize: 25)),
+            for (var el in controller.sections)
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(el.imagePath),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(0.8), BlendMode.darken),
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.center,
+                      colors: [
+                        Colors.black,
+                        Colors.transparent,
+                      ],
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(el.title.tr,
+                          style: GoogleFonts.dancingScript(
+                              fontSize: 20, color: Colors.grey)),
+                      Container(
+                          child: Column(
+                        children: [
+                          for (var subEl in el.subSections)
+                            TileWithImage(
+                                imagePath: subEl.imagePath,
+                                title: subEl.title.tr,
+                                subtitle: subEl.subtitle.tr,
+                                icon: subEl.icon,
+                                route: subEl.route),
+                        ],
+                      )),
+                      Divider(color: Colors.grey[800]),
+                    ],
+                  ),
+                ),
               ),
-              const Divider(),
-              for (var subEl in el.subSections) ...[
-                TileWithImage(
-                    imagePath: subEl.imagePath,
-                    title: subEl.title.tr,
-                    subtitle: subEl.subtitle.tr,
-                    icon: subEl.icon,
-                    route: subEl.route),
-                const Divider(),
-              ],
-            ],
+            Center(
+                child: Text("© 2024 PlayEase Software",
+                    style: TextStyle(color: Colors.grey[800]))),
           ],
         ),
       ),
@@ -115,14 +155,15 @@ class TileWithImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-          colorFilter:
-              ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.darken),
-        ),
-      ),
+      height: GuidebookView.cardHeight,
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     image: AssetImage(imagePath),
+      //     fit: BoxFit.cover,
+      //     colorFilter:
+      //         ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.darken),
+      //   ),
+      // ),
       child: ListTile(
         leading: icon,
         title: Text(title,
@@ -132,6 +173,7 @@ class TileWithImage extends StatelessWidget {
             ? Text(subtitle!,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       fontStyle: FontStyle.italic,
+                      color: Colors.grey,
                     ))
             : null,
         onTap: () => Get.toNamed(route),

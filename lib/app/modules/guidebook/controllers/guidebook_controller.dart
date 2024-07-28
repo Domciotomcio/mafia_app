@@ -10,12 +10,16 @@ class GuidebookController extends GetxController {
   var sections = [
     Section(
       title: 'game',
+      imagePath: 'assets/images/main_menu/start_game.jpg',
       subSections: [
         SubSection(
           title: 'playTitle',
           subtitle: 'playSubtitle',
-          icon: const Icon(Icons.arrow_forward_ios_rounded),
-          imagePath: 'assets/images/main_menu/start_game.jpg',
+          icon: const Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: Colors.red,
+          ),
+          imagePath: 'assets/images/characters/mafiaBoss.jpg',
           route: '/game-setup',
         ),
         // SubSection(
@@ -29,11 +33,14 @@ class GuidebookController extends GetxController {
     ),
     Section(
       title: 'guidebook',
+      imagePath: 'assets/images/main_menu/how_to_play.jpg',
       subSections: [
         SubSection(
           title: 'guidebookTitle',
           subtitle: 'guidebookSubtitle',
-          icon: const Icon(Icons.info_outline_rounded),
+          icon: const Icon(
+            Icons.info_outline_rounded,
+          ),
           imagePath: 'assets/images/main_menu/how_to_play.jpg',
           route: '/how-to-play-menu',
         ),
@@ -41,11 +48,15 @@ class GuidebookController extends GetxController {
     ),
     Section(
       title: 'compendium',
+      imagePath: 'assets/images/characters/mafiaGunslinger.jpg',
       subSections: [
         SubSection(
           title: 'charactersTitle',
           subtitle: 'charactersSubtitle',
-          icon: const Icon(Icons.person_outline_rounded),
+          icon: const Icon(
+            Icons.person_outline_rounded,
+            color: Colors.red,
+          ),
           imagePath: 'assets/images/characters/blackmailer.jpg',
           route: '/characters',
         ),
@@ -74,6 +85,7 @@ class GuidebookController extends GetxController {
     ),
     Section(
       title: 'other',
+      imagePath: 'assets/images/main_menu/settings.jpg',
       subSections: [
         SubSection(
           title: 'settingsTitle',
@@ -114,9 +126,13 @@ class GuidebookController extends GetxController {
 
 class Section {
   final String title;
+  final String imagePath;
   final List<SubSection> subSections;
 
-  Section({required this.title, required this.subSections});
+  Section(
+      {required this.title,
+      this.imagePath = 'assets/images/fractions/mafia.jpg',
+      required this.subSections});
 }
 
 class SubSection {

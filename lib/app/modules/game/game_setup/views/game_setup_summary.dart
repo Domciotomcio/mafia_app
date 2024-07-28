@@ -14,47 +14,40 @@ class GameSetupSummary extends GetView<GameSetupController> {
       appBar: AppBar(
         title: Text('MasterFirstView'.tr),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.home_rounded),
-            onPressed: () {
-              Get.dialog(AlertDialog(
-                title: const Text('Czy na pewno chcesz wyjść?'),
-                actions: [
-                  TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: const Text('Nie')),
-                  TextButton(
-                      onPressed: () {
-                        Get.offAllNamed('/guidebook');
-                      },
-                      child: const Text('Tak')),
-                ],
-              ));
-            },
-          ),
-        ],
       ),
-      body: Column(
-        children: [
-          const Text('Przeciągnij, aby zmienić kolejność'),
-          Obx(() => Expanded(
-                  child: ReorderableListView(
-                onReorder: (int oldIndex, int newIndex) =>
-                    controller.onReorder(oldIndex, newIndex),
-                children: controller.players
-                    .map<Widget>((player) => PlayerListTile(
-                          player: player,
-                          key: ValueKey(player),
-                        ))
-                    .toList(),
-              ))),
-          NextButton(
-              onPressed: () => controller.startGame(),
-              text: "Rozpocznij noc 0"),
-        ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/howToPlay/end-game.webp'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.8), BlendMode.darken),
+          ),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: const Text('Przeciągnij, aby zmienić kolejność',
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, color: Colors.grey)),
+            ),
+            Obx(() => Expanded(
+                    child: ReorderableListView(
+                  onReorder: (int oldIndex, int newIndex) =>
+                      controller.onReorder(oldIndex, newIndex),
+                  children: controller.players
+                      .map<Widget>((player) => PlayerListTile(
+                            player: player,
+                            key: ValueKey(player),
+                          ))
+                      .toList(),
+                ))),
+            NextButton(
+                onPressed: () => controller.startGame(),
+                text: "Rozpocznij noc 0"),
+          ],
+        ),
       ),
     );
   }

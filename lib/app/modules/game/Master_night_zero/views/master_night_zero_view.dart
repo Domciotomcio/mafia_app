@@ -38,12 +38,11 @@ class MasterNightZeroView extends GetView<MasterNightZeroController> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("Budzi się Mafia",
-                    style: GoogleFonts.dancingScript(fontSize: 30)),
-                const Divider(),
-                const Text("Mafia poznaje swoich członków. Pomacha nam:"),
+                const Text("Miasto zasypia. Wszyscy zamykają oczy."),
+                const Text(
+                    "Budzi się Mafia. Mafia poznaje swoich członków. Pomacha nam:"),
                 const SizedBox(height: 10),
                 for (NightZeroPlayer p in controller.playersActiveNightZero)
                   Obx(() => ListTile(

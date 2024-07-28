@@ -60,7 +60,7 @@ class CharactersView extends GetView<CharactersController> {
                   height: 70,
                   fit: BoxFit.cover,
                   colorBlendMode: BlendMode.darken,
-                  color: Colors.black.withOpacity(0.6),
+                  color: Colors.black.withOpacity(0.8),
                 ),
                 ListTile(
                   title: Text(character.name,
@@ -70,6 +70,7 @@ class CharactersView extends GetView<CharactersController> {
                           style:
                               Theme.of(context).textTheme.bodySmall?.copyWith(
                                     fontStyle: FontStyle.italic,
+                                    color: Colors.grey,
                                   ))
                       : null,
                   trailing: fraction.image,
