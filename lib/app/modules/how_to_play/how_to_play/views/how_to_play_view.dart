@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'package:get/get.dart';
-import 'package:project/app/shared/widgets/loading_indicator_widget.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../../../data/tutorial/models/chapter.dart';
+import '../../../../data/tutorial/models/chapter.dart';
 import '../controllers/how_to_play_controller.dart';
 
 class HowToPlayView extends GetView<HowToPlayController> {
@@ -12,30 +13,66 @@ class HowToPlayView extends GetView<HowToPlayController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('HowToPlayView'.tr),
-        centerTitle: true,
-      ),
-      body: controller.obx(
-        (state) => PageView(
-          children: [
-            // for (var chapter in controller.tutorial!.chapters)
-            //   ChapterWidget(chapter: chapter)
-            for (var chapter in howToPlayText)
-              ChapterWidget(
-                  chapter: Chapter(label: '', text: ''), text: chapter),
-          ],
+        appBar: AppBar(
+          title: Text(controller.section.title),
         ),
-        onLoading: const LoadingIndicatorWidget(),
-      ),
-    );
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(controller.section.imagePath),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.8), BlendMode.darken),
+            ),
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (var subsection in controller.section.subSections) ...[
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0, top: 16.0),
+                    child: Text(subsection.title,
+                        style: GoogleFonts.dancingScript(fontSize: 25)),
+                  ),
+                  Markdown(
+                    data: subsection.data,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                  ),
+                ],
+
+                //Container(color: Colors.red),
+                // SingleChildScrollView(
+                //   child: Column(
+                //     children: [
+                //       for (int i = 0; i < 200; i++) Text('Item $i'),
+                //     ],
+                //   ),
+                // ),
+                // ListView.builder(
+                //   itemCount: 20,
+                //   itemBuilder: (context, index) {
+                //     return ListTile(
+                //       title: Text('Item $index'),
+                //     );
+                //   },
+                // ),
+              ],
+            ),
+          ),
+        ));
   }
 }
 
 class ChapterWidget extends StatelessWidget {
   final Color colorFilter;
   final double colorOpacity;
-  final Chapter chapter;
+  final String title;
+  final String data;
   final String imagePath;
 
   final String text;
@@ -44,7 +81,8 @@ class ChapterWidget extends StatelessWidget {
     super.key,
     this.colorFilter = Colors.black,
     this.colorOpacity = 0.8,
-    required this.chapter,
+    this.title = 'Chapter Title',
+    this.data = 'Chapter Data',
     this.imagePath = 'assets/images/cubes.jpg',
     this.text = 'Insert emoji hereee😀',
   });
@@ -79,25 +117,13 @@ class ChapterWidget extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.all(8.0),
-          // child: Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   children: [
-          //     Text(
-          //       chapter.label,
-          //       style: TextStyle(fontSize: 32),
-          //       textAlign: TextAlign.left,
-          //     ),
-          //     Text(
-          //       chapter.text,
-          //       textAlign: TextAlign.justify,
-          //     )
-          //   ],
-          // ),
-          child: Markdown(
-            data: text,
-            // data: "## Siema\n"
-            //     "**To** jest testowy tekst markdown",
+          child: Column(
+            children: [
+              Text(title),
+              Markdown(
+                data: data,
+              ),
+            ],
           ),
         ),
       ],

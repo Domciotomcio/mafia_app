@@ -75,9 +75,12 @@ class Messages extends Translations {
           'NightPhaseView': 'Faza Nocy',
           'DayPhaseView': 'Faza Dnia',
 
+          //How to play
+          'HowToPlayView': 'Jak grać?',
+          'HowToPlayMenuView': 'Jak grać?',
+
           //settings
           'SettingsView': 'Ustawienia',
-          'HowToPlayView': 'Jak grać?',
           'Music': 'Muzyka',
           'Music in background': 'Czy grać muzykę w tle?',
 
@@ -85,8 +88,8 @@ class Messages extends Translations {
           'AdditionalInfoView': 'Dodatkowe informacje',
           'Author': 'Autor',
           'About app': 'O aplikacji',
-          'App authors': 'Autorzy aplikacji',
-          'App version': 'Wersja aplikacji',
+          'App authors': 'Autorzy',
+          'App version': 'Wersja',
 
           //locations
           'LocationsView': 'Lokacje',
