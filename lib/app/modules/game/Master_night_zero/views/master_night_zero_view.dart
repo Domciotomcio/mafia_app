@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/modules/game/Master_night_zero/controllers/master_night_zero_controller.dart';
+import 'package:project/app/shared/widgets/background_widget.dart';
 
 import '../../../../constants/maps/fraction.dart';
+import '../../../../shared/widgets/grey_divider.dart';
 import 'master_day_zero_view.dart';
 
 class MasterNightZeroView extends GetView<MasterNightZeroController> {
@@ -31,45 +33,48 @@ class MasterNightZeroView extends GetView<MasterNightZeroController> {
           title: Text('MasterNightZeroView'.tr),
           centerTitle: true,
         ),
-        body: Container(
-          padding: const EdgeInsets.all(20),
-          height: double.infinity,
-          width: double.infinity,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text("Miasto zasypia. Wszyscy zamykają oczy."),
-                const Text(
-                    "Budzi się Mafia. Mafia poznaje swoich członków. Pomacha nam:"),
-                const SizedBox(height: 10),
-                for (NightZeroPlayer p in controller.playersActiveNightZero)
-                  Obx(() => ListTile(
-                        title: Text("${p.player.character!.name}",
-                            style: p.hasWokenUp.value
-                                ? const TextStyle(
-                                    decoration: TextDecoration.lineThrough,
-                                    color: Colors.grey)
-                                : null),
-                        leading:
-                            fractionMap[p.player.character!.fraction]!.image,
-                        trailing: Text(p.player.name,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontStyle: FontStyle.italic,
-                            )),
-                        onTap: () => p.hasWokenUp.value = !p.hasWokenUp.value,
-                      )),
-                SizedBox(
-                  width: double.infinity,
-                  child: FilledButton(
-                      onPressed: () => Get.offAll(() => MasterDayZeroView()),
-                      child: const Text(
-                        "Dalej",
-                      )),
-                )
-              ],
+        body: BackgroundWidget(
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            height: double.infinity,
+            width: double.infinity,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("Miasto zasypia. Wszyscy zamykają oczy."),
+                  const GreyDivider(),
+                  const Text(
+                      "Budzi się Mafia. Mafia poznaje swoich członków. Pomacha nam:"),
+                  const GreyDivider(),
+                  for (NightZeroPlayer p in controller.playersActiveNightZero)
+                    Obx(() => ListTile(
+                          title: Text("${p.player.character!.name}",
+                              style: p.hasWokenUp.value
+                                  ? const TextStyle(
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey)
+                                  : null),
+                          leading:
+                              fractionMap[p.player.character!.fraction]!.image,
+                          trailing: Text(p.player.name,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontStyle: FontStyle.italic,
+                              )),
+                          onTap: () => p.hasWokenUp.value = !p.hasWokenUp.value,
+                        )),
+                  //Spacer(),
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton(
+                        onPressed: () => Get.offAll(() => MasterDayZeroView()),
+                        child: const Text(
+                          "Dalej",
+                        )),
+                  )
+                ],
+              ),
             ),
           ),
         ));

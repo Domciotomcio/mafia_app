@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project/app/constants/enums/fraction.dart';
 import 'package:project/app/data/character/models/character.dart';
 import 'package:project/app/modules/game/Master/controllers/master_controller.dart';
-import 'package:project/app/modules/game/game_setup/views/game_setup_characters.dart';
 import 'package:project/app/modules/game/game_setup/views/game_setup_summary.dart';
 import 'package:project/app/shared/sorting/sort.dart';
 
@@ -10,9 +10,9 @@ import '../../../../constants/enums/device.dart';
 
 class GameSetupController extends GetxController {
   var numberOfPlayers = {
-    'total': 6,
+    'total': 10,
     'mafia': 2,
-    'townsfolk': 4,
+    'townsfolk': 8,
     'sindicate': 0,
     'redMafia': 0,
   }.obs;
@@ -50,6 +50,26 @@ class GameSetupController extends GetxController {
     Player(
       id: '6',
       name: 'Andrzej',
+      device: Device.main,
+    ),
+    Player(
+      id: '7',
+      name: 'Krzysztof',
+      device: Device.main,
+    ),
+    Player(
+      id: '8',
+      name: 'Kasia',
+      device: Device.main,
+    ),
+    Player(
+      id: '9',
+      name: 'Kuba',
+      device: Device.main,
+    ),
+    Player(
+      id: '10',
+      name: 'Krzysztof',
       device: Device.main,
     ),
   ].obs;
@@ -136,6 +156,62 @@ class GameSetupController extends GetxController {
       otherNames: [],
       imagePath: '',
       nameId: 'mafiaMember',
+    ),
+    const Character(
+      id: '7',
+      name: 'Członek miasta',
+      description: '',
+      story: '',
+      quote: '',
+      fraction: Fraction.townsfolk,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'spy',
+    ),
+    const Character(
+      id: '8',
+      name: 'Członek miasta',
+      description: '',
+      story: '',
+      quote: '',
+      fraction: Fraction.townsfolk,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'spy',
+    ),
+    const Character(
+      id: '9',
+      name: 'Członek miasta',
+      description: '',
+      story: '',
+      quote: '',
+      fraction: Fraction.townsfolk,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'spy',
+    ),
+    const Character(
+      id: '10',
+      name: 'Członek miasta',
+      description: '',
+      story: '',
+      quote: '',
+      fraction: Fraction.townsfolk,
+      additionalInfo: {},
+      howToPlay: [],
+      rate: {},
+      otherNames: [],
+      imagePath: '',
+      nameId: 'spy',
     ),
   ].obs;
 
@@ -224,10 +300,10 @@ class GameSetupController extends GetxController {
         'Sukces',
         'Gra została poprawnie skonfigurowana',
       );
-      Get.to(
-        () => GameSetupSummary(),
-        transition: Transition.rightToLeft,
-      );
+      Get.to(() => GameSetupSummary(),
+          transition: Transition.fadeIn,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeIn);
 
       return true;
     }

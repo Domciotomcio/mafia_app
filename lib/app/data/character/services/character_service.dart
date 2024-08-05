@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 
 import '../repositories/character_repository.dart';
@@ -11,7 +9,6 @@ class CharacterService extends GetxService {
   CharacterService({required this.characterRepository});
 
   Future<CharacterService> init() async {
-    log('CharacterService.init');
     return this;
   }
 

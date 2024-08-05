@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/app/constants/maps/fraction.dart';
+import 'package:project/app/shared/widgets/bellow_button.dart';
 
 import '../../../../constants/enums/device.dart';
 import '../../../../constants/enums/fraction.dart';
@@ -145,13 +146,16 @@ class GameSetupView extends GetView<GameSetupController> {
             ),
             const SizedBox(height: 45),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: FilledButton(
-                  onPressed: () => controller.setupGame(),
-                  child: const Text('Rozpocznij grę')),
-            ),
-            const SizedBox(height: 20),
+            // BelowButton
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            //   child: FilledButton(
+            //       onPressed: () => controller.setupGame(),
+            //       child: const Text('Rozpocznij grę')),
+            // ),
+            BelowButton(
+                text: "Rozpocznij grę",
+                onPressed: () => controller.setupGame()),
           ],
         ));
   }
